@@ -18,7 +18,7 @@ export default {
       }
     }
   },
-  methdos: {
+  methods: {
     addItem() {
       if (this.item.name == '') {
         return;

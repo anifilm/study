@@ -1,6 +1,6 @@
 <template>
   <div>
-    List View
+    List View!
   </div>
 </template>
 
