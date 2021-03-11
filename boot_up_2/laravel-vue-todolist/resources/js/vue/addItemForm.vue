@@ -1,7 +1,7 @@
 <template>
   <div class="addItem">
     <input type="text" v-model="item.name" />
-    <font-awesome-icon icon="plus-square" :class="[item.name ? 'active' : 'inactive', 'plus']" />
+    <font-awesome-icon icon="plus-square" @click="addItem()" :class="[item.name ? 'active' : 'inactive', 'plus']" />
   </div>
 </template>
 
@@ -30,7 +30,7 @@ input {
   outline: none;
   padding: 5px;
   margin-right: 10px;
-  width: 100;
+  width: 100%;
 }
 
 .plus {
