@@ -12,8 +12,8 @@
 </template>
 
 <script>
-import addItemForm from "./addItemForm"
-import listView from "./listView"
+import addItemForm from "./addItemForm";
+import listView from "./listView";
 
 export default {
   components: {
@@ -29,7 +29,7 @@ export default {
     getList() {
       axios.get('api/items')
       .then(response => {
-        this.items = response.data
+        this.items = response.data;
       })
       .catch(error => {
         console.log(error);
