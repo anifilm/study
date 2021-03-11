@@ -12,7 +12,6 @@
 
 <script>
 import listItem from "./listItem"
-import ListItem from "./listItem.vue"
 
 export default {
   props: [items],
