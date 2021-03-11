@@ -14,7 +14,7 @@
 import listItem from "./listItem"
 
 export default {
-  props: [items],
+  props: ['items'],
   components: {
     listItem
   }
