@@ -1,9 +1,10 @@
 Real-Time Chat with Laravel, Vue.js & Pusher
-
+https://www.youtube.com/watch?v=CkRGJC0ytdU&t=664s&ab_channel=Scrypster
 
 # 프로젝트 생성 및 기본 구성
 
-$ laravel new laravel-vue-chatapp
+$ laravel new laravel-vue-chatapp 또는
+$ composer create-project --prefer-dist laravel/laravel laravel-vue-chatapp
 
 $ mysql -u root -p
 > create database lara_chatapp
@@ -27,13 +28,11 @@ $ npm run dev
 $ php artisan vendor:publish --tag=jetstream-views
 
 
-
 # 개발 서버 실행
 
 $ php artisan serve
 
 $ npm run hot
-
 
 
 # 모델 추가
