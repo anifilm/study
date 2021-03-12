@@ -2,6 +2,9 @@ Real-Time Chat with Laravel, Vue.js & Pusher
 https://youtu.be/CkRGJC0ytdU
 
 
+https://github.com/ChakerKhachlek/LiveChatApp
+
+
 # 프로젝트 생성 및 기본 구성
 
 $ laravel new laravel-vue-chatapp 또는
