@@ -1,5 +1,6 @@
 Real-Time Chat with Laravel, Vue.js & Pusher
-https://www.youtube.com/watch?v=CkRGJC0ytdU&t=664s&ab_channel=Scrypster
+https://youtu.be/CkRGJC0ytdU
+
 
 # 프로젝트 생성 및 기본 구성
 
@@ -50,3 +51,8 @@ $ php artisan make:seeder CharRoomSeeder
 (데이터베이스 시더 수정 후)
 
 $ php artisan db:seed
+
+
+# 콘트롤러 추가
+
+$ php artisan make:controller ChatController
