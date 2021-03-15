@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <title>버튼 눌러 함수 실행하기</title>
+  </head>
+  <body>
+    <!-- 버튼에 onclick 이벤트 구성 -->
+    <button onclick="addNumber()">덧셈 계산하기</button>
+
+    <script>
+      // 버큰 클릭시 함수 실행
+      function addNumber() {
+        let num1 = parseInt(prompt("첫 번째 숫자는?"));
+        let num2 = parseInt(prompt("두 번째 숫자는?"));
+
+        let sum = num1 + num2;
+        alert(`계산 결과는 ${sum}입니다.`); // 계산 결과를 알림 창에 출력
+      }
+    </script>
+  </body>
+</html>
