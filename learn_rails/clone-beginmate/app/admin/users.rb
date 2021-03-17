@@ -1,10 +1,10 @@
 ActiveAdmin.register User do
 
   scope :all, default: true
-  scope :no_status
-  scope :job_searching
-  scope :job_offering
-  scope :in_office
+  scope -> { "표시안함" }, :no_status_status
+  scope -> { "구직중" }, :job_searching_status
+  scope -> { "구인중" }, :job_offering_status
+  scope -> { "재직중" }, :in_office_status
 
   index do
     selectable_column
@@ -17,7 +17,7 @@ ActiveAdmin.register User do
     column :name
     column :email
     column :status
-
+    column :detail_list
     actions
   end
 
@@ -36,6 +36,7 @@ ActiveAdmin.register User do
       row :name
       row :email
       row :status
+      row :detail_list
     end
   end
 end
