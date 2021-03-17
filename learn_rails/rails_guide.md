@@ -38,3 +38,8 @@ $ rake db:migrate
 # 콘솔 사용하기
 
 $ rails console
+
+
+# 라우팅 정보 확인
+
+http://localhost:3000/rails/info/routes
