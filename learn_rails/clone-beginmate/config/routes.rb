@@ -1,4 +1,5 @@
 Rails.application.routes.draw do
+  resources :teams, except: [:index]
   get 'home/index'
   devise_for :admin_users, ActiveAdmin::Devise.config
   ActiveAdmin.routes(self)

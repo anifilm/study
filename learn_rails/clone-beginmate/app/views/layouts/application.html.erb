@@ -12,6 +12,7 @@
   </head>
 
   <body>
+    <%= render "/shared/header" %>
     <%= yield %>
     <%= any_login_here if defined?(AnyLogin) %>
   </body>

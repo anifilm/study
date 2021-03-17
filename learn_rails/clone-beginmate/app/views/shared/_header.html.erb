@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light sticky-top">
+  <a class="navbar-brand" style="color: #e6db07;" href="/">beginmate 클론</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse justify-content-end" id="navbarNavAltMarkup">
+    <div class="navbar-nav d-flex align-items-center">
+      <a class="nav-item nav-link active" href="#">메이트 찾기</a>
+      <a class="nav-item nav-link" href="#">메이트 모집</a>
+      <% if user_signed_in? %>
+        <% if current_user.teams.present? %>
+          <% current_user.teams.each do |team| %>
+            <a class="nav-item nav-link" href="/team/<%= team.id %>"><%= team.name %></a>
+          <% end %>
+        <% end %>
+        <a class="nav-item nav-link" href="/teams/news">새 팀 만들기</a>
+        <a class="nav-item nav-link" href="/users/sign_out" data-method="delete">로그아웃</a>
+        <% if current_user.profile.attached? %>
+          <!-- 실제 이미지 -->
+          <img src="<%= url_for(current_user.profile) %>" style="width: 50px; height: 50px;" class="rounded-circle">
+        <% else %>
+          <!-- 샘플 이미지 -->
+          <img src="https://picsum.photos/200/200" style="width: 50px; height: 50px;" class="rounded-circle">
+        <% end %>
+      <% else %>
+        <a class="nav-item nav-link" href="/users/sign_in">로그인/회원가입</a>
+      <% end %>
+    </div>
+  </div>
+</nav>

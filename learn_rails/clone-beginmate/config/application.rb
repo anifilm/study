@@ -15,6 +15,8 @@ module CloneBeginmate
     config.i18n.default_locale = :ko
     config.time_zone = "Seoul"
 
+    config.app_generators.scaffold_controller = :scaffold_controller
+
     # Configuration for the application, engines, and railties goes here.
     #
     # These settings can be overridden in specific environments using the files
