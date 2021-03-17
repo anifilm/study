@@ -1,5 +1,5 @@
 {
-  "name": "rails-shop-app",
+  "name": "clone-heiskin",
   "private": true,
   "dependencies": {
     "@rails/actioncable": "^6.0.0",
