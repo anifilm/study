@@ -1,2 +1,55 @@
-<h1>Users#index</h1>
-<p>Find me in app/views/users/index.html.erb</p>
+<div class="container">
+  <div class="row">
+    <div class="col-12">
+      <form action="/users" method="GET">
+        <label for="users_region">지역</label>
+        <select name="region" id="users_region">
+          <option value="" selected disabled hidden>지역</option>
+          <% User.regions.keys.each do |region| %>
+            <option value="<%= region %>" <%= "selected" if params[:region] == region %>>
+              <%= region %>
+            </option>
+          <% end %>
+        </select>
+        <label for="users_role">직무</label>
+        <select name="role" id="users_role">
+          <option value="" selected disabled hidden>직무</option>
+          <% User.roles.keys.each do |role| %>
+            <option value="<%= role %>" <%= "selected" if params[:role] == role %>>
+              <%= role %>
+            </option>
+          <% end %>
+        </select>
+        <label for="users_career">경력</label>
+        <input type="number" name="career" min="0" max="10" id="users_career" value="<%= params[:career] %>">
+        <label for="users_status">상태</label>
+        <select name="status" id="users_status">
+          <option value="" selected disabled hidden>상태</option>
+          <% User.statuses.keys.each do |status| %>
+            <option value="<%= status %>" <%= "selected" if params[:status] == status %>>
+              <%= status %>
+            </option>
+          <% end %>
+        </select>
+        <button type="submit" class="btn btn-outline-dark">검색</button>
+      </form>
+    </div>
+  </div>
+
+  <div class="row">
+    <% @users.each do |user| %>
+      <div class="col-4 mt-4">
+        <div class="card" style="width: 18rem;">
+          <div class="card-body">
+            <h5 class="card-title"><%= user.name %></h5>
+            <p class="card-text"><%= user.region %></p>
+            <p class="card-text"><%= user.career %>년차</p>
+            <p class="card-text"><%= user.role %></p>
+            <p class="card-text"><%= user.status %></p>
+            <a href="/users/<%= current_user.id %>" class="btn btn-primary">more view</a>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
