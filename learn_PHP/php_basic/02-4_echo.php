@@ -10,11 +10,11 @@
 </h3>
 <?php
   $filename = "images/cat.jpg";
-  echo "<img src='$filename'>";
+  echo "<img src='$filename' alt=''>";
   echo "<br>";
 
-  $filename = "images/rabit.jpg";
-  echo "<img src='$filename'>";
+  $filename = "images/rabbit.jpg";
+  echo "<img src='$filename' alt=''>";
 ?>
 </body>
 </html>
