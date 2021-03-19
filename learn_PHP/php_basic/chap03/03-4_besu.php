@@ -5,6 +5,7 @@ $num = 12; // 3의 배수 여부를 판별하려는 수
 
 if ($num % $besu == 0) {
   echo "$num: {$besu}의 배수이다.";
-} else {
+}
+else {
   echo "$num: {$besu}의 배수가 아니다.";
 }

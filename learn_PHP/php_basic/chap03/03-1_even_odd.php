@@ -4,6 +4,7 @@ $n = 27;
 
 if ($n % 2 == 0) {
   echo "$n: 짝수";
-} else {
+}
+else {
   echo "$n: 홀수";
 }

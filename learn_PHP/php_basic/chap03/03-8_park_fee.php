@@ -8,9 +8,9 @@ $after = 'no';    // yes: 17시 이후 입장, no: 17시 이전 입장
 
 if ($age < 3)     // 입장료 무료
   $fee = '무료';
-elseif (($age >= 3 && $age <= 13) || ($after == 'yes')) // 특별할인
+else if (($age >= 3 and $age <= 13) or ($after === 'yes')) // 특별할인
   $fee = '4,000원';
-elseif (($age >= 14 && $age <= 18) || ($age >= 70) || ($welfare == 'yes') || ($youkong == 'yes')) // 할인
+else if (($age >= 14 and $age <= 18) or ($age >= 70) or ($welfare === 'yes') or ($youkong === 'yes')) // 할인
   $fee = '8,000원';
 else
   $fee = '10,000원';
