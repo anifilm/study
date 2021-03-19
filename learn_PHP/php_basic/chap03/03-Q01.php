@@ -14,7 +14,7 @@ $hour_rate = 9500;
 $day_night = '주간';
 $work_time = 8;
 
-if ($day_night == '주간') {
+if ($day_night === '주간') {
   $pay = $hour_rate * $work_time;
 }
 else {

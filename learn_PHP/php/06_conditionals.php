@@ -14,7 +14,8 @@ if ($age === 20) echo '1'.'<br>';
 // Sample if-else
 if ($age > 20) {
   echo '1'.'<br>';
-} else {
+}
+else {
   echo '2'.'<br>';
 }
 
@@ -28,12 +29,12 @@ echo $age === '20'; // false
 echo '<br>';
 
 // if and (&&) 둘 다 사용 가능
-if ($age > 20 and $salary === 300000) {
+if ($age > 20 && $salary === 300000) {
   echo 'AND'.'<br>';
 }
 
 // if of (||) 둘 다 사용 가능
-if ($age > 20 or $salary === 300000) {
+if ($age > 20 || $salary === 300000) {
   echo 'OR'.'<br>';
 }
 

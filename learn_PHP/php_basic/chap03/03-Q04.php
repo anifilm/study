@@ -6,7 +6,7 @@
 
 $buy = 80000;
 
-if ($buy >= 10000 and $buy < 50000)
+if ($buy >= 10000 && $buy < 50000)
   $rate = 5.0;
 else if ($buy >= 50000 && $buy < 300000)
   $rate = 7.5;

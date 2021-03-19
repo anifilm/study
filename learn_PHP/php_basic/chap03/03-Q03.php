@@ -9,7 +9,7 @@
 $score = 90;
 echo "시험 점수: {$score}점 <br>";
 
-if ($score >= 90 and $score <= 100)
+if ($score >= 90 && $score <= 100)
   echo '등급: 수';
 else if ($score >= 80)
   echo '등급: 우';

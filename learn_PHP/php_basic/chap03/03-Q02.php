@@ -6,19 +6,19 @@
 
 $month = 3;
 
-if ($month >= 3 and $month <= 5) {
+if ($month >= 3 && $month <= 5) {
   $season = '봄';
   echo "{$month}월은 {$season}입니다.";
 }
-else if ($month >= 6 and $month <= 8) {
+else if ($month >= 6 && $month <= 8) {
   $season = '여름';
   echo "{$month}월은 {$season}입니다.";
 }
-else if ($month >= 9 and $month <= 11) {
+else if ($month >= 9 && $month <= 11) {
   $season = '가을';
   echo "{$month}월은 {$season}입니다.";
 }
-else if ($month == 12 or $month == 1 or $month == 2) {
+else if ($month === 12 || $month === 1 || $month === 2) {
   $season = '겨울';
   echo "{$month}월은 {$season}입니다.";
 }
