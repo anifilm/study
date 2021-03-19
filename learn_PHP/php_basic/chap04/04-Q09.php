@@ -8,7 +8,7 @@
  */
 
 echo "<table>";
-echo "<tr><td width='100'>야드</td><td width='100'>미터</td></tr>";
+echo "<tr><td width=100>야드</td><td width=100>미터</td></tr>";
 
 for ($smeter = 10; $smeter <= 200; $smeter += 10) {
   $pyeong = $smeter * 0.3025;
