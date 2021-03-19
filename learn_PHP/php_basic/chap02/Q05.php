@@ -9,6 +9,16 @@ $phone = '010-8731-23**';
 $address = '서울시 중랑구 동일로 157길 20-7';
 $email = 'anifilm02@gmail.com';
 ?>
+
+<style>
+  table, th, td {
+    border: 1px solid black;
+    border-collapse: collapse;
+    padding: 15px;
+    text-align: center;
+  }
+</style>
+
 <table>
   <tr>
     <td>이름</td>
@@ -18,8 +28,8 @@ $email = 'anifilm02@gmail.com';
   </tr>
   <tr>
     <td><?= $name ?></td>
-    <td><?= $name ?></td>
-    <td><?= $name ?></td>
-    <td><?= $name ?></td>
+    <td><?= $phone ?></td>
+    <td><?= $address ?></td>
+    <td><?= $email ?></td>
   </tr>
 </table>
