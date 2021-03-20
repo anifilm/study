@@ -10,4 +10,4 @@ for ($i = 0; $i < count($scores); $i++) {
 
 $avg = $sum / count($scores); // 평균 구하기
 
-echo "합계: $sum, 평균: $avg";
+echo '합계: '.$sum.', 평균: '.$avg;

@@ -21,4 +21,4 @@ foreach ($score as $s) {
 }
 echo '<br>';
 
-echo "합계: $sum, 평균: $avg";
+echo '합계: '.$sum.', 평균: '.$avg;
