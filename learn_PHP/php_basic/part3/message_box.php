@@ -16,23 +16,23 @@
     </div>
     <div id="message_box">
       <h3>
-        <?php
-          if (isset($_GET['page'])) {
-            $page = $_GET['page'];
-          }
-          else {
-            $page = 1;
-          }
+      <?php
+        if (isset($_GET['page'])) {
+          $page = $_GET['page'];
+        }
+        else {
+          $page = 1;
+        }
 
-          $mode = $_GET['mode'];
+        $mode = $_GET['mode'];
 
-          if ($mode === 'send') {
-            echo '송신 쪽지함 > 목록보기';
-          }
-          else {
-            echo '수신 쪽지함 > 목록보기';
-          }
-        ?>
+        if ($mode === 'send') {
+          echo '송신 쪽지함 > 목록보기';
+        }
+        else {
+          echo '수신 쪽지함 > 목록보기';
+        }
+      ?>
       </h3>
       <div>
         <ul id="message">
