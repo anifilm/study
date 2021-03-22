@@ -7,11 +7,10 @@
       <ul>
 <!-- 최근 게시 글 DB에서 불러오기 -->
 <?php
-/*
   $con = mysqli_connect('localhost', 'root', 'lcy0200', 'php_basic');
   $sql = "select * from board order by num desc limit 5";
   $result = mysqli_query($con, $sql);
-*/
+
   if (!$result) {
     echo '게시판 DB 테이블(board)이 생성 전이거나 아직 게시글이 없습니다.';
   }
@@ -36,10 +35,10 @@
 <!-- 포인트 랭킹 표시하기 -->
 <?php
   $rank = 1;
-/*
+
   $sql = "select * from members order by point desc limit 5";
   $result = mysqli_query($con, $sql);
-*/
+
   if (!$result) {
     echo '회원 DB 테이블(members)이 생성 전이거나 아직 가입된 회원이 없습니다.';
   }
@@ -60,7 +59,7 @@
       $rank++;
     }
   }
-  //mysqli_close($con);
+  mysqli_close($con);
 ?>
       </ul>
     </div>
