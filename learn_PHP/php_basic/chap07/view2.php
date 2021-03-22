@@ -5,10 +5,8 @@
 </head>
 <body>
 <?php
-
-$id = $_POST['id'];
-$pass = $_POST['pass'];
-
+  $id = $_POST['id'];
+  $pass = $_POST['pass'];
 ?>
   <ul>
     <li>아이디: <?= $id ?></li>

@@ -11,14 +11,12 @@ board_view.php 소스코드의 빈칸을 채워 프로그램을 완성하시오.
 </head>
 <body>
 <?php
+  $table = $_GET['table'];
 
-$table = $_GET['table'];
-
-if ($table === 'free')
-  $board_title = '자유게시판';
-else
-  $board_title = '공지사항';
-
+  if ($table === 'free')
+    $board_title = '자유게시판';
+  else
+    $board_title = '공지사항';
 ?>
   <h1><?= $board_title ?></h1>
 </body>

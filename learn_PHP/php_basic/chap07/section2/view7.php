@@ -5,9 +5,7 @@
 </head>
 <body>
 <?php
-
-$userid = $_POST["userid"];
-
+  $userid = $_POST["userid"];
 ?>
   <ul>
     <li>관리자 아이디: <?= $userid ?></li>

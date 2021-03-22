@@ -5,9 +5,7 @@
 </head>
 <body>
 <?php
-
-$content = $_POST['content'];
-
+  $content = $_POST['content'];
 ?>
   <ul>
     <li>글 내용: <?= $content ?></li>
