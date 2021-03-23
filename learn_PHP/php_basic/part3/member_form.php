@@ -125,8 +125,8 @@
           <div class="clear"></div>
           <div class="bottom_line"></div>
           <div class="buttons">
-            <img style="cursor:pointer" src="img/button_save.gif" onclick="check_input()">&nbsp;
-            <img id="reset_button" style="cursor:pointer" src="img/button_reset.gif" onclick="reset_form()">
+            <img id="reset_button" style="cursor:pointer" src="img/button_reset.gif" onclick="reset_form()">&nbsp;
+            <img style="cursor:pointer" src="img/button_save.gif" onclick="check_input()">
           </div>
         </form>
       </div> <!-- join_box -->

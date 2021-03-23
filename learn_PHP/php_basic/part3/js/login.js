@@ -10,5 +10,6 @@ function check_input() {
     document.login_form.pass.focus();
     return;
   }
+
   document.login_form.submit();
 }

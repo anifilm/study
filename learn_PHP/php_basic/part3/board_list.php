@@ -22,9 +22,9 @@
       <li>
         <span class="col1">번호</span>
         <span class="col2">제목</span>
-        <span class="col3">글쓴이</span>
+        <span class="col3">작성자</span>
         <span class="col4">첨부</span>
-        <span class="col5">등록일</span>
+        <span class="col5">작성일</span>
         <span class="col6">조회</span>
       </li>
       <?php
@@ -114,9 +114,9 @@
     ?>
     </ul> <!-- page -->
     <ul class="buttons">
-      <li>
-        <button onclick="location.href='board_list.php'">목록</button>
-      </li>
+<!--      <li>-->
+<!--        <button onclick="location.href='board_list.php'">목록</button>-->
+<!--      </li>-->
       <li>
       <?php
         if ($userid) {

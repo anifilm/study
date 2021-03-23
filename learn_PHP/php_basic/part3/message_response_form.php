@@ -61,19 +61,19 @@
         <div id="write_msg">
           <ul>
             <li>
-              <span class="col1">보내는 사람 : </span>
+              <span class="col1">보내는 사람 </span>
               <span class="col2"><?= $userid ?></span>
             </li>
             <li>
-              <span class="col1">수신 아이디 : </span>
+              <span class="col1">수신 아이디 </span>
               <span class="col2"><?= $send_name ?>(<?= $send_id ?>)</span>
             </li>
             <li>
-              <span class="col1">제목 : </span>
+              <span class="col1">제목 </span>
               <span class="col2"><input name="subject" type="text" value="<?= $subject ?>"></span>
             </li>
             <li id="text_area">
-              <span class="col1">글 내용 : </span>
+              <span class="col1">글 내용 </span>
               <span class="col2">
                 <textarea name="content"><?= $content ?></textarea>
               </span>

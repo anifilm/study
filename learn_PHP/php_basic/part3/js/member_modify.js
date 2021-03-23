@@ -46,7 +46,6 @@ function reset_form() {
   document.member_form.name.value = '';
   document.member_form.email1.value = '';
   document.member_form.email2.value = '';
-
   document.member_form.id.focus();
   return;
 }

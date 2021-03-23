@@ -3,7 +3,7 @@
   </div>
   <div id="main_content">
     <div id="latest">
-      <h4>최근 게시글(15장)</h4>
+      <h4>최근 게시글</h4>
       <ul>
 <!-- 최근 게시 글 DB에서 불러오기 -->
 <?php
@@ -30,7 +30,7 @@
 ?>
     </div>
     <div id="point_rank">
-      <h4>포인트 랭킹(15장)</h4>
+      <h4>포인트 랭킹</h4>
       <ul>
 <!-- 포인트 랭킹 표시하기 -->
 <?php
@@ -47,7 +47,7 @@
       $name  = $row['name'];
       $id    = $row['id'];
       $point = $row['point'];
-      $name  = mb_substr($name, 0, 1).' * '.mb_substr($name, 2, 1);
+      //$name  = mb_substr($name, 0, 1).' * '.mb_substr($name, 2, 1);
 ?>
         <li>
           <span><?= $rank ?></span>

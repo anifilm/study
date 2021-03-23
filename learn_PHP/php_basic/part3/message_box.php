@@ -49,7 +49,7 @@
               }
             ?>
             </span>
-            <span class="col4">등록일</span>
+            <span class="col4">작성일</span>
           </li>
           <?php
             $con = mysqli_connect('localhost', 'root', 'lcy0200', 'php_basic');

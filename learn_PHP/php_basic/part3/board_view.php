@@ -73,9 +73,9 @@
         <li>
           <button onclick="location.href='board_delete.php?num=<?= $num ?>&page=<?= $page ?>'">삭제</button>
         </li>
-        <li>
-          <button onclick="location.href='board_form.php'">글쓰기</button>
-        </li>
+<!--        <li>-->
+<!--          <button onclick="location.href='board_form.php'">글쓰기</button>-->
+<!--        </li>-->
       </ul>
     </div> <!-- board_box -->
   </section>

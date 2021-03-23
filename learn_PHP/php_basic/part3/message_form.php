@@ -12,16 +12,19 @@
         document.message_form.rv_id.focus();
         return;
       }
+
       if (!document.message_form.subject.value) {
         alert('제목을 입력하세요.');
         document.message_form.subject.focus();
         return;
       }
+
       if (!document.message_form.content.value) {
         alert('내용을 입력하세요.');
         document.message_form.content.focus();
         return;
       }
+
       document.message_form.submit();
     }
   </script>
@@ -57,19 +60,19 @@
         <div id="write_msg">
           <ul>
             <li>
-              <span class="col1">보내는 사람 : </span>
+              <span class="col1">보내는 사람 </span>
               <span class="col2"><?= $userid ?></span>
             </li>
             <li>
-              <span class="col1">수신 아이디 : </span>
+              <span class="col1">수신 아이디 </span>
               <span class="col2"><input name="rv_id" type="text"></span>
             </li>
             <li>
-              <span class="col1">제목 : </span>
+              <span class="col1">제목 </span>
               <span class="col2"><input name="subject" type="text"></span>
             </li>
             <li id="text_area">
-              <span class="col1">내용 : </span>
+              <span class="col1">내용 </span>
               <span class="col2">
                 <textarea name="content"></textarea>
               </span>
