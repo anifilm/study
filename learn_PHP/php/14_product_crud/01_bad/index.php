@@ -3,7 +3,13 @@
 $pdo = new PDO('mysql:host=localhost;port=3306;dbname=php_product_crud', 'root', 'lcy0200');
 $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-$statement = $pdo->prepare('SELECT * FROM products ORDER BY create_date DESC');
+$search = $_GET['search'] ?? '';
+if ($search) {
+  $statement = $pdo->prepare('SELECT * FROM products WHERE title LIKE :title ORDER BY create_date DESC');
+  $statement->bindValue(':title', "%$search%"); // 포함된 단어기준 검색
+} else {
+  $statement = $pdo->prepare('SELECT * FROM products ORDER BY create_date DESC');
+}
 $statement->execute();
 $products = $statement->fetchAll(PDO::FETCH_ASSOC);
 
@@ -29,6 +35,17 @@ $products = $statement->fetchAll(PDO::FETCH_ASSOC);
     <a href="create.php" type="button" class="btn btn-sm btn-success">Add Product</a>
   </p>
 
+  <form>
+    <div class="input-group mb-3">
+      <input type="text" class="form-control"
+             placeholder="Search for products"
+             name="search" value="<?php echo $search ?>">
+      <div class="input-group-append">
+        <button class="btn btn-outline-secondary" type="submit">Search</button>
+      </div>
+    </div>
+  </form>
+
   <table class="table">
     <thead>
     <tr>
@@ -44,7 +61,9 @@ $products = $statement->fetchAll(PDO::FETCH_ASSOC);
     <?php foreach ($products as $i => $product): ?>
       <tr>
         <th scope="row"><?php echo $i + 1 ?></th>
-        <td></td>
+        <td>
+          <img class="product-img" src="<?php echo $product['image'] ?>" alt="">
+        </td>
         <td><?php echo $product['title'] ?></td>
         <td><?php echo $product['price'] ?></td>
         <td><?php echo $product['create_date'] ?></td>
