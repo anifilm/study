@@ -18,8 +18,11 @@ use Illuminate\Support\Facades\Route;
 //});
 
 Route::get('/', function () {
+    $items = ['바나나','딸기','복숭아'];
+
     return view('welcome', [
         'name' => '채영',
         'greeting' => '안녕하세요?',
+        'items' => $items,
     ]);
 });
