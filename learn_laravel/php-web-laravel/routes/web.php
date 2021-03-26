@@ -13,6 +13,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+//Route::get('/', function () {
+//    return view('welcome');
+//});
+
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome', [
+        'name' => '채영',
+        'greeting' => '안녕하세요?',
+    ]);
 });
