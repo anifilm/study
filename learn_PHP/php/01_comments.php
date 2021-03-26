@@ -10,5 +10,3 @@ another line
 */
 
 echo "comments";
-
-?>
