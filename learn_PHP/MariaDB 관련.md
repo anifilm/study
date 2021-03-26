@@ -1,3 +1,8 @@
+# root 패스워드 변경
+
+MariaDB [mysql] > set password=password('패스워드')
+
+
 # [MariaDB] UTF-8 캐릭터(Character) 설정 변경 방법 (윈도우)
 
 https://needjarvis.tistory.com/252
