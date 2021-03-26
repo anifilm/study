@@ -17,12 +17,8 @@ use Illuminate\Support\Facades\Route;
 //    return view('welcome');
 //});
 
-Route::get('/', function () {
-    $items = ['바나나','딸기','복숭아'];
+use App\Http\Controllers\WelcomeController;
+use App\Http\Controllers\ArticlesController;
 
-    return view('welcome', [
-        'name' => '채영',
-        'greeting' => '안녕하세요?',
-        'items' => $items,
-    ]);
-});
+Route::get('/', [WelcomeController::class, 'index']);
+Route::resource('articles', ArticlesController::class);
