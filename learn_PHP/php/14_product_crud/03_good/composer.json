@@ -1,17 +1,15 @@
 {
-    "name": "anifilm/15_autoloading",
+    "name": "anifilm/03_good",
     "authors": [
         {
             "name": "anifilm",
             "email": "anifilm02@gmail.com"
         }
     ],
-    "require": {
-        "guzzlehttp/guzzle": "^7.3"
-    },
+    "require": {},
     "autoload": {
         "psr-4": {
-            "app\\": "./app"
+            "app\\": "./"
         }
     }
 }
