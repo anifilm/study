@@ -14,7 +14,7 @@ class AddNameToAuthorsTable extends Migration
     public function up()
     {
         Schema::table('authors', function (Blueprint $table) {
-            $table->string('name')->nullable();
+            $table->string('name')->after('id')->nullable();
         });
     }
 
