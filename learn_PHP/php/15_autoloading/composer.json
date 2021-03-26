@@ -1,0 +1,15 @@
+{
+    "name": "anifilm/15_autoloading",
+    "authors": [
+        {
+            "name": "anifilm",
+            "email": "anifilm02@gmail.com"
+        }
+    ],
+    "require": {},
+    "autoload": {
+        "psr-4": {
+            "app\\": "./app"
+        }
+    }
+}
