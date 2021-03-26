@@ -35,12 +35,11 @@ class Router {
       echo 'Page not found';
       exit;
     }
-
-    echo '<pre>';
-    var_dump($fn);
-    echo '</pre>';
-
-    echo call_user_func($fn, $this);
+    // 05:20:28
+    //echo call_user_func($fn, $this);
+    // PHP 8.0 이상에서 다음과 같이 사용할 것!
+    $controller = new $fn[0];
+    echo call_user_func(array($controller, $fn[1]), $this);
   }
 
   public function renderView($view, $params = []) {

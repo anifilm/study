@@ -50,7 +50,9 @@ $products = $statement->fetchAll(PDO::FETCH_ASSOC);
       <tr>
         <th scope="row"><?php echo $i + 1 ?></th>
         <td>
-          <img class="product-img" src="../<?php echo $product['image'] ?>" alt="">
+          <?php if ($product['image']): ?>
+            <img src="/<?php echo $product['image'] ?>" alt="<?php echo $product['title'] ?>" class="product-img">
+          <?php endif; ?>
         </td>
         <td><?php echo $product['title'] ?></td>
         <td><?php echo $product['price'] ?></td>
