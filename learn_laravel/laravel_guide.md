@@ -7,10 +7,16 @@ https://dev-overload.tistory.com/16
 
 
 # 라라벨 프로젝트 생성하기
-
 $ laravel new 프로젝트명
 
 
 # 버전 지정하여 생성하기
-
 $ composer create-project laravel/laravel="5.8.*" 프로젝트명
+
+
+# 모델 생성
+$ php artisan make:model Post
+
+
+# 컨트롤러 생성
+$ php artisan make:controller WelcomeController
