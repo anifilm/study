@@ -17,41 +17,16 @@ use Illuminate\Support\Facades\Route;
 //    return view('welcome');
 //});
 
+Auth::routes();
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
 use App\Http\Controllers\WelcomeController;
 use App\Http\Controllers\ArticlesController;
 
 Route::get('/', [WelcomeController::class, 'index']);
 Route::resource('articles', ArticlesController::class);
 
-Route::get('auth/login', function () {
-    $credentials = [
-        'email' => 'johndoe@example.com',
-        'password' => 'as1111'
-    ];
-
-    if (!auth()->attempt($credentials)) {
-        return '로그인 정보가 정확하지 않습니다.';
-    }
-
-    return redirect('protected');
-});
-
-Route::get('protected', ['middleware' => 'auth', function () {
-    dump(session()->all());
-
-    //if (!auth()->check()) {
-    //    return '누구세요?';
-    //}
-
-    return '어서오세요 '.auth()->user()->name;
-}]);
-
-Route::get('auth/logout', function() {
-    auth()->logout();
-
-    return '또 봐요~';
-});
-
-Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+//DB::listen(function ($query) {
+//    var_dump($query->sql);
+//});

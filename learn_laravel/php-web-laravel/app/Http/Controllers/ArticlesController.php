@@ -11,7 +11,13 @@ class ArticlesController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        return __METHOD__.'은(는) Article 컬렉션을 조회합니다.';
+        //$articles = \App\Models\Article::get();
+        $articles = \App\Models\Article::paginate(3);
+
+        // user() 관계가 필요 없는 다른 로직 수행
+        //$articles->load('user');
+
+        return view('articles.index', compact('articles'));
     }
 
     /**
@@ -20,7 +26,7 @@ class ArticlesController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function create() {
-        return __METHOD__.'은(는) Article 컬렉션을 만들기위한 폼을 담은 뷰를 반환합니다.';
+        return view('articles.create');
     }
 
     /**
