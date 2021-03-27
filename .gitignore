@@ -1,4 +1,5 @@
 node_modules
+vendor
 dist
 .idea
 __using_assets__
