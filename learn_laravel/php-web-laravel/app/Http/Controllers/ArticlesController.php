@@ -2,6 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\ArticlesRequest;
+use App\Models\Article;
+use App\Models\User;
 use Illuminate\Http\Request;
 
 class ArticlesController extends Controller {
@@ -11,11 +14,11 @@ class ArticlesController extends Controller {
      * @return \Illuminate\Http\Response
      */
     public function index() {
-        //$articles = \App\Models\Article::get();
-        $articles = \App\Models\Article::paginate(3);
+        //$articles = Article::get();
+        $articles = Article::latest()->paginate(3);
 
         // user() 관계가 필요 없는 다른 로직 수행
-        //$articles->load('user');
+        $articles->load('user');
 
         return view('articles.index', compact('articles'));
     }
@@ -35,8 +38,36 @@ class ArticlesController extends Controller {
      * @param \Illuminate\Http\Request $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request) {
-        return __METHOD__.'은(는) 사용자의 입력한 폼 데이터로 새로운 Article 컬렉션을 만듭니다.';
+    public function store(ArticlesRequest $request) {
+        $rules = [
+            'title'   => ['required'],
+            'content' => ['required', 'min:10'],
+        ];
+
+        $messages = [
+            'title.required' => '제목은 필수 입력 항목입니다.',
+            'content.required' => '본문은 필수 입력 항목입니다.',
+            'content.min' => '본문은 최소 :min 글자 이상이 필요합니다.',
+        ];
+
+        //$validator = \Validator::make($request->all(), $rules, $messages);
+        //
+        //if ($validator->fails()) {
+        //    return back()->withErrors($validator)
+        //                 ->withInput();
+        //}
+        $this->validate($request, $rules, $messages);
+
+        $article = User::find(1)->articles()
+                                ->create($request->all());
+
+        if (!$article) {
+            return back()->with('flash_message', '글이 저장되지 않았습니다.')
+                         ->withInput();
+        }
+
+        return redirect(route('articles.index'))
+            ->with('flash_message', '작성하신 글이 저장되었습니다.');
     }
 
     /**
