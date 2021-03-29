@@ -66,8 +66,12 @@ class ArticlesController extends Controller {
                          ->withInput();
         }
 
-        return redirect(route('articles.index'))
-            ->with('flash_message', '작성하신 글이 저장되었습니다.');
+        var_dump('이벤트를 던집니다.');
+        event('article.created', [$article]);
+        var_dump('이벤트를 던졌습니다.');
+
+        //return redirect(route('articles.index'))
+        //    ->with('flash_message', '작성하신 글이 저장되었습니다.');
     }
 
     /**

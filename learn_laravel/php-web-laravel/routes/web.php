@@ -30,3 +30,4 @@ Route::resource('articles', ArticlesController::class);
 //DB::listen(function ($query) {
 //    var_dump($query->sql);
 //});
+
