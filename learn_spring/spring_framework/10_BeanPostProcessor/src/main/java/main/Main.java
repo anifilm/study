@@ -16,6 +16,7 @@ public class Main {
 
         TestBean2 t2 = ctx.getBean("t2", TestBean2.class);
         System.out.printf("t2: %s\n", t2);
+        System.out.println("------------------------------");
 
         ctx.close();
     }
