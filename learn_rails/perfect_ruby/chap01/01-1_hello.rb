@@ -6,4 +6,4 @@ class Sample
 end
 
 sample = Sample.new
-sample.say  # Hello, world! 출력
+sample.say  # "Hello, world!" 출력
