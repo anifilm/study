@@ -4,8 +4,8 @@
   (if (null input-list)
     "finish"
     (progn
-      (print (CAR input-list))
-      (print-all (CDR input-list)))))
+      (print (car input-list))
+      (print-all (cdr input-list)))))
 
 (print-all '(1 2 3))
 ; 1

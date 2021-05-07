@@ -4,8 +4,8 @@
   (if (null input-list)
     0
     (+
-      (CAR input-list)
-      (sum-of-list (CDR input-list)))))
+      (car input-list)
+      (sum-of-list (cdr input-list)))))
 
 (sum-of-list '(1 2 3))
 ; 6
