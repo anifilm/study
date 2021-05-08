@@ -1,5 +1,11 @@
 (ns examples.introduction)
 
+(defn blank? [str]
+  (every? #(Character/isWhitespace %) str))
+
+(defn hello-world [username]
+  (println (format "Hello, %s" username)))
+
 ; (load-file "introduction.clj")
 (defn hello
   "Writes hello message to *out*. Calls you by username.
