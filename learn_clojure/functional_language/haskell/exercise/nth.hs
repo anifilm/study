@@ -2,9 +2,10 @@
 -- 다음 예와 같이 리스트의 n번째 값을 반환하는 재귀 함수 nth를 하스켈로 작성하라.
 
 nth :: [Int] -> Int -> Int
-nth [] = 0
-nth list n = list !! n - 1
--- TODO: 재귀 함수로 작성 필요. (좀 더 공부하고 올 것!)
+nth [] _ = 0
+nth list 0 = 0
+nth list 1 = head list
+nth list n = nth (tail list) (n-1)
 
 -- nth [1, 2, 3] 2
 -- 2
