@@ -8,4 +8,6 @@
 /tmp.clj
 lib/*
 .lein-failures
+.lein-repl-history
+.nrepl-port
 classes/*
