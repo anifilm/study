@@ -1,5 +1,6 @@
-; (load-file "introduction.clj")
+(ns examples.introduction)
 
+; (load-file "introduction.clj")
 (defn hello
   "Writes hello message to *out*. Calls you by username.
   Knows if you have been here before."
@@ -11,3 +12,5 @@
         (do
           (alter visitors conj username)
           (str "Hello, " username))))))
+
+(def fibs (lazy-cat [0 1] (map + fibs (rest fibs))))

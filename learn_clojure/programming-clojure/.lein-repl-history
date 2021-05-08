@@ -1,0 +1,20 @@
+(take 10 examples.introduction/fibs)
+(require 'examples.introduction)
+(take 10 examples.introduction/fibs)
+(require 'examples.introduction)
+(take 10 examples.introduction/fibs)
+(def viditors (ref #{}))
+(load-file "introduction.clj")
+(load-file "examples/introduction.clj")
+(load-file "src/examples/introduction.clj")
+(dosync (alter visitors conj "Stu"))
+(def visitors (ref #{}))
+(load-file "introduction.clj")
+(load-file "src/examples/introduction.clj")
+(dosync (alter visitors conj "Stu"))
+(load-file "src/examples/introduction.clj")
+(require 'examples.introduction)
+(take 10 examples.introduction/fibs)
+exit
+xit
+exit
