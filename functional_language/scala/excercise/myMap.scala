@@ -3,6 +3,15 @@
 
 // println(List(1, 2, 3).map(i => i + 1))
 
-def myMap(list: List[Int]): List[Int] = {
-
+def myMap(list: List[Int], fp: (Int) => Int): List[Int] = {
+  def loop(list: List[Int], acc: List[Int]): List[Int] = {
+    list match {
+      case Nil => acc.reverse
+      case head :: tail => loop(tail, fp(head) :: acc)
+    }
+  }
+  loop(list, Nil)
 }
+
+val result = myMap(List(1, 2, 3), i => i + 1)
+println(result)
