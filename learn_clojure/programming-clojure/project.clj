@@ -9,5 +9,4 @@
                  [compojure "0.6.5"]
                  [hiccup "0.3.6"]
                  [jline "0.9.94"]
-                 [hsqldb "1.8.0.10"]]
-  :plugins [[venantius/ultra "0.6.0"]])
+                 [hsqldb "1.8.0.10"]])

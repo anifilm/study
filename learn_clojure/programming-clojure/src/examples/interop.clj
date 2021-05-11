@@ -35,3 +35,6 @@
 (defn describe-class [#^Class c]
   {:name (.getName c)
    :final (java.lang.reflect.Modifier/isFinal (.getModifiers c))})
+
+; 모든 자연수를 시퀀스로 반환
+(defn whole-numbers [] (iterate inc 1))
