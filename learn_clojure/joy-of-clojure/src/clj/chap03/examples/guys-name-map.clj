@@ -3,6 +3,7 @@
 ;;
 ;; 3.3.3 맵으로 구조분해하기
 ;;
+
 (def guys-name-map
   {:f-name "Guy" :m-name "Lewis" :l-name "Steele"})
 

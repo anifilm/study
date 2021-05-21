@@ -3,6 +3,7 @@
 ;;
 ;; 3.3.2 벡터로 구조분해하기
 ;;
+
 (def guys-whole-name ["Guy" "Lewis" "Steele"])
 
 (let [[f-name m-name l-name] guys-whole-name]
