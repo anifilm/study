@@ -36,7 +36,7 @@
     (board (index file rank))))
 
 (lookup (initial-board) "a1")
-;;=> \R
+;=> \R
 
 ;;
 ;; 예제 1.7 블록 범위 캡슐화 사용
@@ -50,7 +50,7 @@
       (board (index file rank)))))
 
 (lookup2 (initial-board) "a1")
-;;=> \R
+;=> \R
 
 ;;
 ;; 예제 1.8 로컬 범위의 캡슐화
@@ -64,4 +64,4 @@
     (board index)))
 
 (lookup3 (initial-board) "a1")
-;;=> \R
+;=> \R

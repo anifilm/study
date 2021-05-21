@@ -17,7 +17,7 @@
     (concat this other)))
 
 (cat "House" " of Leaves")
-;;=> "House of Leaves"
+;=> "House of Leaves"
 
 (cat [1 2 3] [4 5 6])
-;;=> (1 2 3 4 5 6)
+;=> (1 2 3 4 5 6)
