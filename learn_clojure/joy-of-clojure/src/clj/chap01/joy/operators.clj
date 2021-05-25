@@ -3,6 +3,7 @@
 ;;
 ;; 예제 1.1
 ;;
+
 (defn r->lfix
   ([a op b]       	      (op a b))
   ([a op1 b op2 c]        (op1 a (op2 b c)))
@@ -20,9 +21,11 @@
 (r->lfix 10 * 2 + 3)
 ;=> 50
 
+
 ;;
 ;; 예제 1.2
 ;;
+
 (defn l->rfix
   ([a op b]       	      (op a b))
   ([a op1 b op2 c]     	  (op2 c (op1 a b)))
@@ -37,9 +40,11 @@
 (l->rfix 1 + 2 * 3)
 ;=> 9
 
+
 ;;
 ;; 예제 1.3
 ;;
+
 (def order {+ 0 - 0
             * 1 / 1})
 
