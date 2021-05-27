@@ -1,7 +1,7 @@
 (ns joy.scalars)
 
 ;;
-;; Listing 4.1
+;; 예제 4.1
 ;;
 
 (defn pour [lb ub]
