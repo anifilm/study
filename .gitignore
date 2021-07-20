@@ -4,7 +4,7 @@ node_modules/
 package-lock.json
 vendor/
 dist/
-.idea
+.idea/
 out/
 target/
 __using_assets__/
