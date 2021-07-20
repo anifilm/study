@@ -11,6 +11,7 @@
 <main>
     <h1>Hello {name}!</h1>
     <img {src} alt="Svelte logo" />
+
     <h3>Counter: {count}</h3>
     <button on:click={incrementCounter}>Add 1 to Counter</button>
 </main>

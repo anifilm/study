@@ -14,6 +14,7 @@
 <main>
     <h1>Hello {name}!</h1>
     <img {src} alt="Svelte logo" />
+
     <input type="text" bind:value={name} />
     <button on:click={resetName}>Set name to Unknown</button>
 </main>
@@ -31,6 +32,6 @@
     }
 
 	img {
-		margin-bottom: 30px;
+		margin-bottom: 36px;
 	}
 </style>

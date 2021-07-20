@@ -1,21 +1,27 @@
 <script>
-    let name = 'Anifilm';
+    let firstName = 'Anifilm';
+    let lastName = 'Lim';
     let src = 'favicon.png';
 
-    const handleInput = (event) => {
-        name = event.target.value;
-    };
-
-    const resetName = () => {
-        name = 'Unknown';
-    };
+    $: fullName = `${firstName} ${lastName}`;
+    $: {
+        console.log(lastName);
+        console.log(firstName);
+    }
 </script>
 
 <main>
-    <h1>Hello {name}!</h1>
+    <h1>Hello {fullName}!</h1>
     <img {src} alt="Svelte logo" />
-    <input type="text" bind:value={name} />
-    <button on:click={resetName}>Set name to Unknown</button>
+
+    <label for="firstname">
+        FirstName
+        <input type="text" bind:value={firstName} />
+    </label>
+    <label for="lastname">
+        LastName
+        <input type="text" bind:value={lastName} />
+    </label>
 </main>
 
 <style>
@@ -30,7 +36,7 @@
         text-align: center;
     }
 
-	img {
-		margin-bottom: 30px;
-	}
+    img {
+        margin-bottom: 36px;
+    }
 </style>
