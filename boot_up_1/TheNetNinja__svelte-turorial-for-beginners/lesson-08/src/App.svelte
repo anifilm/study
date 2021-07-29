@@ -1,12 +1,4 @@
 <script>
-  import Modal from './Modal.svelte';
-
-  let showModal = false;
-
-  const toggleModal = () => {
-    showModal = !showModal;
-  }
-
 	let people = [
     { name: 'yoshi', beltColor: 'black', age: 25, id: 1 },
     { name: 'mario', beltColor: 'orange', age: 45, id: 2 },
@@ -17,11 +9,19 @@
     people = people.filter(person => person.id != id);
     console.log(e);
   }
+
+  let num = 5;
 </script>
 
-<Modal message="Hello, Ninjas!" showModal={showModal} on:click={toggleModal} />
+{#if num > 20}
+  <p>Greater than 20.</p>
+{:else if num > 5}
+  <p>Greater than 5.</p>
+{:else}
+  <p>Not Greater than 5.</p>
+{/if}
+
 <main>
-  <button on:click={toggleModal}>Open Modal</button>
   {#each people as person (person.id)}
     <div>
       <h4>{person.name}</h4>
