@@ -16,7 +16,7 @@
   const handleClick = (e, id) => {
     people = people.filter(person => person.id != id);
     console.log(e);
-  }
+  };
 </script>
 
 <Modal message="Hello, Ninjas!" showModal={showModal} on:click={toggleModal} />

@@ -10,7 +10,7 @@
   const handleClick = (e, id) => {
     people = people.filter(person => person.id != id);
     console.log(e);
-  }
+  };
 </script>
 
 <Modal />

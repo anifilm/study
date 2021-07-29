@@ -8,7 +8,7 @@
   const handleClick = (e, id) => {
     people = people.filter(person => person.id != id);
     console.log(e);
-  }
+  };
 
   let num = 5;
 </script>
