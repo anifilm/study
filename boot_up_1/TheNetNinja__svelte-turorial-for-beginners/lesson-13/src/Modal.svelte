@@ -25,7 +25,6 @@
     position: fixed;
     background: rgba(0, 0, 0, 0.8);
   }
-
   .modal {
     padding: 10px;
     border-radius: 10px;
@@ -34,7 +33,6 @@
     text-align: center;
     background: white;
   }
-
   .promo .modal {
     background: crimson;
     color: white;

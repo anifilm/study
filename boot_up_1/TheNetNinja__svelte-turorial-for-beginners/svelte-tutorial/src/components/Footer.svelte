@@ -7,7 +7,6 @@
     padding: 40px;
     text-align: center;
   }
-
   .copyright {
     color: #aaa;
     font-size: 14px;
