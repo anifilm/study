@@ -1,5 +1,7 @@
+<script></script>
+
 <div class="card">
-  <slot />
+  <slot></slot>
 </div>
 
 <style>
