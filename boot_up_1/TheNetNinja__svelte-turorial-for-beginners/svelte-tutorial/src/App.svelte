@@ -13,26 +13,8 @@
   };
 
   const handleAdd = () => {
-    //const poll = e.detail;
-    //polls = [poll, ...polls];
     activeItem = 'Current Polls';
   };
-
-  //const handleVote = (e) => {
-  //  const { id, option } = e.detail;
-
-  //  let copiedPolls = [...polls];
-  //  let upvotePoll = copiedPolls.find(poll => poll.id === id);
-
-  //  if (option === 'a') {
-  //    upvotePoll.votesA += 1;
-  //  }
-  //  if (option === 'b') {
-  //    upvotePoll.votesB += 1;
-  //  }
-
-  //  polls = copiedPolls;
-  //};
 </script>
 
 <Header />
