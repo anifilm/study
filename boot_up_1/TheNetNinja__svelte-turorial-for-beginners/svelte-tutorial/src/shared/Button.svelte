@@ -17,7 +17,7 @@
     font-weight: bold;
     box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.2);
   }
-  .flat {
+  .flat{
     box-shadow: none;
   }
   .primary {
@@ -25,16 +25,15 @@
     color: white;
   }
   .secondary {
-    color: #d91b42;
-    background: white;
-    border: 2px solid #d91b42;
+    background: #45c496;
+    color: white;
   }
   .primary.inverse {
     color: #d91b42;
     background: white;
     border: 2px solid #d91b42;
   }
-  .primary.inverse {
+  .secondary.inverse {
     color: #45c496;
     background: white;
     border: 2px solid #45c496;
