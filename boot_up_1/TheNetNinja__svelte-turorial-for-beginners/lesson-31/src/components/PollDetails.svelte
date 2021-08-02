@@ -13,9 +13,9 @@
 
   // handing votes
   const handleVote = (option, id) => {
-    PollStore.update(currentPolls => {
+    PollStore.update((currentPolls) => {
       let copiedPolls = [...currentPolls];
-      let upvotedPoll = copiedPolls.find(poll => poll.id === id);
+      let upvotedPoll = copiedPolls.find((poll) => poll.id === id);
 
       if (option === 'a') {
         upvotedPoll.votesA += 1;

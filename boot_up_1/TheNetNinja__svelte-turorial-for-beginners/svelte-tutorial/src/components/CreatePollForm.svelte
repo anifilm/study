@@ -70,7 +70,7 @@
     <input type="text" id="answer-b" bind:value={fields.answerB}>
     <div class="error">{ errors.answerB }</div>
   </div>
-  <Button>Add Poll</Button>
+  <Button type={'secondary'}>Add Poll</Button>
 </form>
 
 <style>
