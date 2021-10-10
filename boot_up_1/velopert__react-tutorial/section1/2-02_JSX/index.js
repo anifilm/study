@@ -1,7 +1,11 @@
 class Codelab extends React.Component {
   render() {
+    let text = 'Hi I am codelab!';
+    let style = {
+      backgroundColor: 'aqua'
+    }
     return (
-      <div>Codelab</div>
+      <div style={style}>{ text }</div>
     );
   }
 }
