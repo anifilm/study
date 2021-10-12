@@ -1,12 +1,11 @@
 import React from 'react';
 
-class App extends React.Component {
-    render(){
+import Contact from './components/Contact';
 
-        return (
-                <h1>Hello React Skeleton</h1>
-        );
-    }
+class App extends React.Component {
+  render() {
+    return <Contact />;
+  }
 }
 
 export default App;
