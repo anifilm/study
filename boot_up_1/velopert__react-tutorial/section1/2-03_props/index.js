@@ -13,11 +13,11 @@ class Codelab extends React.Component {
 Codelab.propTypes = {
   name: PropTypes.string,
   number: PropTypes.number.isRequired
-}
+};
 
 Codelab.defaultProps = {
   name: 'Unknown'
-}
+};
 
 class App extends React.Component {
   render() {
