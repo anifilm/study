@@ -54,7 +54,9 @@ class Contact extends React.Component {
       contactData: this.state.contactData.filter((contact) => {
         return contact !== this.state.contactData[this.state.selectedKey];
       }),
+      selectedKey: -1,
     });
+
   };
 
   render() {
