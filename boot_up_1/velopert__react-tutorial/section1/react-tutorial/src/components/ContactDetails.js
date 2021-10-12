@@ -4,8 +4,7 @@ class ContactDetails extends React.Component {
   render() {
     const details = (
       <div>
-        <p>{this.props.contact.name}</p>
-        <p>{this.props.contact.phone}</p>
+        <p>{this.props.contact.name} {this.props.contact.phone}</p>
       </div>
     );
     const blank = <div>Not Selected</div>;
