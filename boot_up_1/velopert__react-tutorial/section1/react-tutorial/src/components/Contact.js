@@ -40,6 +40,7 @@ class Contact extends React.Component {
   };
   handleEdit = (name, phone) => {
     this.setState({
+      // contactData 배열 요소중 같은 요소의 내용 수정
       contactData: this.state.contactData.map((contact) => {
         return contact === this.state.contactData[this.state.selectedKey]
           ? { name, phone }
