@@ -28,31 +28,41 @@ class Contact extends React.Component {
     this.setState({
       selectedKey: key,
     });
-
-    console.log(key, 'is selected');
+    //console.log(key, 'is selected');
   };
 
   handleCreate = (contact) => {
-    // 배열에 내용 추가
     this.setState({
-      contactData: this.state.contactData.concat(contact)
+      // contactData 배열에 내용 추가 (요소 추가)
+      //contactData: this.state.contactData.concat(contact),
+      contactData: [...this.state.contactData, contact],
     });
-  }
-  handleEdit = () => {
-    console.log("edit click");
-  }
-  handleRemove = (key) => {
-    console.log("remove click");
+  };
+  handleEdit = (name, phone) => {
     this.setState({
-      contactData: this.state.contactData.filter((contact) => contact.key !== key)
+      contactData: this.state.contactData.map((contact) => {
+        return contact === this.state.contactData[this.state.selectedKey]
+          ? { name, phone }
+          : contact;
+      }),
     });
-  }
+  };
+  handleRemove = () => {
+    this.setState({
+      // contactData 배열에서 해당하는 요소를 제외하여 리스트를 반환 (요소 삭제)
+      contactData: this.state.contactData.filter((contact) => {
+        return contact !== this.state.contactData[this.state.selectedKey];
+      }),
+    });
+  };
 
   render() {
     const mapToComponent = (data) => {
       data.sort();
       data = data.filter((contact) => {
-        return contact.name.toLowerCase().indexOf(this.state.keyword.trim()) > -1;
+        return (
+          contact.name.toLowerCase().indexOf(this.state.keyword.trim()) > -1
+        );
       });
       return data.map((contact, i) => {
         return (
@@ -80,6 +90,8 @@ class Contact extends React.Component {
         <ContactDetails
           isSelected={this.state.selectedKey !== -1}
           contact={this.state.contactData[this.state.selectedKey]}
+          onEdit={this.handleEdit}
+          onRemove={this.handleRemove}
         />
       </div>
     );

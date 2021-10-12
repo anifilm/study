@@ -13,7 +13,6 @@ class ContactCreate extends React.Component {
   handleChange = (e) => {
     let nextState = {};
     nextState[e.target.name] = e.target.value;
-    console.log(nextState);
     this.setState(nextState);
   };
   handleClick = () => {
@@ -70,7 +69,7 @@ ContactCreate.propTypes = {
 
 ContactCreate.defaultProps = {
   onCreate: () => {
-    console.error('onCreate not defined');
+    console.error('onCreate not defined.');
   },
 };
 
