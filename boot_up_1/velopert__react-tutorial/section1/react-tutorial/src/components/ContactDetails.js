@@ -35,6 +35,11 @@ class ContactDetails extends React.Component {
   handleEdit = () => {
     this.props.onEdit(this.state.name, this.state.phone);
   }
+  handleKeyPress = (e) => {
+    if (e.charCode === 13) {
+      this.handleToggle();
+    }
+  }
 
   render() {
     const details = (
@@ -52,6 +57,7 @@ class ContactDetails extends React.Component {
           placeholder="name"
           value={this.state.name}
           onChange={this.handleChange}
+          onKeyPress={this.handleKeyPress}
         />
         <input
           type="text"
@@ -59,6 +65,7 @@ class ContactDetails extends React.Component {
           placeholder="phone"
           value={this.state.phone}
           onChange={this.handleChange}
+          onKeyPress={this.handleKeyPress}
         />
       </div>
     );

@@ -8,6 +8,7 @@ class ContactCreate extends React.Component {
       name: '',
       phone: '',
     };
+    this.nameInput = React.createRef();
   }
 
   handleChange = (e) => {
@@ -23,6 +24,7 @@ class ContactCreate extends React.Component {
         name: '',
         phone: '',
       });
+      this.nameInput.current.focus();
       return;
     }
     const contact = {
@@ -35,7 +37,13 @@ class ContactCreate extends React.Component {
       name: '',
       phone: '',
     });
+    this.nameInput.current.focus();
   };
+  handleKeyPress = (e) => {
+    if (e.charCode === 13) {
+      this.handleClick();
+    }
+  }
 
   render() {
     return (
@@ -48,6 +56,7 @@ class ContactCreate extends React.Component {
             placeholder="name"
             value={this.state.name}
             onChange={this.handleChange}
+            ref={this.nameInput}
           />
           <input
             type="text"
@@ -55,6 +64,7 @@ class ContactCreate extends React.Component {
             placeholder="phone"
             value={this.state.phone}
             onChange={this.handleChange}
+            onKeyPress={this.handleKeyPress}
           />
         </p>
         <button onClick={this.handleClick}>Create</button>
