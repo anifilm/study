@@ -19,6 +19,24 @@ class Contact extends React.Component {
     };
   }
 
+  componentWillMount() {
+    //console.log('componentWillMount');
+    const contactData = localStorage.contactData;
+    console.log(JSON.parse(contactData));
+    if (contactData) {
+      this.setState({
+        contactData: JSON.parse(contactData),
+      });
+    }
+  }
+
+  componentDidUpdate(prevProps, prevState) {
+    //console.log('componentDidUpdate');
+    if (JSON.stringify(prevState.contactData) !== JSON.stringify(this.state.contactData)) {
+      localStorage.contactData = JSON.stringify(this.state.contactData);
+    }
+  }
+
   handleChange = (e) => {
     this.setState({
       keyword: e.target.value,
@@ -28,7 +46,6 @@ class Contact extends React.Component {
     this.setState({
       selectedKey: key,
     });
-    //console.log(key, 'is selected');
   };
 
   handleCreate = (contact) => {
@@ -56,7 +73,6 @@ class Contact extends React.Component {
       }),
       selectedKey: -1,
     });
-
   };
 
   render() {
