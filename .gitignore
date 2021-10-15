@@ -13,3 +13,4 @@ __new__/
 *.pdf
 
 .DS_Store
+.completed
