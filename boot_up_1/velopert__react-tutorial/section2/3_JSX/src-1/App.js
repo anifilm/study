@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
-import './App.css';
 
 class App extends Component {
   render() {
+    const name = 'velopert!';
     return (
-      <div className="App">
-        안녕하세요!
+      <div>
+        { name === 'velopert!' && <div>벨로퍼트!</div> }
       </div>
     );
   }
