@@ -5,13 +5,6 @@ const nunjucks = require('nunjucks');
 
 const app = express(); // initialize app
 
-// view engine setup
-app.set('view engine', 'html');
-nunjucks.configure('views', {
-  autoescape: true,
-  express: app, // app 객체 연결
-});
-
 /*  Apps are configured with settings as shown in the conig object below.
     Options include setting views directory, static assets directory,
     and database settings. Default config settings can be seen here:
@@ -28,6 +21,14 @@ const config = {
 
   // db: vertex.nedb()
 };
+
+// view engine setup
+app.set('view engine', 'html');
+nunjucks.configure(config.views, {
+  autoescape: true,
+  express: app, // app 객체 연결
+  watch: true,  // HTML 파일이 변경될 때 템플릿 엔진을 다시 렌더링함
+});
 
 vertex.configureApp(app, config);
 
