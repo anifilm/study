@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    {% include "partials/head.html" %}
+    {{>head}}
   </head>
   <body>
 
-		<nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
-			{% include "partials/nav.html" %}
-		</nav>
+    <nav class="navbar navbar-expand-lg navbar-dark ftco_navbar bg-dark ftco-navbar-light" id="ftco-navbar">
+      {{>nav}}
+    </nav>
 
     <section class="home-slider js-fullheight owl-carousel bg-white">
       <div class="slider-item js-fullheight">
@@ -19,7 +19,7 @@
           	</div>
 	          <div class="one-forth d-flex js-fullheight align-items-center ftco-animate" data-scrollax="properties: { translateY: '70%' }">
 	          	<div class="text mt-md-5">
-		            <h1 class="mb-4">{{ page.hero.header|safe }}</h1>
+		            <h1 class="mb-4">{{{ page.hero.header }}}</h1>
 		            <p>{{ page.hero.subtext }}</p>
 		            <p><a href="#" class="btn btn-primary px-4 py-3 mt-3">Book A Table</a></p>
 	            </div>
@@ -62,12 +62,12 @@
 							<p>{{ page.about.subtext }}</p>
 							<h3 class="mt-5">Our Specialties</h3>
 							<div class="thumb my-4 d-flex">
-								{% for item in page.about.images %}
+								{{#page.about.images}}
 	            	<a href="#" class="thumb-menu pr-md-4 text-center">
-									<div class="img" style="background-image: url({{item.image}});"></div>
-	            		<h4>{{ item.caption }}</h4>
+									<div class="img" style="background-image: url({{image}});"></div>
+	            		<h4>{{ caption }}</h4>
 	            	</a>
-								{% endfor %}
+								{{/page.about.images}}
 	            </div>
 						</div>
 					</div>
@@ -574,9 +574,9 @@
 			</div>
 		</section>
 
-		{% include "partials/footer.html" %}
+    {{>footer}}
 
-		{% include "partials/scripts.html" %}
+    {{>scripts}}
 
   </body>
 </html>
