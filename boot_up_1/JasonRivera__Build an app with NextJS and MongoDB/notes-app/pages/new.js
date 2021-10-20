@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import fetch from 'isomorphic-unfetch';
 import { Button, Form, Loader } from 'semantic-ui-react';
 import { useRouter } from 'next/router';
@@ -8,7 +8,9 @@ const NewNote = () => {
   const [form, setForm] = useState({ title: '', description: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [errors, setErrors] = useState({});
+  const [totalChar, setTotalChar] = useState(0);
   const router = useRouter();
+  const nowChar = useRef();
 
   useEffect(() => {
     if (isSubmitting) {
@@ -60,6 +62,26 @@ const NewNote = () => {
     return err;
   };
 
+  const checkChar = (e) => {
+    const maxChar = 200; // 최대 200바이트
+    const text_val = e.target.value; // 입력한 문자
+    const text_len = text_val.length;  // 입력한 문자수
+
+    setTotalChar(text_len);
+    if (text_len > maxChar) {
+      alert('최대 200자 까지만 입력가능합니다.');
+      nowChar.current.style.color = 'red';
+      e.target.value = text_val.substr(0, maxChar);
+      setTotalChar(maxChar);
+    } else if (text_len > maxChar * 0.95) {
+      nowChar.current.style.color = 'red';
+    } else if (text_len > maxChar * 0.9) {
+      nowChar.current.style.color = 'orange';
+    } else {
+      nowChar.current.style.color = 'green';
+    }
+  };
+
   return (
     <div className="form-container">
       <h1>Create Note</h1>
@@ -81,6 +103,7 @@ const NewNote = () => {
               onChange={handleChange}
             />
             <Form.TextArea
+              rows={10}
               fluid
               label="Descriprtion"
               placeholder="Description"
@@ -90,9 +113,17 @@ const NewNote = () => {
                   ? { content: 'Please enter a description', pointing: 'below' }
                   : null
               }
+              onKeyUp={checkChar}
               onChange={handleChange}
             />
-            <Button type="submit">Create</Button>
+            <div style={{ float: 'right' }}>
+              <sup>
+                  (<span ref={nowChar}>{totalChar}</span>/200)
+              </sup>
+            </div>
+            <Button primary type="submit" style={{ marginTop: '10px' }}>
+              Create
+            </Button>
           </Form>
         )}
       </div>

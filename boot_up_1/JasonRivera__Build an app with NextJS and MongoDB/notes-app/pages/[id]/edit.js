@@ -7,7 +7,7 @@ import { useRouter } from 'next/router';
 const EditNote = ({ note }) => {
   return (
     <div>
-
+      edit
     </div>
   );
 }

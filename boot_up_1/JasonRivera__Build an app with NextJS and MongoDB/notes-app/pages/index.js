@@ -17,13 +17,24 @@ const Index = ({ notes }) => {
                       <a>{note.title}</a>
                     </Link>
                   </Card.Header>
+                  <div
+                    className="notes-description"
+                    style={{
+                      color: 'gray',
+                      overflow: 'hidden',
+                      textOverflow: 'ellipsis',
+                      whiteSpace: 'nowrap',
+                    }}
+                  >
+                    {note.description}
+                  </div>
                 </Card.Content>
                 <Card.Content extra>
                   <Link href={`/${note._id}`}>
-                    <Button primary>View</Button>
+                    <Button>&ensp;View&ensp;</Button>
                   </Link>
                   <Link href={`/${note._id}/edit`}>
-                    <Button primary>Edit</Button>
+                    <Button primary>&ensp;Edit&ensp;</Button>
                   </Link>
                 </Card.Content>
               </Card>
