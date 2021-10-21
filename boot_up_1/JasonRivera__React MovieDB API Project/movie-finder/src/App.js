@@ -4,6 +4,7 @@ import Nav from './components/Nav';
 import SearchArea from './components/SearchArea';
 import MovieList from './components/MovieList';
 import Pagination from './components/Pagination';
+import MovieInfo from './components/MovieInfo';
 
 class App extends Component {
   constructor() {
@@ -13,6 +14,7 @@ class App extends Component {
       searchTerm: '',
       totalPages: 0,
       currentPage: 1,
+      currentMovie: null,
     };
     this.apiKey = process.env.REACT_APP_API_KEY;
   }
@@ -26,11 +28,11 @@ class App extends Component {
         return data.json();
       })
       .then((data) => {
-        console.log(data);
         this.setState({
           movies: [...data.results],
           totalPages: data.total_pages,
           currentPage: 1,
+          currentMovie: null,
         });
       });
   };
@@ -47,31 +49,49 @@ class App extends Component {
         return data.json();
       })
       .then((data) => {
-        console.log(data);
         this.setState({
           movies: [...data.results],
           currentPage: pageNumber,
         });
       });
   };
+  viewMovieInfo = (id) => {
+    const filteredMovie = this.state.movies.filter((movie) => {
+      return movie.id === id;
+    });
+    const newCurrentMovie = filteredMovie.length > 0 ? filteredMovie[0] : null;
+    this.setState({ currentMovie: newCurrentMovie });
+  };
+  closeMovieInfo = () => {
+    this.setState({ currentMovie: null });
+  };
 
   render() {
     return (
       <div className="App">
         <Nav />
-        <SearchArea
-          handleSubmit={this.handleSubmit}
-          handleChange={this.handleChange}
-        />
-        <MovieList movies={this.state.movies} />
-        {this.state.totalPages > 1 ? (
-          <Pagination
-            pages={this.state.totalPages}
-            nextPage={this.nextPage}
-            currentPage={this.state.currentPage}
-          />
+        {this.state.currentMovie === null ? (
+          <div>
+            <SearchArea
+              handleSubmit={this.handleSubmit}
+              handleChange={this.handleChange}
+            />
+            <MovieList
+              viewMovieInfo={this.viewMovieInfo}
+              movies={this.state.movies}
+            />
+            {this.state.totalPages > 1 ? (
+              <Pagination
+                pages={this.state.totalPages}
+                nextPage={this.nextPage}
+                currentPage={this.state.currentPage}
+              />
+            ) : (
+              ''
+            )}
+          </div>
         ) : (
-          ''
+            <MovieInfo currentMovie={this.state.currentMovie} closeMovieInfo={this.closeMovieInfo} />
         )}
       </div>
     );
