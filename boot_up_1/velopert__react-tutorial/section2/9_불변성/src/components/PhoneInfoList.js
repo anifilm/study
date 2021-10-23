@@ -10,7 +10,6 @@ class PhoneInfoList extends Component {
   };
 
   shouldComponentUpdate(nextProps, nextState) {
-    // TODO: 검색 내용이 없다면 기존 리스트를 보여주는 부분은 추가하면서 비교 대상이 달라서 리렌더링 되는 부분은 개선 필요
     return nextProps.data !== this.props.data;
   }
 

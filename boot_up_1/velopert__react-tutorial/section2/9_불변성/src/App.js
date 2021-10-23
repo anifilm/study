@@ -83,20 +83,11 @@ class App extends Component {
             onKeyUp={this.handleKeyUp}
           />
         </p>
-        {filteredList.length === 0 ? (
-          <PhoneInfoList
-            data={information}
-            onUpdate={this.handleUpdate}
-            onRemove={this.handleRemove}
-          />
-        ) : (
-          <PhoneInfoList
-            data={filteredList}
-            onUpdate={this.handleUpdate}
-            onRemove={this.handleRemove}
-          />
-
-        )}
+        <PhoneInfoList
+          data={filteredList}
+          onUpdate={this.handleUpdate}
+          onRemove={this.handleRemove}
+        />
       </div>
     );
   }
