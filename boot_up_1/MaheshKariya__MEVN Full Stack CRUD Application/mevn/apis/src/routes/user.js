@@ -7,6 +7,6 @@ User.get('/', UserController.getUsers);
 User.get('/:id', UserController.getUserById);
 User.post('/', UserController.createUser);
 User.put('/:id', UserController.updateUserById);
-User.delete('/', UserController.deleteUser);
+User.delete('/:id', UserController.deleteUser);
 
 export default User;
