@@ -46,7 +46,7 @@ app.use(session({
   saveUninitialized: true
 }));
 
-app.use('/', express.static(path.join(__dirname, './../public')));
+app.use('/', express.static(path.join(__dirname, './../dist')));
 
 app.get('/hello', (req, res) => {
   return res.send('Hello CodeLab');
@@ -56,7 +56,7 @@ app.get('/hello', (req, res) => {
 app.use('/api', api);
 
 app.get('*', (req, res) => {
-  res.sendFile(path.resolve(__dirname, './../public/index.html'));
+  res.sendFile(path.resolve(__dirname, './../dist/index.html'));
 });
 
 /* handle error */
