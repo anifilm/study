@@ -48,10 +48,27 @@ const updateUserById = async (req, res) => {
   }
 };
 
+const uploadProfilePicture = (req, res) => {
+  console.log(req.file.originalname);
+  console.log(req.file.originalname);
+  res.json(req.body);
+};
+
 const deleteUser = async (req, res) => {
   try {
     const userDeleted = await deleteUserService.byId(req.params.id);
     res.status(200).json({ userDeleted });
+  } catch (e) {
+    res.status(500).json(e);
+  }
+};
+
+const login = async (req, res) => {
+  try {
+    const { email, password } = req.body;
+    const loggedin = await getUserService.byEmailAndPassword(email, password);
+    // await client.set(email, loggedin)
+    res.status(200).json(loggedin);
   } catch (e) {
     res.status(500).json(e);
   }
@@ -62,5 +79,7 @@ export default {
   getUserById,
   createUser,
   updateUserById,
-  deleteUser
+  uploadProfilePicture,
+  deleteUser,
+  login
 };
