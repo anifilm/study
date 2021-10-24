@@ -48,12 +48,12 @@ app.use(session({
 
 app.use('/', express.static(path.join(__dirname, './../public')));
 
-/* setup routers & static directory */
-app.use('/api', api);
-
 app.get('/hello', (req, res) => {
   return res.send('Hello CodeLab');
 });
+
+/* setup routers & static directory */
+app.use('/api', api);
 
 app.get('*', (req, res) => {
   res.sendFile(path.resolve(__dirname, './../public/index.html'));
