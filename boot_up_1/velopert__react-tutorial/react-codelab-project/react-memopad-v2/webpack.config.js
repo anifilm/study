@@ -1,4 +1,6 @@
 const HtmlWebpackPlugin = require('html-webpack-plugin');
+const MiniCssExtractPlugin = require('mini-css-extract-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 
 const port = process.env.PORT || 3000;
 
@@ -9,7 +11,8 @@ module.exports = {
   entry: './src/index.js',
   // 번들된 파일 경로
   output: {
-    filename: 'bundle.[hash].js'
+    filename: 'bundle.[hash].js',
+    path: __dirname + '/dist',
   },
   module: {
     rules: [
@@ -19,6 +22,10 @@ module.exports = {
         use: {
           loader: 'babel-loader',
         },
+      },
+      {
+        test: /\.css$/,
+        use: [MiniCssExtractPlugin.loader, 'css-loader'],
       },
       {
         test: /\.html$/,
@@ -36,7 +43,11 @@ module.exports = {
   plugins: [
     new HtmlWebpackPlugin({
       template: 'public/index.html',
-    })
+    }),
+    new MiniCssExtractPlugin({
+      filename: 'style.css',
+    }),
+    new CleanWebpackPlugin(),
   ],
   // 개발 서버 설정
   devServer: {
