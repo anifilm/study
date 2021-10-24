@@ -1,14 +1,30 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 
 class Header extends Component {
   render() {
+    const loginButton = (
+      <li>
+        <Link to="/login">
+          <i className="material-icons">vpn_key</i>
+        </Link>
+      </li>
+    );
+    const logoutButton = (
+      <li>
+        <a>
+          <i className="material-icons">lock_open</i>
+        </a>
+      </li>
+    );
+
     return (
       <nav>
         <div className="nav-wrapper blue darken-1">
-          <a href="#" className="brand-logo center">
+          <Link to="/" className="brand-logo center">
             MEMOPAD
-          </a>
+          </Link>
           <ul>
             <li>
               <a>
@@ -17,18 +33,7 @@ class Header extends Component {
             </li>
           </ul>
           <div className="right">
-            <ul>
-              <li>
-                <a>
-                  <i className="material-icons">vpn_key</i>
-                </a>
-              </li>
-              <li>
-                <a>
-                  <i className="material-icons">lock_open</i>
-                </a>
-              </li>
-            </ul>
+            <ul>{this.props.isLoggedIn ? logoutButton : loginButton}</ul>
           </div>
         </div>
       </nav>
