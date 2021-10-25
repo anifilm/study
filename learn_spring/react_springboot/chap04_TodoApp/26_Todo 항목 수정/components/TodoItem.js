@@ -10,7 +10,7 @@ const TodoItem = ({ todo, onToggle, onRemove, onEdit }) => {
 
   const onDoubleClick = () => {
     //console.log('onDoubleClick');
-    //setInputText(text);
+    setInputText(text);
     setShowInput(true);
   };
   const onChange = (e) => {
@@ -18,6 +18,7 @@ const TodoItem = ({ todo, onToggle, onRemove, onEdit }) => {
     setInputText(e.target.value);
   };
   const handleClick = () => {
+    // TODO: 클릭보다 handleBlur가 먼저 동작한다. (버튼 클릭 불가)
     //console.log('handleClick inputText:', inputText);
     onEdit(id, inputText);
     setShowInput(false);
@@ -40,7 +41,7 @@ const TodoItem = ({ todo, onToggle, onRemove, onEdit }) => {
     //console.log('useEffect todo:', todo);
     if (todo) {
       //console.log('todo.text:', todo.text);
-      setInputText(todo.text);
+      //setInputText(todo.text);
     }
   }, [todo]);
   // 마운트 될 때 편집 입력 요소 포커스 처리
@@ -60,7 +61,6 @@ const TodoItem = ({ todo, onToggle, onRemove, onEdit }) => {
             onChange={onChange}
             onKeyPress={handleKeyPress}
             onBlur={handleBlur}
-            ref={editInput}
           />
           <button onClick={handleClick}>수정</button>
         </>
