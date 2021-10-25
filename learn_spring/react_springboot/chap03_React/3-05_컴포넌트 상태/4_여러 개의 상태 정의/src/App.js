@@ -28,11 +28,13 @@ const App = () => {
       <h1>Hello {userName}!</h1>
       <hr />
       <ul>
-        {items.map((item) => (
-          <li key={item.name}>
-            {item.name}: {item.price} x {item.quantity} = {item.price * item.quantity}원
-          </li>
-        ))}
+        {items.map((item) => {
+          return (
+            <li key={item.name}>
+              {item.name}: {item.price} x {item.quantity} = {item.price * item.quantity}원
+            </li>
+          );
+        })}
       </ul>
     </div>
   );

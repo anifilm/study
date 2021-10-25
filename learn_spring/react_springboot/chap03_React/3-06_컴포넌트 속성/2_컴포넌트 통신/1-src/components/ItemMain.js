@@ -1,6 +1,7 @@
 import React, { useState, useMemo } from 'react';
+import ItemList from './ItemList';
 
-const App = () => {
+const ItemMain = () => {
   const itemDataArray = [
     {
       name: 'CPU',
@@ -21,30 +22,22 @@ const App = () => {
 
   const [items, setItems] = useState(itemDataArray);
 
-  // 상태값 계산 함수
-  const calcTotalPrice = (item) => {
+  const calcTotalPrice = (items) => {
     return items.reduce(function (sum, item) {
       return sum + item.price * item.quantity;
     }, 0);
   };
 
-  // useMemo 훅 사용
-  const totalPrice = useMemo(() => calcTotalPrice(items), [items]);
+  const totalPrice = useMemo(() => {
+    return calcTotalPrice(items);
+  }, [items]);
 
   return (
     <div>
-      <ul>
-        {items.map((item) => (
-          <li key={item.name}>
-            {item.name}: {item.price} x {item.quantity} ={' '}
-            {item.price * item.quantity}원
-          </li>
-        ))}
-      </ul>
-      {/* 계산값 표시 */}
-      <p>합계: {totalPrice}원</p>
+      {/* items, totalPrice 속성(props) 값 지정 */}
+      <ItemList items={items} totalPrice={totalPrice} />
     </div>
   );
 };
 
-export default App;
+export default ItemMain;

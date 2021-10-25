@@ -1,6 +1,8 @@
-import React from 'react';
+import React, { useState } from 'react';
+import ItemList from './ItemList';
+import ItemTotal from './ItemTotal';
 
-const App = () => {
+const ItemMain = () => {
   const itemDataArray = [
     {
       name: 'CPU',
@@ -19,20 +21,15 @@ const App = () => {
     },
   ];
 
-  // 상태와 설정함수를 정의
   const [items, setItems] = useState(itemDataArray);
 
   return (
-    <ul>
-      {items.map((item) => {
-        return (
-          <li key={item.name}>
-            {item.name}: {item.price} x {item.quantity} = {item.price * item.quantity}원
-          </li>
-        );
-      })}
-    </ul>
+    <div>
+      {/* items 속성(props) 값 지정 */}
+      <ItemList items={items} />
+      <ItemTotal items={items} />
+    </div>
   );
-}
+};
 
-export default App;
+export default ItemMain;

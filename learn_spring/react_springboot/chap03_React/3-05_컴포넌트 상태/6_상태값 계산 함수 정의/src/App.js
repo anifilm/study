@@ -31,12 +31,13 @@ const App = () => {
   return (
     <div>
       <ul>
-        {items.map((item) => (
-          <li key={item.name}>
-            {item.name}: {item.price} x {item.quantity} ={' '}
-            {item.price * item.quantity}원
-          </li>
-        ))}
+        {items.map((item) => {
+          return (
+            <li key={item.name}>
+              {item.name}: {item.price} x {item.quantity} = {item.price * item.quantity}원
+            </li>
+          );
+        })}
       </ul>
       {/* 상태값 계산 함수 실행 */}
       <p>합계: {calcTotalPrice(items)}원</p>
