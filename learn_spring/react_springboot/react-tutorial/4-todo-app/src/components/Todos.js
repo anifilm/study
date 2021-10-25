@@ -32,28 +32,47 @@ const Todos = () => {
       text: text,
       done: false,
     };
-    setTodos(todos.concat(todo));
+    //setTodos(todos.concat(todo));
+    setTodos((todos) => {
+      return todos.concat(todo);
+    });
     nextId.current += 1;
   };
   // 완료 체크 이벤트 처리
   const onToggle = (id) => {
-    setTodos(
-      todos.map((todo) => {
+    //setTodos(
+    //  todos.map((todo) => {
+    //    return todo.id === id ? { ...todo, done: !todo.done } : todo;
+    //  }),
+    //);
+    setTodos((todos) => {
+      return todos.map((todo) => {
         return todo.id === id ? { ...todo, done: !todo.done } : todo;
-      }),
-    );
+      });
+    });
   };
   // Todo 항목 삭제 이벤트 처리
   const onRemove = (id) => {
-    setTodos(
-      todos.filter((todo) => {
+    //setTodos(
+    //  todos.filter((todo) => {
+    //    return todo.id !== id;
+    //  }),
+    //);
+    setTodos((todos) => {
+      return todos.filter((todo) => {
         return todo.id !== id;
-      }),
-    );
+      });
+    });
   };
-  // Todo 항목 모두 삭제 이벤트 처리
+  // Todo 완료 항목 모두 삭제 이벤트 처리
   const onClearAll = () => {
-    setTodos([]);
+    //setTodos([]);
+    //setTodos(() => { return []; }); // 항목 모두 삭제
+    setTodos((todos) => {
+      return todos.filter((todo) => {
+        return !todo.done;
+      });
+    });
   };
 
   return (
