@@ -7,15 +7,15 @@ import App from './App';
 import { createStore } from 'redux';
 import { Provider } from 'react-redux';
 import todos from './modules/todos';
-//import { composeWithDevToos } from 'redux-devtools-extension';
+import { composeWithDevTools } from 'redux-devtools-extension';
 
 // 스토어 생성
-const store = createStore(todos);
+const store = createStore(todos, composeWithDevTools());
 
 // 리덕스 적용
 ReactDOM.render(
   <Provider store={store}>
     <App />
   </Provider>,
-  document.getElementById('root')
+  document.getElementById('root'),
 );
