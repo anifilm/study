@@ -10,6 +10,7 @@ __using_assets__/
 __new__/
 .env
 *.exe
+*.lnk
 *.pdf
 
 .DS_Store

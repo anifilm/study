@@ -47,10 +47,7 @@ export const clearAllTodos = () => {
 };
 */
 // createAction 함수 사용
-export const changeTodoInput = createAction(
-  CHANGE_TODO_INPUT,
-  (input) => input,
-);
+export const changeTodoInput = createAction(CHANGE_TODO_INPUT, (input) => input);
 export const addTodo = createAction(ADD_TODO, (input) => ({
   text: input,
   done: false,
