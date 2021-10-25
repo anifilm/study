@@ -2,7 +2,7 @@
   background-color: #ffceff;
   margin-bottom: 10px;
 }
-div>span {
+label>span {
   margin: 10px;
 }
 .item {
