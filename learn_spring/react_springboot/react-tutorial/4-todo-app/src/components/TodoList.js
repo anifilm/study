@@ -2,14 +2,14 @@ import React from 'react';
 import styles from '../Todo.module.css';
 import TodoItem from './TodoItem';
 
-const TodoList = () => {
+const TodoList = ({ todos, onToggle, onRemove }) => {
   return (
     <div className={styles.list}>
-      <TodoItem />
-      <TodoItem />
-      <TodoItem />
+      {todos.map((todo) => {
+        return <TodoItem key={todo.id} todo={todo} onToggle={onToggle} onRemove={onRemove} />;
+      })}
     </div>
-  )
+  );
 };
 
 export default TodoList;

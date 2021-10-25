@@ -1,19 +1,24 @@
 .input {
-  background-color: #ff00ff;
+  background-color: #ffceff;
+  margin-bottom: 10px;
 }
-
+div>span {
+  margin: 10px;
+}
 .item {
-  background-color: #ffff00;
+  background-color: #ffffcd;
+  margin: 10px 0;
 }
 
 .header {
-  background-color: #00ff00;
+  background-color: #adffad;
 }
 
 .footer {
-  background-color: #00ffff;
+  background-color: #d2ffff;
+  margin-top: 10px;
 }
 
 .list {
-  background-color: #0000ff;
+  background-color: #dedeff;
 }
