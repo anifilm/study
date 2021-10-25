@@ -2,8 +2,9 @@
   background-color: #ffceff;
   margin-bottom: 10px;
 }
-label>span {
+div>span {
   margin: 10px;
+  cursor: pointer;
 }
 .item {
   background-color: #ffffcd;
