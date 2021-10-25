@@ -1,11 +1,8 @@
 import React from 'react';
+import Todos from './components/Todos';
 
 const App = () => {
-  return (
-    <div>
-      Hello, React!
-    </div>
-  );
-}
+  return <Todos />;
+};
 
 export default App;
