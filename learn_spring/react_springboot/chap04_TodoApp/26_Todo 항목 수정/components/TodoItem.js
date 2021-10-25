@@ -61,6 +61,7 @@ const TodoItem = ({ todo, onToggle, onRemove, onEdit }) => {
             onChange={onChange}
             onKeyPress={handleKeyPress}
             onBlur={handleBlur}
+            ref={editInput}
           />
           <button onClick={handleClick}>수정</button>
         </>
