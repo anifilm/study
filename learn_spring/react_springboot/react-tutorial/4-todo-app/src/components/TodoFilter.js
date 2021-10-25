@@ -5,7 +5,6 @@ import styles from '../Todo.module.css';
 const TodoFilter = ({ filter, onChangeFilter }) => {
   // 필터링 유형 변경 이벤트를 처리
   const handleFilter = (e) => {
-    console.log(e.target.value);
     return onChangeFilter(e.target.value);
   };
 
