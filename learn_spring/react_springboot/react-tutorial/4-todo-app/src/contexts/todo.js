@@ -1,10 +1,23 @@
-import React, { useState, useRef, useCallback } from 'react';
-import TodoHeader from './TodoHeader';
-import TodoInput from './TodoInput';
-import TodoList from './TodoList';
-import TodoFooter from './TodoFooter';
+import React, { createContext, useState, useCallback, useRef } from 'react';
 
-const Todos = () => {
+const TodoContext = createContext({
+  state: {
+    todos: [],
+    input: '',
+  },
+  actions: {
+    setTodos: () => {},
+    onInsert: () => {},
+    onRemove: () => {},
+    onToggle: () => {},
+    onClearAll: () => {},
+    onChange: () => {},
+    onSubmit: () => {},
+  },
+});
+
+// 컨텍스트 공급자 정의
+const TodoProvider = ({ children }) => {
   const todoItems = [
     {
       id: 1,
@@ -23,6 +36,7 @@ const Todos = () => {
     },
   ];
 
+  // 상태 정의
   const [todos, setTodos] = useState(todoItems);
   const [input, setInput] = useState('');
 
@@ -80,14 +94,33 @@ const Todos = () => {
     setInput('');
   }, [onInsert, input]);
 
+  // 상태(state)와 업데이트 함수(actions)를 묶어 value 객체 생성
+  const value = {
+    state: { todos, input },
+    actions: {
+      setTodos,
+      onInsert,
+      onToggle,
+      onRemove,
+      onClearAll,
+      onChange,
+      onSubmit,
+    },
+  };
+
+  // value 속성값 설정
   return (
-    <div>
-      <TodoHeader />
-      <TodoInput input={input} onChange={onChange} onSubmit={onSubmit} />
-      <TodoList todos={todos} onToggle={onToggle} onRemove={onRemove} />
-      <TodoFooter onClearAll={onClearAll} />
-    </div>
+    <TodoContext.Provider value={value}>
+      {children}
+    </TodoContext.Provider>
   );
 };
 
-export default Todos;
+// TodoContext의 Consumer 속성을 TodoConsumer 변수에 저장
+const { Consumer: TodoConsumer } = TodoContext;
+
+// TodoProvider, TodoConsumer 내보내기
+export { TodoProvider, TodoConsumer };
+
+// TodoContext 내보내기
+export default TodoContext;
