@@ -19,7 +19,6 @@ const BoardRegisterForm = ({ onRegister }) => {
   }, []);
 
   const handleSubmit = useCallback((e) => {
-    console.log('submit');
     e.preventDefault();
     // 등록 처리 함수 호출
     onRegister(title, content, writer);

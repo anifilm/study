@@ -15,10 +15,10 @@ const BoardModifyForm = ({ board, isLoading, onModify }) => {
   };
   // 마운트될 때 게시글 상세정보를 자겨옴
   useEffect(() => {
-    console.log('useEffect board:', board);
+    //console.log('useEffect board:', board);
     if (board) {
-      console.log('board.title:', board.title);
-      console.log('board.content:', board.content);
+      //console.log('board.title:', board.title);
+      //console.log('board.content:', board.content);
       setTitle(board.title);
       setContent(board.content);
     }
@@ -33,7 +33,11 @@ const BoardModifyForm = ({ board, isLoading, onModify }) => {
   return (
     <div className="container">
       <h3>작성글 수정</h3>
-      {isLoading && '로딩중...'}
+      {isLoading && (
+        <div className="progress">
+          <div className="indeterminate"></div>
+        </div>
+      )}
       {!isLoading && board && (
         <form onSubmit={handleSubmit}>
           <table>

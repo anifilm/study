@@ -6,7 +6,11 @@ const BoardList = ({ boards, isLoading }) => {
   return (
     <div className="container">
       <h3>게시판 목록</h3>
-      {isLoading && '로딩중...'}
+      {isLoading && (
+        <div className="progress">
+          <div className="indeterminate"></div>
+        </div>
+      )}
       {!isLoading && boards && (
         <>
           <table>

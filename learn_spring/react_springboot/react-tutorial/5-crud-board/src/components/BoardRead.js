@@ -6,7 +6,11 @@ const BoardRead = ({ boardNo, board, isLoading, onRemove }) => {
   return (
     <div className="container">
       <h3>작성글 상세보기</h3>
-      {isLoading && '로딩중...'}
+      {isLoading && (
+        <div className="progress">
+          <div className="indeterminate"></div>
+        </div>
+      )}
       {!isLoading && board && (
         <>
           <table>
