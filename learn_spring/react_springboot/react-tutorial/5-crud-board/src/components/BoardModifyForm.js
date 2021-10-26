@@ -13,7 +13,14 @@ const BoardModifyForm = ({ board, isLoading, onModify }) => {
   const handleChangeContent = (e) => {
     setContent(e.target.value);
   };
-  // 마운트될 때 게시글 상세정보를 자겨옴
+
+  // 폼 submit 이벤트 처리
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    onModify(board.boardNo, title, content);
+  };
+
+  // 마운트될 때 게시글 상세정보를 가져옴
   useEffect(() => {
     //console.log('useEffect board:', board);
     if (board) {
@@ -23,12 +30,6 @@ const BoardModifyForm = ({ board, isLoading, onModify }) => {
       setContent(board.content);
     }
   }, [board]);
-
-  // 폼 submit 이벤트 처리
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    onModify(board.boardNo, title, content);
-  };
 
   return (
     <div className="container">

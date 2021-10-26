@@ -22,10 +22,6 @@ const BoardReadContainer = ({ match, history }) => {
       throw e;
     }
   };
-  // 마운트될 때 게시글 상세정보를 가져옴
-  useEffect(() => {
-    readBoard(boardNo);
-  }, [boardNo]);
 
   // 삭제 처리 함수 정의
   const onRemove = async () => {
@@ -40,6 +36,11 @@ const BoardReadContainer = ({ match, history }) => {
       console.log(e);
     }
   };
+
+  // 마운트될 때 게시글 상세정보를 가져옴
+  useEffect(() => {
+    readBoard(boardNo);
+  }, [boardNo]);
 
   return (
     <BoardRead

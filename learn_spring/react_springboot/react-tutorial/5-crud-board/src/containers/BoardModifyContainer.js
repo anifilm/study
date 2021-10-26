@@ -22,10 +22,6 @@ const BoardModifyContainer = ({ match, history }) => {
       throw e;
     }
   };
-  // 마운트될 때 게시글 상세정보를 가져옴
-  useEffect(() => {
-    readBoard(boardNo);
-  }, [boardNo]);
 
   // 수정 처리 함수 정의
   const onModify = async (boardNo, title, content) => {
@@ -37,6 +33,11 @@ const BoardModifyContainer = ({ match, history }) => {
       console.log(e);
     }
   };
+
+  // 마운트될 때 게시글 상세정보를 가져옴
+  useEffect(() => {
+    readBoard(boardNo);
+  }, [boardNo]);
 
   return (
     <BoardModifyForm board={board} isLoading={isLoading} onModify={onModify} />

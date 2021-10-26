@@ -7,6 +7,8 @@ const FETCH_FAILURE = 'baord/FETCH_FAILURE';
 const FETCH_LIST = 'board/FETCH_LIST';
 const FETCH_LIST_SUCCESS = 'board/FETCH_LIST_SUCCESS';
 const FETCH_LIST_FAILURE = 'board/FETCH_LIST_FAILURE';
+const CHANGE_TITLE = 'board/CHANGE_TITLE';
+const CHANGE_CONTENT = 'board/CHANGE_CONTENT';
 
 // 액션 생성 함수 정의
 export const fetchStart = createAction(FETCH);
@@ -15,6 +17,8 @@ export const fetchFailure = createAction(FETCH_FAILURE, (e) => e);
 export const fetchListStart = createAction(FETCH_LIST);
 export const fetchListSuccess = createAction(FETCH_LIST_SUCCESS, (data) => data);
 export const fetchListFailure = createAction(FETCH_LIST_FAILURE, (e) => e);
+export const changeTitle = createAction(CHANGE_TITLE, (title) => title);
+export const changeContent = createAction(CHANGE_CONTENT, (content) => content);
 
 // 초기 상태
 const initialState = {
@@ -75,6 +79,22 @@ const board = handleActions(
         FETCH_LIST: false,
       },
       error: action.payload,
+    }),
+    // 제목 변경 리듀서 함수 정의
+    [CHANGE_TITLE]: (state, { payload: title }) => ({
+      ...state,
+      board: {
+        ...state.board,
+        title,
+      },
+    }),
+    // 내용 변경 리듀서 함수 정의
+    [CHANGE_CONTENT]: (state, { payload: content }) => ({
+      ...state,
+      board: {
+        ...state.board,
+        content,
+      },
     }),
   },
   initialState,
