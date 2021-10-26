@@ -18,14 +18,11 @@ const BoardRegisterForm = ({ onRegister }) => {
     setWriter(e.target.value);
   }, []);
 
-  const handleSubmit = useCallback(
-    (e) => {
-      e.preventDefault();
-      // 등록 처리 함수 호출
-      onRegister(title, content, writer);
-    },
-    [title, content, writer, onRegister],
-  );
+  const handleSubmit = useCallback((e) => {
+    e.preventDefault();
+    // 등록 처리 함수 호출
+    onRegister(title, content, writer);
+  }, [title, content, writer, onRegister]);
 
   return (
     <div className="container">

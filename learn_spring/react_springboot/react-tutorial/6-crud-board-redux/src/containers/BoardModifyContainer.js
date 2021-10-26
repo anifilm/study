@@ -1,7 +1,8 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useCallback } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import { withRouter } from 'react-router';
 import BoardModifyForm from '../components/BoardModifyForm';
-import * as client from '../lib/api';
+import { fetchBoardApi, modifyBoardApi } from '../lib/api';
 
 // match, history 객체를 전달 받음
 const BoardModifyContainer = ({ match, history }) => {
@@ -15,7 +16,7 @@ const BoardModifyContainer = ({ match, history }) => {
   const readBoard = async (boardNo) => {
     setLoading(true);
     try {
-      const response = await client.fetchBoard(boardNo);
+      const response = await fetchBoardApi(boardNo);
       setBoard(response.data);
       setLoading(false);
     } catch (e) {
@@ -30,7 +31,7 @@ const BoardModifyContainer = ({ match, history }) => {
   // 수정 처리 함수 정의
   const onModify = async (boardNo, title, content) => {
     try {
-      await client.modifyBoard(boardNo, title, content);
+      await modifyBoardApi(boardNo, title, content);
       alert('수정되었습니다.');
       history.push('/read/' + boardNo);
     } catch (e) {
