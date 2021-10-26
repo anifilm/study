@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const BoardRead = () => {
   return (
-    <div class="container">
+    <div className="container">
       <h3>작성글 상세보기</h3>
       <table>
         <tbody>
@@ -41,9 +41,9 @@ const BoardRead = () => {
       </table>
       <br />
       <div>
-        <Link to="/" class="waves-effect waves-light btn">글 목록</Link>{' '}
-        <Link to={`/edit/100`} class="waves-effect waves-light btn blue">수정</Link>{' '}
-        <button class="waves-effect waves-light btn red right">삭제</button>{' '}
+        <Link to="/" className="waves-effect waves-light btn">글 목록</Link>{' '}
+        <Link to={`/edit/100`} className="waves-effect waves-light btn blue">수정</Link>{' '}
+        <button className="waves-effect waves-light btn red right">삭제</button>{' '}
       </div>
     </div>
   );

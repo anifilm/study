@@ -1,10 +1,10 @@
 import React from 'react';
 import { Route } from 'react-router-dom';
 
-import BoardListContainer from './components/BoardListContainer';
-import BoardRegisterContainer from './components/BoardRegisterContainer';
-import BoardModifyContainer from './components/BoardModifyContainer';
-import BoardReadContainer from './components/BoardReadContainer';
+import BoardListContainer from './containers/BoardListContainer';
+import BoardRegisterContainer from './containers/BoardRegisterContainer';
+import BoardModifyContainer from './containers/BoardModifyContainer';
+import BoardReadContainer from './containers/BoardReadContainer';
 
 const App = () => {
   return (

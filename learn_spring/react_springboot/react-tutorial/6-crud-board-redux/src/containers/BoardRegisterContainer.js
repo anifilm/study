@@ -1,5 +1,5 @@
 import React from 'react';
-import BoardRegisterForm from './BoardRegisterForm';
+import BoardRegisterForm from '../components/BoardRegisterForm';
 
 const BoardRegisterContainer = () => {
   return <BoardRegisterForm />;

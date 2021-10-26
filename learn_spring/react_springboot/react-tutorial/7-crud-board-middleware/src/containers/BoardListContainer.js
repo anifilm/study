@@ -1,5 +1,5 @@
 import React from 'react';
-import BoardList from './BoardList';
+import BoardList from '../components/BoardList';
 
 const BoardListContainer = () => {
   return <BoardList />;

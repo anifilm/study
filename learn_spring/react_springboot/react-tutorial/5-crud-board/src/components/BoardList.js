@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const BoardList = () => {
   return (
-    <div class="container">
+    <div className="container">
       <h3>게시판 목록</h3>
       <table>
         <thead>
@@ -26,7 +26,7 @@ const BoardList = () => {
         </tbody>
       </table>
       <br />
-      <Link to="/create" class="waves-effect waves-light btn blue">새로운 글 작성</Link>
+      <Link to="/create" className="waves-effect waves-light btn blue">새로운 글 작성</Link>
     </div>
   );
 }

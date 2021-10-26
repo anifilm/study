@@ -1,5 +1,5 @@
 import React from 'react';
-import BoardRead from './BoardRead';
+import BoardRead from '../components/BoardRead';
 
 const BoardReadContainer = () => {
   return <BoardRead />;

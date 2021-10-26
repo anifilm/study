@@ -1,5 +1,5 @@
 import React from 'react';
-import BoardModifyForm from './BoardModifyForm';
+import BoardModifyForm from '../components/BoardModifyForm';
 
 const BoardModifyContainer = () => {
   return (

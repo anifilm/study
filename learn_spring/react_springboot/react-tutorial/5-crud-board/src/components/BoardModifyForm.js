@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const BoardModifyForm = () => {
   return (
-    <div class="container">
+    <div className="container">
       <h3>작성글 수정</h3>
       <form>
         <table>
@@ -42,8 +42,8 @@ const BoardModifyForm = () => {
         </table>
         <br />
         <div>
-          <Link to={`/read/100`} class="waves-effect waves-light btn">취소</Link>{' '}
-          <button type="submit" class="waves-effect waves-light btn blue">수정</button>{' '}
+          <Link to={`/read/100`} className="waves-effect waves-light btn">취소</Link>{' '}
+          <button type="submit" className="waves-effect waves-light btn blue">수정</button>{' '}
         </div>
       </form>
     </div>
