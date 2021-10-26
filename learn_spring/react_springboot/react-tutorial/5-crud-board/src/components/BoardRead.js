@@ -12,48 +12,46 @@ const BoardRead = ({ boardNo, board, isLoading, onRemove }) => {
         </div>
       )}
       {!isLoading && board && (
-        <>
-          <table>
-            <tbody>
-              <tr>
-                <td>번호</td>
-                <td>
-                  <input type="text" value={board.boardNo} readOnly />
-                </td>
-              </tr>
-              <tr>
-                <td>작성일자</td>
-                <td>
-                  <input type="text" value={board.regDate} readOnly />
-                </td>
-              </tr>
-              <tr>
-                <td>제목</td>
-                <td>
-                  <input type="text" value={board.title} readOnly />
-                </td>
-              </tr>
-              <tr>
-                <td>글쓴이</td>
-                <td>
-                  <input type="text" value={board.writer} readOnly />
-                </td>
-              </tr>
-              <tr>
-                <td>내용</td>
-                <td>
-                  <textarea value={board.content} readOnly></textarea>
-                </td>
-              </tr>
-            </tbody>
-          </table>
+        <div className="row">
+          <div className="col s12">
+            <div className="row">
+              <div className="input-field col s4">
+                <input type="text" id="board-no" value={board.boardNo} disabled />
+                <label className="active" htmlFor="board-no">번호</label>
+              </div>
+              <div className="input-field col s4">
+                <input type="text" id="writer" value={board.writer} disabled />
+                <label className="active" htmlFor="writer">글쓴이</label>
+              </div>
+              <div className="input-field col s4">
+                <input type="text" id="reg-date" value={board.regDate} disabled />
+                <label className="active" htmlFor="reg-date">작성일자</label>
+              </div>
+              <div className="input-field col s12">
+                <input type="text" id="title" value={board.title} readOnly />
+                <label className="active" htmlFor="title">제목</label>
+              </div>
+            </div>
+            <div className="row">
+              <div className="input-field col s12">
+                <textarea
+                  id="textarea"
+                  className="materialize-textarea"
+                  value={board.content}
+                  readOnly
+                  style={{ height: 200 }}
+                ></textarea>
+                <label className="active" htmlFor="textarea">내용</label>
+              </div>
+            </div>
+          </div>
           <br />
           <Link to="/" className="waves-effect waves-light btn">
             글 목록
           </Link>{' '}
           <Link to={`/edit/${boardNo}`} className="waves-effect waves-light btn blue">수정</Link>{' '}
           <button onClick={onRemove} className="waves-effect waves-light btn red right">삭제</button>
-        </>
+        </div>
       )}
     </div>
   );

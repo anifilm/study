@@ -39,47 +39,50 @@ const BoardModifyForm = ({ board, isLoading, onModify }) => {
         </div>
       )}
       {!isLoading && board && (
-        <form onSubmit={handleSubmit}>
-          <table>
-            <tbody>
-              <tr>
-                <td>번호</td>
-                <td>
-                  <input type="text" value={board.boardNo} disabled />
-                </td>
-              </tr>
-              <tr>
-                <td>작성일자</td>
-                <td>
-                  <input type="text" value={board.regDate} disabled />
-                </td>
-              </tr>
-              <tr>
-                <td>제목</td>
-                <td>
-                  <input type="text" value={title} onChange={handleChangeTitle} />
-                </td>
-              </tr>
-              <tr>
-                <td>글쓴이</td>
-                <td>
-                  <input type="text" value={board.writer} disabled />
-                </td>
-              </tr>
-              <tr>
-                <td>내용</td>
-                <td>
-                  <textarea rows="5" value={content} onChange={handleChangeContent}></textarea>
-                </td>
-              </tr>
-            </tbody>
-          </table>
-          <br />
-          <div>
+        <div className="row">
+          <form onSubmit={handleSubmit} className="col s12">
+            <div className="row">
+              <div className="input-field col s4">
+                <input type="text" id="board-no" value={board.boardNo} disabled />
+                <label className="active" htmlFor="board-no">번호</label>
+              </div>
+              <div className="input-field col s4">
+                <input type="text" id="writer" value={board.writer} disabled />
+                <label className="active" htmlFor="writer">글쓴이</label>
+              </div>
+              <div className="input-field col s4">
+                <input type="text" id="reg-date" value={board.regDate} disabled />
+                <label className="active" htmlFor="reg-date">작성일자</label>
+              </div>
+              <div className="input-field col s12">
+                <input
+                  type="text"
+                  id="title"
+                  value={title}
+                  onChange={handleChangeTitle}
+                  required
+                />
+                <label className="active" htmlFor="title">제목</label>
+              </div>
+            </div>
+            <div className="row">
+              <div className="input-field col s12">
+                <textarea
+                  id="textarea"
+                  className="materialize-textarea"
+                  value={content}
+                  onChange={handleChangeContent}
+                  style={{ height: 200 }}
+                  required
+                ></textarea>
+                <label className="active" htmlFor="textarea">내용</label>
+              </div>
+            </div>
+            <br />
             <Link to={`/read/${board.boardNo}`} className="waves-effect waves-light btn">취소</Link>{' '}
             <button type="submit"className="waves-effect waves-light btn blue">완료</button>
-          </div>
-        </form>
+          </form>
+        </div>
       )}
     </div>
   );
