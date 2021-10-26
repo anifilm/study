@@ -17,9 +17,8 @@ const BoardRegisterContainer = ({ history }) => {
       console.log(e);
     }
   };
-  // 등록 처리 함수 전달
+
   return <BoardRegisterForm onRegister={onRegister} />;
 }
 
-// withRouter 함수를 사용하여 history 객체에 접근
 export default withRouter(BoardRegisterContainer);
