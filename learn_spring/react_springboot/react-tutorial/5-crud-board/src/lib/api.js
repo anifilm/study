@@ -12,3 +12,6 @@ export const fetchBoardList = () => {
 export const removeBoard = (boardNo) => {
   return axios.delete(`/boards/${boardNo}`);
 };
+export const modifyBoard = (boardNo, title, content) => {
+  return axios.put(`/boards/${boardNo}`, { title, content })
+}
