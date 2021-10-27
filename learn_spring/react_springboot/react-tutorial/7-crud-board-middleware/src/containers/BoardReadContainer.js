@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { withRouter } from 'react-router';
 import BoardRead from '../components/BoardRead';
-import * as client from '../lib/api';
+import { fetchBoardApi, removeBoardApi } from '../lib/api';
 
 // match 객체의 params 값을 참조
 const BoardReadContainer = ({ match, history }) => {
@@ -15,7 +15,7 @@ const BoardReadContainer = ({ match, history }) => {
   const readBoard = async (boardNo) => {
     setLoading(true);
     try {
-      const response = await client.fetchBoard(boardNo);
+      const response = await fetchBoardApi(boardNo);
       setBoard(response.data);
       setLoading(false);
     } catch (e) {
@@ -32,7 +32,7 @@ const BoardReadContainer = ({ match, history }) => {
     //console.log('boardNo:', boardNo);
     try {
       // 게시글 삭제 API 호출
-      await client.removeBoard(boardNo);
+      await removeBoardApi(boardNo);
       alert('삭제되었습니다.');
       // 목록 화면으로 이동
       history.push('/');

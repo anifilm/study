@@ -1,17 +1,17 @@
 import axios from 'axios';
 
-export const registerBoard = (title, content, writer) => {
+export const registerBoardApi = (title, content, writer) => {
   return axios.post('/boards', { title, content, writer });
 };
-export const fetchBoard = (boardNo) => {
+export const fetchBoardApi = (boardNo) => {
   return axios.get(`/boards/${boardNo}`);
 };
-export const fetchBoardList = () => {
+export const fetchBoardListApi = () => {
   return axios.get('/boards');
 };
-export const removeBoard = (boardNo) => {
+export const removeBoardApi = (boardNo) => {
   return axios.delete(`/boards/${boardNo}`);
 };
-export const modifyBoard = (boardNo, title, content) => {
+export const modifyBoardApi = (boardNo, title, content) => {
   return axios.put(`/boards/${boardNo}`, { title, content })
 }
