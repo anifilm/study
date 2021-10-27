@@ -2,7 +2,7 @@ import React, { useState, useCallback } from 'react';
 import { Link } from 'react-router-dom';
 
 // 등록 처리 함수를 컴포넌트 속성으로 전달 받음
-const BoardRegisterForm = ({ onRegister }) => {
+const ItemRegisterForm = ({ onRegister }) => {
   // 컴포넌트 상태 설정
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
@@ -74,4 +74,4 @@ const BoardRegisterForm = ({ onRegister }) => {
   );
 };
 
-export default BoardRegisterForm;
+export default ItemRegisterForm;

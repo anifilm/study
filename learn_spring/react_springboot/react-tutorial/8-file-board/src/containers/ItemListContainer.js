@@ -1,18 +1,18 @@
 import React, { useState, useEffect } from 'react';
-import BoardList from '../components/BoardList';
+import ItemList from '../components/ItemList';
 import * as client from '../lib/api';
 
-const BoardListContainer = () => {
+const ItemListContainer = () => {
   // 컴포넌트 상태 선언
-  const [boards, setBoards] = useState([]);
+  const [items, setItems] = useState([]);
   const [isLoading, setLoading] = useState(false);
 
   // 게시글 목록 조회
-  const listBoard = async () => {
+  const listItem = async () => {
     setLoading(true);
     try {
-      const response = await client.fetchBoardList();
-      setBoards(response.data);
+      const response = await client.fetchItemList();
+      setItems(response.data);
       setLoading(false);
     } catch (e) {
       setLoading(false);
@@ -21,10 +21,10 @@ const BoardListContainer = () => {
   }
   // 마운트될 때 게시글 목록을 가져옴
   useEffect(() => {
-    listBoard();
+    listItem();
   }, []);
 
-  return <BoardList boards={boards} isLoading={isLoading} />;
+  return <ItemList items={items} isLoading={isLoading} />;
 };
 
-export default BoardListContainer;
+export default ItemListContainer;

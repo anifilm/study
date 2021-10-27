@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
 // 컴포넌트 속성값 수신
-const BoardModifyForm = ({ board, isLoading, onModify }) => {
+const ItemModifyForm = ({ item, isLoading, onModify }) => {
   // 컴포넌트 상태 설정
   const [title, setTitle] = useState('');
   const [content, setContent] = useState('');
@@ -15,19 +15,19 @@ const BoardModifyForm = ({ board, isLoading, onModify }) => {
   };
   // 마운트될 때 게시글 상세정보를 자겨옴
   useEffect(() => {
-    //console.log('useEffect board:', board);
-    if (board) {
-      //console.log('board.title:', board.title);
-      //console.log('board.content:', board.content);
-      setTitle(board.title);
-      setContent(board.content);
+    //console.log('useEffect item:', item);
+    if (item) {
+      //console.log('item.title:', item.title);
+      //console.log('item.content:', item.content);
+      setTitle(item.title);
+      setContent(item.content);
     }
-  }, [board]);
+  }, [item]);
 
   // 폼 submit 이벤트 처리
   const handleSubmit = (e) => {
     e.preventDefault();
-    onModify(board.boardNo, title, content);
+    onModify(item.itemNo, title, content);
   };
 
   return (
@@ -38,20 +38,20 @@ const BoardModifyForm = ({ board, isLoading, onModify }) => {
           <div className="indeterminate"></div>
         </div>
       )}
-      {!isLoading && board && (
+      {!isLoading && item && (
         <div className="row">
           <form onSubmit={handleSubmit} className="col s12">
             <div className="row">
               <div className="input-field col s4">
-                <input type="text" id="board-no" value={board.boardNo} disabled />
-                <label className="active" htmlFor="board-no">번호</label>
+                <input type="text" id="item-no" value={item.itemNo} disabled />
+                <label className="active" htmlFor="item-no">번호</label>
               </div>
               <div className="input-field col s4">
-                <input type="text" id="writer" value={board.writer} disabled />
+                <input type="text" id="writer" value={item.writer} disabled />
                 <label className="active" htmlFor="writer">글쓴이</label>
               </div>
               <div className="input-field col s4">
-                <input type="text" id="reg-date" value={board.regDate} disabled />
+                <input type="text" id="reg-date" value={item.regDate} disabled />
                 <label className="active" htmlFor="reg-date">작성일자</label>
               </div>
               <div className="input-field col s12">
@@ -79,7 +79,7 @@ const BoardModifyForm = ({ board, isLoading, onModify }) => {
               </div>
             </div>
             <br />
-            <Link to={`/read/${board.boardNo}`} className="waves-effect waves-light btn">취소</Link>{' '}
+            <Link to={`/read/${item.itemNo}`} className="waves-effect waves-light btn">취소</Link>{' '}
             <button type="submit"className="waves-effect waves-light btn blue">완료</button>
           </form>
         </div>
@@ -88,4 +88,4 @@ const BoardModifyForm = ({ board, isLoading, onModify }) => {
   );
 }
 
-export default BoardModifyForm;
+export default ItemModifyForm;

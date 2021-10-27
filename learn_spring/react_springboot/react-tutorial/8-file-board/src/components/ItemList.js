@@ -2,7 +2,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 // 부모 컴포넌트에서 컴포넌트 속성으로 수신
-const BoardList = ({ boards, isLoading }) => {
+const ItemList = ({ items, isLoading }) => {
   return (
     <div className="container">
       <h3>게시판 목록</h3>
@@ -11,7 +11,7 @@ const BoardList = ({ boards, isLoading }) => {
           <div className="indeterminate"></div>
         </div>
       )}
-      {!isLoading && boards && (
+      {!isLoading && items && (
         <>
           <table>
             <thead>
@@ -23,7 +23,7 @@ const BoardList = ({ boards, isLoading }) => {
               </tr>
             </thead>
             <tbody>
-              {!boards.length && (
+              {!items.length && (
                 <tr>
                   <td></td>
                   <td colSpan="4">
@@ -31,14 +31,14 @@ const BoardList = ({ boards, isLoading }) => {
                   </td>
                 </tr>
               )}
-              {!!boards.length && boards.map((board) => (
-                <tr key={board.boardNo}>
-                  <td>{board.boardNo}</td>
+              {!!items.length && items.map((item) => (
+                <tr key={item.itemNo}>
+                  <td>{item.itemNo}</td>
                   <td>
-                    <Link to={`/read/${board.boardNo}`}>{board.title}</Link>
+                    <Link to={`/read/${item.itemNo}`}>{item.title}</Link>
                   </td>
-                  <td>{board.writer}</td>
-                  <td>{board.regDate}</td>
+                  <td>{item.writer}</td>
+                  <td>{item.regDate}</td>
                 </tr>
               ))}
             </tbody>
@@ -51,4 +51,4 @@ const BoardList = ({ boards, isLoading }) => {
   );
 };
 
-export default BoardList;
+export default ItemList;
