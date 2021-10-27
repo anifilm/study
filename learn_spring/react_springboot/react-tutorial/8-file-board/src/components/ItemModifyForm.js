@@ -32,7 +32,7 @@ const ItemModifyForm = ({ item, isLoading, onModify }) => {
 
   return (
     <div className="container">
-      <h3>작성글 수정</h3>
+      <h3>상품 수정</h3>
       {isLoading && (
         <div className="progress">
           <div className="indeterminate"></div>
@@ -44,25 +44,26 @@ const ItemModifyForm = ({ item, isLoading, onModify }) => {
             <div className="row">
               <div className="input-field col s4">
                 <input type="text" id="item-no" value={item.itemNo} disabled />
-                <label className="active" htmlFor="item-no">번호</label>
+                <label className="active" htmlFor="item-no">상품번호</label>
               </div>
               <div className="input-field col s4">
                 <input type="text" id="writer" value={item.writer} disabled />
-                <label className="active" htmlFor="writer">글쓴이</label>
+                <label className="active" htmlFor="writer">상품명</label>
               </div>
               <div className="input-field col s4">
                 <input type="text" id="reg-date" value={item.regDate} disabled />
-                <label className="active" htmlFor="reg-date">작성일자</label>
+                <label className="active" htmlFor="reg-date">상품가격</label>
               </div>
-              <div className="input-field col s12">
-                <input
-                  type="text"
-                  id="title"
-                  value={title}
-                  onChange={handleChangeTitle}
-                  required
-                />
-                <label className="active" htmlFor="title">제목</label>
+            </div>
+            <div className="row">
+              <div className="file-field input-field col s12">
+                <div className="btn">
+                  <span>File</span>
+                  <input type="file" />
+                </div>
+                <div className="file-path-wrapper">
+                <input class="file-path validate" type="text" placeholder="상품파일" />
+                </div>
               </div>
             </div>
             <div className="row">
@@ -72,10 +73,10 @@ const ItemModifyForm = ({ item, isLoading, onModify }) => {
                   className="materialize-textarea"
                   value={content}
                   onChange={handleChangeContent}
-                  style={{ height: 200 }}
+                  style={{ height: 100 }}
                   required
                 ></textarea>
-                <label className="active" htmlFor="textarea">내용</label>
+                <label className="active" htmlFor="textarea">상품설명</label>
               </div>
             </div>
             <br />

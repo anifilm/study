@@ -29,10 +29,10 @@ const ItemRegisterForm = ({ onRegister }) => {
 
   return (
     <div className="container">
-      <h3>새로운 글 작성</h3>
+      <h3>새로운 상품 등록</h3>
       <form onSubmit={handleSubmit} className="col s12">
         <div className="row">
-          <div className="input-field col s12">
+          <div className="input-field col s7">
             <input
               type="text"
               id="title"
@@ -40,17 +40,28 @@ const ItemRegisterForm = ({ onRegister }) => {
               onChange={handleChangeTitle}
               required
             />
-            <label htmlFor="title">제목</label>
+            <label htmlFor="title">상품명</label>
           </div>
-          <div className="input-field col s12">
+          <div className="input-field col s5">
             <input
               type="text"
-              id="writer"
-              value={writer}
-              onChange={handleChangeWriter}
+              //id="writer"
+              //value={writer}
+              //onChange={handleChangeWriter}
               required
             />
-            <label htmlFor="writer">작성자</label>
+            <label htmlFor="writer">상품가격 (원)</label>
+          </div>
+        </div>
+        <div className="row">
+          <div className="file-field input-field col s12">
+            <div className="btn">
+              <span>File</span>
+              <input type="file" />
+            </div>
+            <div className="file-path-wrapper">
+            <input class="file-path validate" type="text" placeholder="상품 파일 등록" />
+            </div>
           </div>
         </div>
         <div className="row">
@@ -60,10 +71,10 @@ const ItemRegisterForm = ({ onRegister }) => {
               className="materialize-textarea"
               value={content}
               onChange={handleChangeContent}
-              style={{ height: 200 }}
+              style={{ height: 100 }}
               required
             ></textarea>
-            <label htmlFor="textarea">내용</label>
+            <label htmlFor="textarea">상품설명</label>
           </div>
         </div>
         <br />
