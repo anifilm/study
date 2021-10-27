@@ -40,7 +40,11 @@ const BoardModifyContainer = ({ match, history }) => {
   }, [boardNo]);
 
   return (
-    <BoardModifyForm board={board} isLoading={isLoading} onModify={onModify} />
+    <BoardModifyForm
+      board={board}
+      isLoading={isLoading}
+      onModify={onModify}
+    />
   );
 };
 

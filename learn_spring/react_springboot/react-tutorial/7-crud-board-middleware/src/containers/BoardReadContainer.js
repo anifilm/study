@@ -3,7 +3,6 @@ import { withRouter } from 'react-router';
 import { useDispatch, useSelector } from 'react-redux';
 import { readBoardThunk } from '../modules/board';
 import BoardRead from '../components/BoardRead';
-
 import { removeBoardApi } from '../lib/api';
 
 // match 객체의 params 값을 참조

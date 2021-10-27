@@ -30,6 +30,7 @@ const BoardListContainer = () => {
       throw e;
     }
   }, [dispatch]);
+
   // 마운트될 때 게시글 목록을 가져옴
   useEffect(() => {
     listBoard();

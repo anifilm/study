@@ -1,31 +1,24 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
 import { withRouter } from 'react-router';
+import { useDispatch, useSelector } from 'react-redux';
 import BoardModifyForm from '../components/BoardModifyForm';
-import { fetchBoardApi, modifyBoardApi } from '../lib/api';
+import { readBoardThunk } from '../modules/board';
+import { modifyBoardApi } from '../lib/api';
 
 // match, history 객체를 전달 받음
 const BoardModifyContainer = ({ match, history }) => {
   // match 객체의 params 속성값을 참조
   const { boardNo } = match.params;
-  // 컴포넌트 상태 선언
-  const [board, setBoard] = useState(null);
-  const [isLoading, setLoading] = useState(false);
 
-  // 게시글 상세 조회
-  const readBoard = async (boardNo) => {
-    setLoading(true);
-    try {
-      const response = await fetchBoardApi(boardNo);
-      setBoard(response.data);
-      setLoading(false);
-    } catch (e) {
-      throw e;
-    }
-  };
-  // 마운트될 때 게시글 상세정보를 가져옴
-  useEffect(() => {
-    readBoard(boardNo);
-  }, [boardNo]);
+  // 스토어 dispatch 사용
+  const dispatch = useDispatch();
+  // 스토어 상태 조회
+  const { board, isLoading } = useSelector((state) => {
+    return {
+      board: state.board,
+      isLoading: state.loading.FETCH,
+    };
+  });
 
   // 수정 처리 함수 정의
   const onModify = async (boardNo, title, content) => {
@@ -38,8 +31,17 @@ const BoardModifyContainer = ({ match, history }) => {
     }
   };
 
+  // 마운트될 때 게시글 상세정보를 가져옴
+  useEffect(() => {
+    dispatch(readBoardThunk(boardNo));
+  }, [dispatch, boardNo]);
+
   return (
-    <BoardModifyForm board={board} isLoading={isLoading} onModify={onModify} />
+    <BoardModifyForm
+      board={board}
+      isLoading={isLoading}
+      onModify={onModify}
+    />
   );
 };
 
