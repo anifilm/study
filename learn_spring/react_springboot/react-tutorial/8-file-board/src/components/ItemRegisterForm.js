@@ -4,27 +4,32 @@ import { Link } from 'react-router-dom';
 // 등록 처리 함수를 컴포넌트 속성으로 전달 받음
 const ItemRegisterForm = ({ onRegister }) => {
   // 컴포넌트 상태 설정
-  const [title, setTitle] = useState('');
-  const [content, setContent] = useState('');
-  const [writer, setWriter] = useState('');
+  const [itemName, setItemName] = useState('');
+  const [price, setPrice] = useState(0);
+  const [description, setDescription] = useState('');
+  const [file, setFile] = useState(null);
 
-  const handleChangeTitle = useCallback((e) => {
-    setTitle(e.target.value);
+  const handleChangeItemName = useCallback((e) => {
+    setItemName(e.target.value);
   }, []);
-  const handleChangeContent = useCallback((e) => {
-    setContent(e.target.value);
+  const handleChangePrice = useCallback((e) => {
+    setPrice(e.target.value);
   }, []);
-  const handleChangeWriter = useCallback((e) => {
-    setWriter(e.target.value);
+  const handleChangeDescription = useCallback((e) => {
+    setDescription(e.target.value);
+  }, []);
+  const handleChangeFile = useCallback((e) => {
+    console.log(e.target.files[0]);
+    setFile(e.target.files[0]);
   }, []);
 
   const handleSubmit = useCallback(
     (e) => {
       e.preventDefault();
       // 등록 처리 함수 호출
-      onRegister(title, content, writer);
+      onRegister(itemName, price, description, file);
     },
-    [title, content, writer, onRegister],
+    [itemName, price, description, file, onRegister],
   );
 
   return (
@@ -36,28 +41,28 @@ const ItemRegisterForm = ({ onRegister }) => {
             <input
               type="text"
               id="title"
-              value={title}
-              onChange={handleChangeTitle}
+              value={itemName}
+              onChange={handleChangeItemName}
               required
             />
             <label htmlFor="title">상품명</label>
           </div>
           <div className="input-field col s5">
             <input
-              type="text"
-              //id="writer"
-              //value={writer}
-              //onChange={handleChangeWriter}
+              type="number"
+              id="price"
+              value={price}
+              onChange={handleChangePrice}
               required
             />
-            <label htmlFor="writer">상품가격 (원)</label>
+            <label htmlFor="price">상품가격 (원)</label>
           </div>
         </div>
         <div className="row">
           <div className="file-field input-field col s12">
             <div className="btn">
               <span>File</span>
-              <input type="file" />
+              <input type="file" onChange={handleChangeFile} />
             </div>
             <div className="file-path-wrapper">
             <input class="file-path validate" type="text" placeholder="상품 파일 등록" />
@@ -69,8 +74,8 @@ const ItemRegisterForm = ({ onRegister }) => {
             <textarea
               id="textarea"
               className="materialize-textarea"
-              value={content}
-              onChange={handleChangeContent}
+              value={description}
+              onChange={handleChangeDescription}
               style={{ height: 100 }}
               required
             ></textarea>
