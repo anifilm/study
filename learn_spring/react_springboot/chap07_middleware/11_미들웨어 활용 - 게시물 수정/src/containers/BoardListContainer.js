@@ -7,10 +7,10 @@ const BoardListContainer = () => {
   // 스토어 dispatch 사용
   const dispatch = useDispatch();
   // 스토어 상태 조회
-  const { boards, isLoading } = useSelector(({ board, loading }) => {
+  const { boards, isLoading } = useSelector((state) => {
     return {
-      boards: board.boards,
-      isLoading: loading.FETCH_LIST,
+      boards: state.boards,
+      isLoading: state.loading.FETCH_LIST,
     };
   });
 
