@@ -11,8 +11,8 @@ const App = () => {
     <div>
       <Route path="/" component={ItemListContainer} exact />
       <Route path="/create" component={ItemRegisterContainer} />
-      <Route path="/edit/:itemNo" component={ItemModifyContainer} />
-      <Route path="/read/:itemNo" component={ItemReadContainer} />
+      <Route path="/edit/:itemId" component={ItemModifyContainer} />
+      <Route path="/read/:itemId" component={ItemReadContainer} />
     </div>
   );
 }

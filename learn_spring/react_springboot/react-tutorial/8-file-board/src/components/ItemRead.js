@@ -3,8 +3,12 @@ import { Link } from 'react-router-dom';
 
 // 부모 컴포넌트에서 컴포넌트 속성으로 수신
 const ItemRead = ({ itemId, item, isLoading, onRemove }) => {
+  console.log(itemId);
+  console.log(item);
+  console.log(isLoading);
+
   // 이미지 표시 URL 생성
-  const pictureUrl = (itemId) => {
+  const pictureUrl = () => {
     return (
       `/items/display?itemId=${itemId}&timestamp=${new Date().getTime()}`
     );
@@ -34,10 +38,15 @@ const ItemRead = ({ itemId, item, isLoading, onRemove }) => {
                 <input type="text" id="price" value={item.price} disabled />
                 <label className="active" htmlFor="price">상품가격</label>
               </div>
-              <div className="input-field col s12">
-                <img src={pictureUrl()} alt="" width="200" />
-                <input type="text" id="image" readOnly />
-                <label className="active" htmlFor="image">미리보기</label>
+            </div>
+            <div className="row">
+              <div className="col s12 m6">
+                <div className="card">
+                  <div className="card-image">
+                    <img src={pictureUrl()} alt={item.itemName} />
+                    <span className="card-title">이미지 미리보기</span>
+                  </div>
+                </div>
               </div>
             </div>
             <div className="row">

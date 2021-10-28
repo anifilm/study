@@ -65,7 +65,7 @@ const ItemRegisterForm = ({ onRegister }) => {
               <input type="file" onChange={handleChangeFile} />
             </div>
             <div className="file-path-wrapper">
-            <input className="file-path validate" type="text" placeholder="상품 파일 등록" />
+            <input className="file-path validate" type="text" placeholder="등록할 상품 이미지 파일" />
             </div>
           </div>
         </div>

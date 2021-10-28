@@ -37,7 +37,6 @@ function* fetchItemListSaga(action) {
   yield put(startLoading(FETCH_ITEM_LIST));
   try {
     const response = yield call(fetchItemListApi);
-    console.log(response.data);
     yield put(fetchListSuccess(response.data));
   } catch (e) {
     yield put(fetchListFailure(e));

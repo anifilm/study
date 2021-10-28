@@ -40,8 +40,8 @@ const ItemReadContainer = ({ match, history }) => {
 
   return (
     <ItemRead
-      ItemId={itemId}
-      Item={item}
+      itemId={itemId}
+      item={item}
       isLoading={isLoading}
       onRemove={onRemove}
     />

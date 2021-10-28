@@ -3,7 +3,6 @@ import { useDispatch, useSelector } from 'react-redux';
 import { withRouter } from 'react-router';
 import ItemModifyForm from '../components/ItemModifyForm';
 import { fetchItem, FETCH_ITEM } from '../modules/item';
-
 import axios from 'axios';
 
 // match, history 객체를 전달 받음
@@ -22,8 +21,9 @@ const ItemModifyContainer = ({ match, history }) => {
   });
 
   // 수정 처리 함수 정의
-  const onModify = async (itemName, price, description, file) => {
+  const onModify = (itemName, price, description, file) => {
     const itemObject = {
+      itemId: itemId,
       itemName: itemName,
       price: price,
       description: description,
@@ -34,16 +34,19 @@ const ItemModifyContainer = ({ match, history }) => {
     formData.append('item', JSON.stringify(itemObject));
 
     // 파일 업로드
-    axios.put('/items', formData, {
-      headers: {
-        "Content-Type": "multipart/form-data",
-      },
-    }).then((res) => {
-      alert('수정 되었습니다.');
-      history.push('/read/' + res.data.itemId);
-    }).catch((err) => {
-      alert(err.response.data.msg);
-    });
+    axios
+      .put('/items', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      })
+      .then((res) => {
+        alert('수정 되었습니다.');
+        history.push('/read/' + res.data.itemId);
+      })
+      .catch((err) => {
+        alert(err.response.data.msg);
+      });
   };
 
   // 마운트될 때 제품 상세정보를 가져옴
@@ -52,11 +55,7 @@ const ItemModifyContainer = ({ match, history }) => {
   }, [dispatch, itemId]);
 
   return (
-    <ItemModifyForm
-      item={item}
-      isLoading={isLoading}
-      onModify={onModify}
-    />
+    <ItemModifyForm item={item} isLoading={isLoading} onModify={onModify} />
   );
 };
 

@@ -1,9 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import ItemRegisterForm from '../components/ItemRegisterForm';
-
 import axios from 'axios';
-//import { registerItemApi } from '../lib/api';
 
 // withRouter 함수의 기능이 적용되어 속성으로 history를 전달받음
 const ItemRegisterContainer = ({ history }) => {
@@ -20,19 +18,22 @@ const ItemRegisterContainer = ({ history }) => {
     formData.append('item', JSON.stringify(itemObject));
 
     // 파일 업로드
-    axios.post('/items', formData, {
-      headers: {
-        "Content-Type": "multipart/form-data",
-      },
-    }).then((res) => {
-      alert('등록 되었습니다.');
-      history.push('/read/' + res.data.itemId);
-    }).catch((err) => {
-      alert(err);
-    });
+    axios
+      .post('/items', formData, {
+        headers: {
+          'Content-Type': 'multipart/form-data',
+        },
+      })
+      .then((res) => {
+        alert('등록 되었습니다.');
+        history.push('/read/' + res.data.itemId);
+      })
+      .catch((err) => {
+        alert(err);
+      });
   };
 
   return <ItemRegisterForm onRegister={onRegister} />;
-}
+};
 
 export default withRouter(ItemRegisterContainer);

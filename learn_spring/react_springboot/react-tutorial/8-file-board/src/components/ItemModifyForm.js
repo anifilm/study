@@ -32,8 +32,8 @@ const ItemModifyForm = ({ item, isLoading, onModify }) => {
   // 폼 submit 이벤트 처리
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(`${itemName} ${price} ${description}`);
-    console.log(file);
+    //console.log(`${itemName} ${price} ${description}`);
+    //console.log(file);
     onModify(itemName, price, description, file);
   };
 
@@ -78,13 +78,16 @@ const ItemModifyForm = ({ item, isLoading, onModify }) => {
                   <input type="file" onChange={handleChangeFile} />
                 </div>
                 <div className="file-path-wrapper">
-                <input class="file-path validate" type="text" placeholder="상품파일" />
+                <input className="file-path validate" type="text" placeholder="수정할 상품 이미지 파일" />
                 </div>
               </div>
-              <div className="input-field col s12">
-                <img src={pictureUrl()} alt="" width="200" />
-                <input type="text" id="image" readOnly />
-                <label className="active" htmlFor="image">미리보기</label>
+              <div className="col s12 m6">
+                <div className="card">
+                  <div className="card-image">
+                    <img src={pictureUrl(item.itemId)} alt={itemName} />
+                    <span className="card-title">이미지 미리보기</span>
+                  </div>
+                </div>
               </div>
             </div>
             <div className="row">
