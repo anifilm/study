@@ -1,28 +1,23 @@
-import React, { useState, useEffect } from 'react';
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import ItemList from '../components/ItemList';
-import * as client from '../lib/api';
+import { fetchItemList, FETCH_ITEM_LIST } from '../modules/item';
 
 const ItemListContainer = () => {
-  // 컴포넌트 상태 선언
-  const [items, setItems] = useState([]);
-  const [isLoading, setLoading] = useState(false);
+  // 스토어 dispatch 사용
+  const dispatch = useDispatch();
+  // 스토어 상태 조회
+  const { items, isLoading } = useSelector(({ item, loading }) => {
+    return {
+      items: item.items,
+      isLoading: loading[FETCH_ITEM_LIST],
+    };
+  });
 
-  // 게시글 목록 조회
-  const listItem = async () => {
-    setLoading(true);
-    try {
-      const response = await client.fetchItemList();
-      setItems(response.data);
-      setLoading(false);
-    } catch (e) {
-      setLoading(false);
-      throw e;
-    }
-  }
-  // 마운트될 때 게시글 목록을 가져옴
+  // 마운트될 때 상품 목록을 가져옴
   useEffect(() => {
-    listItem();
-  }, []);
+    dispatch(fetchItemList());
+  }, [dispatch]);
 
   return <ItemList items={items} isLoading={isLoading} />;
 };

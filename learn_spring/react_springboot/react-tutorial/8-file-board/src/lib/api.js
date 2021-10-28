@@ -1,17 +1,17 @@
 import axios from 'axios';
 
-export const registerItem = (title, content, writer) => {
+export const registerItemApi = (title, content, writer) => {
   return axios.post('/items', { title, content, writer });
 };
-export const fetchItem = (itemNo) => {
-  return axios.get(`/items/${itemNo}`);
+export const fetchItemApi = (itemId) => {
+  return axios.get(`/items/${itemId}`);
 };
-export const fetchItemList = () => {
+export const fetchItemListApi = () => {
   return axios.get('/items');
 };
-export const removeItem = (itemNo) => {
-  return axios.delete(`/items/${itemNo}`);
+export const removeItemApi = (itemId) => {
+  return axios.delete(`/items/${itemId}`);
 };
-export const modifyItem = (itemNo, title, content) => {
-  return axios.put(`/items/${itemNo}`, { title, content })
+export const modifyItemApi = (itemId, title, content) => {
+  return axios.put(`/items/${itemId}`, { title, content })
 }

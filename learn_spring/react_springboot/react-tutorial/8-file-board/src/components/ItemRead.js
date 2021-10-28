@@ -2,7 +2,14 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 // 부모 컴포넌트에서 컴포넌트 속성으로 수신
-const ItemRead = ({ itemNo, item, isLoading, onRemove }) => {
+const ItemRead = ({ itemId, item, isLoading, onRemove }) => {
+  // 이미지 표시 URL 생성
+  const pictureUrl = (itemId) => {
+    return (
+      `/items/display?itemId=${itemId}&timestamp=${new Date().getTime()}`
+    );
+  };
+
   return (
     <div className="container">
       <h3>상품 상세보기</h3>
@@ -16,20 +23,21 @@ const ItemRead = ({ itemNo, item, isLoading, onRemove }) => {
           <div className="col s12">
             <div className="row">
               <div className="input-field col s4">
-                <input type="text" id="item-no" value={item.itemNo} disabled />
-                <label className="active" htmlFor="item-no">상품번호</label>
+                <input type="text" id="item-id" value={item.itemId} disabled />
+                <label className="active" htmlFor="item-id">상품번호</label>
               </div>
               <div className="input-field col s4">
-                <input type="text" id="writer" value={item.writer} disabled />
-                <label className="active" htmlFor="writer">상품명</label>
+                <input type="text" id="item-name" value={item.itemName} disabled />
+                <label className="active" htmlFor="item-name">상품명</label>
               </div>
               <div className="input-field col s4">
-                <input type="text" id="reg-date" value={item.regDate} disabled />
-                <label className="active" htmlFor="reg-date">상품가격</label>
+                <input type="text" id="price" value={item.price} disabled />
+                <label className="active" htmlFor="price">상품가격</label>
               </div>
               <div className="input-field col s12">
-                <input type="text" id="title" value={item.title} readOnly />
-                <label className="active" htmlFor="title">미리보기</label>
+                <img src={pictureUrl()} alt="" width="200" />
+                <input type="text" id="image" readOnly />
+                <label className="active" htmlFor="image">미리보기</label>
               </div>
             </div>
             <div className="row">
@@ -37,7 +45,7 @@ const ItemRead = ({ itemNo, item, isLoading, onRemove }) => {
                 <textarea
                   id="textarea"
                   className="materialize-textarea"
-                  value={item.content}
+                  value={item.description}
                   readOnly
                   style={{ height: 100 }}
                 ></textarea>
@@ -49,7 +57,7 @@ const ItemRead = ({ itemNo, item, isLoading, onRemove }) => {
           <Link to="/" className="waves-effect waves-light btn">
             상품목록
           </Link>{' '}
-          <Link to={`/edit/${itemNo}`} className="waves-effect waves-light btn blue">수정</Link>{' '}
+          <Link to={`/edit/${itemId}`} className="waves-effect waves-light btn blue">수정</Link>{' '}
           <button onClick={onRemove} className="waves-effect waves-light btn red right">삭제</button>
         </div>
       )}

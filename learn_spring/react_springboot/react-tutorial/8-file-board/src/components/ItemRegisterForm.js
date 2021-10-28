@@ -19,7 +19,7 @@ const ItemRegisterForm = ({ onRegister }) => {
     setDescription(e.target.value);
   }, []);
   const handleChangeFile = useCallback((e) => {
-    console.log(e.target.files[0]);
+    //console.log(e.target.files[0]);
     setFile(e.target.files[0]);
   }, []);
 
@@ -45,7 +45,7 @@ const ItemRegisterForm = ({ onRegister }) => {
               onChange={handleChangeItemName}
               required
             />
-            <label htmlFor="title">상품명</label>
+            <label className="active" htmlFor="title">상품명</label>
           </div>
           <div className="input-field col s5">
             <input
@@ -55,7 +55,7 @@ const ItemRegisterForm = ({ onRegister }) => {
               onChange={handleChangePrice}
               required
             />
-            <label htmlFor="price">상품가격 (원)</label>
+            <label className="active" htmlFor="price">상품가격 (원)</label>
           </div>
         </div>
         <div className="row">
@@ -65,7 +65,7 @@ const ItemRegisterForm = ({ onRegister }) => {
               <input type="file" onChange={handleChangeFile} />
             </div>
             <div className="file-path-wrapper">
-            <input class="file-path validate" type="text" placeholder="상품 파일 등록" />
+            <input className="file-path validate" type="text" placeholder="상품 파일 등록" />
             </div>
           </div>
         </div>
@@ -79,7 +79,7 @@ const ItemRegisterForm = ({ onRegister }) => {
               style={{ height: 100 }}
               required
             ></textarea>
-            <label htmlFor="textarea">상품설명</label>
+            <label className="active" htmlFor="textarea">상품설명</label>
           </div>
         </div>
         <br />

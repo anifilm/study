@@ -3,7 +3,7 @@ import { withRouter } from 'react-router-dom';
 import ItemRegisterForm from '../components/ItemRegisterForm';
 
 import axios from 'axios';
-import * as client from '../lib/api';
+//import { registerItemApi } from '../lib/api';
 
 // withRouter 함수의 기능이 적용되어 속성으로 history를 전달받음
 const ItemRegisterContainer = ({ history }) => {
@@ -14,7 +14,6 @@ const ItemRegisterContainer = ({ history }) => {
       price: price,
       description: description,
     };
-
     // FormData 객체 생성
     const formData = new FormData();
     formData.append('file', file);
@@ -23,7 +22,7 @@ const ItemRegisterContainer = ({ history }) => {
     // 파일 업로드
     axios.post('/items', formData, {
       headers: {
-        'Content-Type': 'multipart/form-data',
+        "Content-Type": "multipart/form-data",
       },
     }).then((res) => {
       alert('등록 되었습니다.');

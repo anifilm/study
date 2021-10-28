@@ -24,21 +24,19 @@ const ItemList = ({ items, isLoading }) => {
             <tbody>
               {!items.length && (
                 <tr>
-                  <td>100</td>
-                  {/*<td colSpan="4">
+                  <td></td>
+                  <td colSpan="4">
                     등록된 게시물이 없습니다.
-                  </td>*/}
-                  <td><Link to={'/read/100'}>풍경사진</Link></td>
-                  <td>1000원</td>
+                  </td>
                 </tr>
               )}
               {!!items.length && items.map((item) => (
-                <tr key={item.itemNo}>
-                  <td>{item.itemNo}</td>
+                <tr key={item.itemId}>
+                  <td>{item.itemId}</td>
                   <td>
-                    <Link to={`/read/${item.itemNo}`}>{item.title}</Link>
+                    <Link to={`/read/${item.itemId}`}>{item.itemName}</Link>
                   </td>
-                  <td>{item.writer}</td>
+                  <td>{item.price}원</td>
                 </tr>
               ))}
             </tbody>
