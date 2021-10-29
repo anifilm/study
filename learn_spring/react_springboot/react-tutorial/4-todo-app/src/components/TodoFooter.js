@@ -1,6 +1,5 @@
 import React from 'react';
 import { useSelector } from 'react-redux';
-import styles from '../Todo.module.css';
 
 const TodoFooter = ({ onClearAll }) => {
   // 스토어 상태 조회

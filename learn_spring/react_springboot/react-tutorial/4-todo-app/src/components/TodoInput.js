@@ -1,5 +1,4 @@
 import React from 'react';
-import styles from '../Todo.module.css';
 
 // 부모 컴포넌트에서 컴포넌트 속성으로 수신
 const TodoInput = ({ input, onInsert, onChangeInput }) => {

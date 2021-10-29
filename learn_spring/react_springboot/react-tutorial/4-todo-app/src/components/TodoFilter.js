@@ -1,5 +1,4 @@
 import React from 'react';
-import styles from '../Todo.module.css';
 
 // filter, onChagneFilter props로 수신
 const TodoFilter = ({ filter, onChangeFilter }) => {

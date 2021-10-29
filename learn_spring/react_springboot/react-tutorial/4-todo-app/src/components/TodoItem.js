@@ -1,7 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { setEditingId, resetEditingId } from '../actions/todos';
-import styles from '../Todo.module.css';
 
 const TodoItem = ({ todo, onToggle, onRemove, onEdit }) => {
   const { id, text, done } = todo;
