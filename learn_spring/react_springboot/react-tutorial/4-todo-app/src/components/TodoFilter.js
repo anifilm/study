@@ -10,28 +10,43 @@ const TodoFilter = ({ filter, onChangeFilter }) => {
 
   // 필터링 유형 변경 이벤트 처리
   return (
-    <div className={styles.filter}>
-      <input
-        type="radio"
-        value="ALL"
-        checked={filter === 'ALL'}
-        onChange={handleFilter}
-      />
-      전체{' '}
-      <input
-        type="radio"
-        value="A"
-        checked={filter === 'A'}
-        onChange={handleFilter}
-      />
-      미완료{' '}
-      <input
-        type="radio"
-        value="B"
-        checked={filter === 'B'}
-        onChange={handleFilter}
-      />
-      완료
+    <div className="row">
+      <div className="col s1.5 offset-s3">
+        <label>
+          <input
+            className="with-gap"
+            type="radio"
+            value="ALL"
+            checked={filter === 'ALL'}
+            onChange={handleFilter}
+          />
+          <span>전체</span>
+        </label>
+      </div>
+      <div className="col s1.5">
+        <label>
+          <input
+            className="with-gap"
+            type="radio"
+            value="A"
+            checked={filter === 'A'}
+            onChange={handleFilter}
+          />
+          <span>미완료</span>
+        </label>
+      </div>
+      <div className="col s1.5">
+        <label>
+          <input
+            className="with-gap"
+            type="radio"
+            value="B"
+            checked={filter === 'B'}
+            onChange={handleFilter}
+          />
+          <span>완료</span>
+        </label>
+      </div>
     </div>
   );
 };

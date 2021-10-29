@@ -81,7 +81,7 @@ const BoardModifyForm = ({ board, isLoading, onModify }) => {
             </div>
             <br />
             <Link to={`/read/${board.boardNo}`} className="waves-effect waves-light btn">취소</Link>{' '}
-            <button type="submit"className="waves-effect waves-light btn blue">완료</button>
+            <button type="submit" className="waves-effect waves-light btn blue">완료</button>
           </form>
         </div>
       )}

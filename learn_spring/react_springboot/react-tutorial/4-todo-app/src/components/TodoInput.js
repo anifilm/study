@@ -20,15 +20,19 @@ const TodoInput = ({ input, onInsert, onChangeInput }) => {
   };
 
   return (
-    <div className={styles.input}>
+    <div className="row">
       <form onSubmit={onSubmit}>
-        <input
-          type="text"
-          value={input}
-          onChange={onChange}
-          placeholder="할 일을 입력하세요"
-        />
-        <button type="submit">추가</button>
+        <div className="col s5 offset-s3">
+          <input
+            type="text"
+            value={input}
+            onChange={onChange}
+            placeholder="할 일을 입력하세요"
+            />
+        </div>
+        <div className="col s4">
+          <button type="submit" class="waves-effect waves-light btn">추가</button>
+        </div>
       </form>
     </div>
   );

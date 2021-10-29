@@ -19,7 +19,7 @@ const Todos = ({
   onEdit,
 }) => {
   return (
-    <div>
+    <div className="container">
       <TodoHeader />
       <TodoInput
         input={input}
