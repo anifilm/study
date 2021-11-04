@@ -8,28 +8,14 @@ $ laravel new laravel-movie-app
 
 $ cd laravel-movie-app
 
-$ composer require laravel-frontend-presets/tailwindcss --dev
 
-$ php artisan ui tailwindcss --auth
+# tailwindcss 설정 (참고 https://tailwindcss.com/docs/guides/laravel)
 
-$ npm remove laravel-mix
+$ npm install -D tailwindcss@latest postcss@latest autoprefixer@latest
 
-$ npm i -D laravel-mix
+$ npx tailwindcss init
 
-$ npm i -D cross-env
-
-
-$ npm run watch
-
-
-$ php artisan make:controller PagesController
-
-$ php artisan route:list
+$ npm run dev
 
 
 $ php artisan serve
-
-
-$ php artisan make:controller PostsController --resource
-
-$ php artisan make:model Post
