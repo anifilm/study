@@ -45,6 +45,8 @@ $ gem install bundler
 $ rbenv rehash
 
 
-# rails 설치하기
+# rails 설치하기 / 업데이트 하기
 
 $ gem install rails
+
+$ gem updata rails
