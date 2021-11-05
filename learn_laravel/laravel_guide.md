@@ -1,6 +1,11 @@
 Laravel
 https://laravel.com/
 
+
+[PHP] Arch Linux에서의 LEMP 스택 + Laravel 개발 환경 설치 매뉴얼
+https://dev-overload.tistory.com/16
+
+
 # Windows에서 php / composer 설치
 
 $ choco install php
@@ -20,10 +25,6 @@ $ sudo composer self-update
 # 컴포저로 라라벨 인스톨러 설치
 
 $ composer global require laravel/installer
-
-
-# [PHP] Arch Linux에서의 LEMP 스택 + Laravel 개발 환경 설치 매뉴얼
-https://dev-overload.tistory.com/16
 
 
 # 라라벨 프로젝트 생성하기
