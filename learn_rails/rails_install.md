@@ -49,4 +49,4 @@ $ rbenv rehash
 
 $ gem install rails
 
-$ gem updata rails
+$ gem update rails
