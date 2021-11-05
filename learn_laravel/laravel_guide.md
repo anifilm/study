@@ -31,8 +31,8 @@ $ composer global require laravel/installer
 $ laravel new 프로젝트명
 
 
-# 버전 지정하여 생성하기
-$ composer create-project laravel/laravel="5.8.*" 프로젝트명
+# 버전 지정하여 생성하기 (laravel 5.8.* 설치시 -> php 버전 의존성 확인 7.1.3)
+$ composer create-project laravel/laravel="6.*" 프로젝트명
 
 
 # 모델 생성
