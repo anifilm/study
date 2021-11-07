@@ -2,7 +2,7 @@
 <html lang="ko">
 <head>
   <meta charset="utf-8">
-  <title><?=$title?></title>
+  <title><?= $title ?></title>
   <link rel="stylesheet" href="jokes.css">
 </head>
 <body>
@@ -20,11 +20,11 @@
   </nav>
 
   <main>
-    <?=$output?>
+    <?= $output ?>
   </main>
 
   <footer>
-  &copy; IJDB 2017
+    &copy; IJDB 2017
   </footer>
 
   </body>
