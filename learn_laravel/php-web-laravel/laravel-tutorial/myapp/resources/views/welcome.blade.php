@@ -34,7 +34,7 @@
 
         @section('style')
             <style>
-                body { background: green; color: white; }
+                body { background: #498f49; color: white; }
             </style>
         @endsection
 
