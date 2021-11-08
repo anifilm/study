@@ -49,12 +49,17 @@
 //    ]);
 //});
 
-Route::get('/', function () {
-    $items = ['apple', 'banana', 'tomato'];
+//Route::get('/', function () {
+//    $items = ['apple', 'banana', 'tomato'];
 
-    return view('welcome')->with([
-        'name' => 'Foo',
-        'greeting' => '안녕하세요',
-        'items' => $items,
-    ]);
-});
+//    return view('welcome')->with([
+//        'name' => 'Foo',
+//        'greeting' => '안녕하세요',
+//        'items' => $items,
+//    ]);
+//});
+
+// 컨트롤러를 통한 메서드 호출 App\Http\Controllers\WelcomeController->index()
+Route::get('/', 'WelcomeController@index');
+
+Route::resource('articles', 'ArticlesController');
