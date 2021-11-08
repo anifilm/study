@@ -16,6 +16,14 @@ $ npm i -D browser-sync browser-sync-webpack-plugin
 mix.browserSync('127.0.0.1:8000');
 
 
-# MySQL 테이블 구조 백업
+# MySQL 데이터베이스 생성 (lara_myapp)
 
-$ mysqldump -d -u root -p lara_myapp > lara_myapp.sql
+> create database lara_myapp;
+
+# 라라벨 데이터베이스 마이그레이션
+
+$ php artisan migrate
+
+# 라라벨 데이터베이스 마이그레이션 (초기화 후 재생성)
+
+$ php artisan migrate:refresh
