@@ -14,3 +14,8 @@ $ npm i -D browser-sync browser-sync-webpack-plugin
 
 > webpack.mix.js 에 다음 내용 추가
 mix.browserSync('127.0.0.1:8000');
+
+
+# MySQL 테이블 구조 백업
+
+$ mysqldump -d -u root -p lara_myapp > lara_myapp.sql
