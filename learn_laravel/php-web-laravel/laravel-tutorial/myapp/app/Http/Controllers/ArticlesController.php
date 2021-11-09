@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Http\Requests\ArticlesRequest;
 
 class ArticlesController extends Controller
 {
@@ -11,8 +12,7 @@ class ArticlesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
-    {
+    public function index() {
         //return __METHOD__.'은(는) Article 컬렉션을 조회합니다.';
 
         // 12.1.1 N+1 쿼리문제
@@ -37,9 +37,10 @@ class ArticlesController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function create()
-    {
-        return __METHOD__.'은(는) Article 컬렉션을 만들기 위한 폼을 담은 뷰를 반환합니다.';
+    public function create() {
+        //return __METHOD__.'은(는) Article 컬렉션을 만들기 위한 폼을 담은 뷰를 반환합니다.';
+
+        return view('articles.create');
     }
 
     /**
@@ -48,9 +49,48 @@ class ArticlesController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
-    {
-        return __METHOD__.'은(는) 사용자의 입려한 폼 데이터로 새로운 Article 컬렉션을 만듭니다.';
+    /*
+    public function store(Request $request) {
+        //return __METHOD__.'은(는) 사용자의 입력한 폼 데이터로 새로운 Article 컬렉션을 만듭니다.';
+
+        $rules = [
+            'title' => ['required'],
+            'content' => ['required', 'min:10'],
+        ];
+
+        // 13.1.4 오류 메시지 사용자화
+        $messages = [
+            'title.required' => '제목은 필수 입력 항목입니다.',
+            'content.required' => '본문은 필수 입력 항목입니다.',
+            'content.min' => '본문은 최소 :min 글자 이상이 필요합니다.',
+        ];
+
+        //$validator = \Validator::make($request->all(), $rules, $messages);
+
+        //if ($validator->fails()) {
+        //    return back()->withErrors($validator)->withInput();
+        //}
+
+        // 13.2 트레이트의 메서드 이용
+        $this->validate($request, $rules, $messages);
+
+        $article = \App\User::find(1)->articles()->create($request->all());
+
+        if (!$article) {
+            return back()->with('flash_mesasge', '글이 저장되지 않았습니다.')->withInput();
+        }
+
+        return redirect(route('articles.index'))->with('flash_message', '작성하신 글이 저장되었습니다.');
+    }*/
+    // 13.3 폼 리퀘스트 클래스 이용
+    public function store(ArticlesRequest $request) {
+        $article = \App\User::find(1)->articles()->create($request->all());
+
+        if (!$article) {
+            return back()->with('flash_mesasge', '글이 저장되지 않았습니다.')->withInput();
+        }
+
+        return redirect(route('articles.index'))->with('flash_message', '작성하신 글이 저장되었습니다.');
     }
 
     /**
@@ -59,8 +99,7 @@ class ArticlesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
-    {
+    public function show($id) {
         return __METHOD__.'은(는) 다음 기본 키를 가진 Article 모델을 조회합니다.: '.$id;
     }
 
@@ -70,8 +109,7 @@ class ArticlesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
-    {
+    public function edit($id) {
         return __METHOD__.'은(는) 다음 기본 키를 가진 Article 모델을 수정하기 위한 폼을 담으 뷰를 반환합니다.: '.$id;
     }
 
@@ -82,8 +120,7 @@ class ArticlesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
-    {
+    public function update(Request $request, $id) {
         return __METHOD__.'은(는) 사용자의 입력한 폼 데이터로 다음 키본 키를 가진 Article 모델을 수정합니다.: '.$id;
     }
 
@@ -93,8 +130,7 @@ class ArticlesController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy($id)
-    {
+    public function destroy($id) {
         return __METHOD__.'은(는) 다음 기본 키를 가진 Article 모델을 삭제합니다.: '.$id;
     }
 }
