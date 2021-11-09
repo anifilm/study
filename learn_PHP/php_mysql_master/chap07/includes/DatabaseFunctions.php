@@ -38,10 +38,37 @@ function insertJoke($pdo, $joketext, $authorId) {
     query($pdo, $query, $parameters);
 }
 
-function updateJoke($pdo, $jokeId, $joketext, $authorId) {
-    $parameters = [':joketext' => $joketext, ':authorId' => $authorId, ':id' => $jokeId];
+function updateJoke($pdo, $fields) {
+    //$parameters = [':joketext' => $joketext, ':authorId' => $authorId, ':id' => $jokeId];
 
-    query($pdo, 'UPDATE `joke` 
-        SET `authorId` = :authorId, `joketext` = :joketext 
-        WHERE `id` = :id', $parameters);
+    //query($pdo, 'UPDATE `joke`
+    //    SET `authorId` = :authorId, `joketext` = :joketext
+    //    WHERE `id` = :id', $parameters);
+
+    $query = 'UPDATE `joke` SET ';
+
+    foreach ($array as $key => $value) {
+        $query .= '`'.$key.'` = :'.$key.', ';
+    }
+
+    $query = rtrim($query, ', ');
+    $query .=' WHERE `id` =: primaryKey';
+
+    // :primaryKey 변수 설정
+    $fields['primaryKey'] = $fields['id'];
+
+    query($pdo, $query, $fields);
+}
+
+function deleteJoke($pdo, $id) {
+    $parameters = [':id' => $id];
+
+    query($pdo, 'DELETE FROM `joke` WHERE `id` = :id, $parameters');
+}
+
+function allJokes($pdo) {
+    $jokes = query($pdo, 'SELECT `joke`.`id`, `joketext`, `name`, `email`
+        FROM `joke` INNER JOIN `author` ON `authorid` = `author`.`id`');
+
+    return $jokes->fetchAll();
 }

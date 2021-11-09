@@ -31,7 +31,7 @@ function getJoke($pdo, $id) {
 
 function insertJoke($pdo, $joketext, $authorId) {
     $query = 'INSERT INTO `joke` (`joketext`, `jokedate`, `authorId`) 
-	        VALUES (:joketext, CURDATE(), :authorId)';
+	    VALUES (:joketext, CURDATE(), :authorId)';
 
     $parameters = [':joketext' => $joketext, ':authorId' => $authorId];
 
