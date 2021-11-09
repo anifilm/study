@@ -5267,6 +5267,7 @@ input[type=button].btn-block {
 
 .pagination {
   display: flex;
+  justify-content: center;
   padding-left: 0;
   list-style: none;
   border-radius: 0.25rem;
@@ -10961,4 +10962,3 @@ a.text-dark:focus {
     border-color: #dee2e6;
   }
 }
-
