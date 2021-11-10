@@ -7,7 +7,7 @@ https://rubykr.github.io/rails_guides/getting_started.html
 
 $ rails new [new-app]
 
-$ rails _5.2.3_ new [new-app]  // rails 버전 지정
+$ rails _4.2.11_ new [new-app]  // rails 버전 지정
 
 
 # 젬 설치하기
