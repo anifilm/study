@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
   match ':controller(/:action(/:id))', via: [ :get, :post, :patch ]
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
@@ -14,6 +15,7 @@ Rails.application.routes.draw do
 
   # Example resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
+  resources :books
 
   # Example resource route with options:
   #   resources :products do
