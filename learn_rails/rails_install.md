@@ -34,19 +34,17 @@ $ rbenv install -l
 
 # rbenv로 ruby 설치하기
 
-$ rbenv install 3.0.2
-$ rbenv global 3.0.2
+$ rbenv install 2.7.3
+$ rbenv global 2.7.3
 $ rbenv rehash
 
 
 # bundler 설치하기
 
-$ gem install bundler
+$ gem install bundler -v 1.17.3
 $ rbenv rehash
 
 
-# rails 설치하기 / 업데이트 하기
+# rails 설치하기
 
-$ gem install rails
-
-$ gem update rails
+$ gem install rails -v 4.2.11
