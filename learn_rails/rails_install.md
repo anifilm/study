@@ -39,7 +39,7 @@ $ rbenv global 2.7.3
 $ rbenv rehash
 
 
-# bundler 설치하기
+# bundler 설치하기 (bash zsh alias 설정으로 버전 지정 가능 / bundler, bundle)
 
 $ gem install bundler -v 1.17.3
 $ rbenv rehash
