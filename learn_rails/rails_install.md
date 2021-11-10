@@ -34,8 +34,8 @@ $ rbenv install -l
 
 # rbenv로 ruby 설치하기
 
-$ rbenv install 2.7.3
-$ rbenv global 2.7.3
+$ rbenv install 2.7.4
+$ rbenv global 2.7.4
 $ rbenv rehash
 
 
