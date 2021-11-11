@@ -76,7 +76,7 @@ $query_builder = TRUE;
 $db['default'] = array(
 	'dsn'	=> '',
 	'hostname' => 'localhost',
-	'username' => 'root',
+	'username' => '',
 	'password' => '',
 	'database' => '',
 	'dbdriver' => 'mysqli',
@@ -94,3 +94,9 @@ $db['default'] = array(
 	'failover' => array(),
 	'save_queries' => TRUE
 );
+
+$db['default']['hostname'] = getenv('DB_HOST');
+$db['default']['username'] = getenv('DB_USERNAME');
+$db['default']['password'] = getenv('DB_PASSWORD');
+$db['default']['database'] = getenv('DB_DATABASE');
+$db['default']['dbdriver'] = getenv('DB_CONNECTION');

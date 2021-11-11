@@ -95,8 +95,8 @@ $db['default'] = array(
 	'save_queries' => TRUE
 );
 
-//$db['default']['hostname'] = getenv('DB_HOST');
+$db['default']['hostname'] = getenv('DB_HOST');
 $db['default']['username'] = getenv('DB_USERNAME');
 $db['default']['password'] = getenv('DB_PASSWORD');
 $db['default']['database'] = getenv('DB_DATABASE');
-//$db['default']['dbdriver'] = getenv('DB_CONNECTION');
+$db['default']['dbdriver'] = getenv('DB_CONNECTION');
