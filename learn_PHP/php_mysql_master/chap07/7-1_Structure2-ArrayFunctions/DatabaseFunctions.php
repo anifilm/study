@@ -19,12 +19,6 @@ function totalJokes($pdo) {
     return $row[0];
 }
 
-function allAuthors($pdo) {
-    $authors = query($pdo, 'SELECT * FROM `author`');
-
-    return $authors->fetchAll();
-}
-
 function getJoke($pdo, $id) {
     // query() 함수에서 사용할 $parameters 배열 생성
     $parameters = [':id' => $id];
@@ -57,7 +51,11 @@ function insertJoke($pdo, $fields) {
     $query = rtrim($query, ',');
     $query .= ')';
 
-    $fields = processDates($fields);
+    foreach ($fields as $key => $value) {
+        if ($value instanceof DateTime) {
+            $fields[$key] = $value->format('Y-m-d H:i:s');
+        }
+    }
 
     query($pdo, $query, $fields);
 }
@@ -78,10 +76,14 @@ function updateJoke($pdo, $fields) {
     $query = rtrim($query, ', ');
     $query .= ' WHERE `id` =: primaryKey';
 
+    foreach ($fields as $key => $value) {
+        if ($value instanceof DateTime) {
+            $fields[$key] = $value->format('Y-m-d H:i:s');
+        }
+    }
+
     // :primaryKey 변수 설정
     $fields['primaryKey'] = $fields['id'];
-
-    $fields = processDates($fields);
 
     query($pdo, $query, $fields);
 }
@@ -89,25 +91,12 @@ function updateJoke($pdo, $fields) {
 function deleteJoke($pdo, $id) {
     $parameters = [':id' => $id];
 
-    query($pdo, 'DELETE FROM `joke` WHERE `id` = :id', $parameters);
+    query($pdo, 'DELETE FROM `joke` WHERE `id` = :id, $parameters');
 }
 
 function allJokes($pdo) {
-    $jokes = query($pdo, 'SELECT `joke`.`id`, `joketext`, `jokedate`, `name`, `email`
+    $jokes = query($pdo, 'SELECT `joke`.`id`, `joketext`, `name`, `email`
         FROM `joke` INNER JOIN `author` ON `authorid` = `author`.`id`');
 
     return $jokes->fetchAll();
-}
-
-function processDates($fields) {
-    // 배열 요소 순회
-    foreach ($fields as $key => $value) {
-        // $value가 DateTime 객체라면
-        if ($value instanceof DateTime) {
-            // Y-m-d H:i:s 형식으로 변환
-            $fields[$key] = $value->format('Y-m-d H:i:s');
-        }
-    }
-
-    return $fields;
 }

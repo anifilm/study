@@ -19,12 +19,6 @@ function totalJokes($pdo) {
     return $row[0];
 }
 
-function allAuthors($pdo) {
-    $authors = query($pdo, 'SELECT * FROM `author`');
-
-    return $authors->fetchAll();
-}
-
 function getJoke($pdo, $id) {
     // query() 함수에서 사용할 $parameters 배열 생성
     $parameters = [':id' => $id];
@@ -93,7 +87,7 @@ function deleteJoke($pdo, $id) {
 }
 
 function allJokes($pdo) {
-    $jokes = query($pdo, 'SELECT `joke`.`id`, `joketext`, `jokedate`, `name`, `email`
+    $jokes = query($pdo, 'SELECT `joke`.`id`, `joketext`, `name`, `email`
         FROM `joke` INNER JOIN `author` ON `authorid` = `author`.`id`');
 
     return $jokes->fetchAll();

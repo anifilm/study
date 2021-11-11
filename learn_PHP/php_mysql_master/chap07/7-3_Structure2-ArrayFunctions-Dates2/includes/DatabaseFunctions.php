@@ -19,12 +19,6 @@ function totalJokes($pdo) {
     return $row[0];
 }
 
-function allAuthors($pdo) {
-    $authors = query($pdo, 'SELECT * FROM `author`');
-
-    return $authors->fetchAll();
-}
-
 function getJoke($pdo, $id) {
     // query() 함수에서 사용할 $parameters 배열 생성
     $parameters = [':id' => $id];
