@@ -3,7 +3,7 @@
     <p>
       <?= htmlspecialchars($joke['joketext'], ENT_QUOTES, 'UTF-8') ?>
 
-      (작성자: <a href="mailto:<?php echo htmlspecialchars($joke['email'], ENT_QUOTES, 'UTF-8')?>"><?php echo htmlspecialchars($joke['name'], ENT_QUOTES, 'UTF-8')?></a>)
+      (작성자: <a href="mailto:<?= htmlspecialchars($joke['email'], ENT_QUOTES, 'UTF-8')?>"><?= htmlspecialchars($joke['name'], ENT_QUOTES, 'UTF-8')?></a>)
 
       <form action="deletejoke.php" method="post">
         <input type="hidden" name="id" value="<?= $joke['id'] ?>">
