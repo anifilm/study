@@ -1,0 +1,6 @@
+CRITICAL - 2021-11-11 16:44:47 --> The framework needs the following extension(s) installed and loaded: intl.
+#0 S:\GitHub\__study__\learn_PHP\php_codeigniter4\codeigniter4\system\CodeIgniter.php(219): CodeIgniter\Exceptions\FrameworkException::forMissingExtension()
+#1 S:\GitHub\__study__\learn_PHP\php_codeigniter4\codeigniter4\system\CodeIgniter.php(177): CodeIgniter\CodeIgniter->resolvePlatformExtensions()
+#2 S:\GitHub\__study__\learn_PHP\php_codeigniter4\codeigniter4\system\bootstrap.php(146): CodeIgniter\CodeIgniter->initialize()
+#3 S:\GitHub\__study__\learn_PHP\php_codeigniter4\codeigniter4\spark(45): require('...')
+#4 {main}
