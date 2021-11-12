@@ -1,0 +1,13 @@
+.ipynb_checkpoints/
+.pytest_cache
+__pycache__/
+
+# for venv
+etc/
+Include/
+Lib/
+Scripts/
+share/
+
+강의자료
+*.pdf

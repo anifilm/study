@@ -13,8 +13,8 @@ class Topic extends CI_Controller {
 		$topics = $this->topic_model->gets();
 
 		$this->load->view('templetes/header');
-		$this->load->view('main', array('topics' => $topics));
 		$this->load->view('topic_list', array('topics' => $topics));
+		$this->load->view('main', array('topics' => $topics));
 		$this->load->view('templetes/footer');
     }
 
