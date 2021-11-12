@@ -1,9 +1,6 @@
 PHP 테스트 환경 구성
 repl.it
 
-Todo app with PHP
-https://youtu.be/NxeNqHdJFxs
-
 
 Windows10 WSL 에서 LEMP 스택 구성하기
 https://acaroom.net/ko/blog/sean/windows-10%EC%9D%98-wsl-ubuntu-1804%EC%97%90%EC%84%9C-lemp-%EC%8A%A4%ED%83%9D-%EA%B5%AC%EC%84%B1%ED%95%98%EA%B8%B0
