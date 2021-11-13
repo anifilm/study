@@ -57,9 +57,9 @@
   <div id="menu_bar">
     <ul>
       <li><a href="index.php">HOME</a></li>
-      <li><a href="message_box.php">쪽지 보내기</a></li>
       <li><a href="board_list.php">게시판 보기</a></li>
-      <li><a href="index.php">사이트 완성</a></li>
+      <li><a href="message_box.php">쪽지 보내기</a></li>
+      <!-- <li><a href="index.php">사이트 완성</a></li> -->
     </ul>
   </div>
 

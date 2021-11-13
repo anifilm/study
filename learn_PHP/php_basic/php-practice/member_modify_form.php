@@ -45,14 +45,14 @@
           <div class="form">
             <div class="col1">비밀번호</div>
             <div class="col2">
-              <input type="password" name="pass" value="<?= $pass ?>">
+              <input type="password" name="pass" value="">
             </div>
           </div>
           <div class="clear"></div>
           <div class="form">
             <div class="col1">비밀번호 확인</div>
             <div class="col2">
-              <input type="password" name="pass_confirm" value="<?= $pass ?>">
+              <input type="password" name="pass_confirm" value="">
             </div>
           </div>
           <div class="clear"></div>
@@ -72,7 +72,7 @@
           <div class="clear"></div>
           <div class="bottom_line"></div>
           <div class="buttons">
-            <img id="reset_button" style="cursor:pointer" src="img/button_reset.gif" onclick="reset_form()">&nbsp;
+            <img id="reset_button" style="cursor:pointer" src="img/button_reset.gif" onclick="document.location.href='index.php'">&nbsp;
             <img style="cursor:pointer" src="./img/button_save.gif" onclick="check_input()">&nbsp;
           </div>
         </form>

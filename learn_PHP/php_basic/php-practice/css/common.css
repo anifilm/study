@@ -82,7 +82,8 @@ a:active {
 
 #menu_bar li {
   display: inline;
-  margin-left: 90px;
+  margin-left: 100px;
+  margin-right: 130px;
   color: white;
 }
 
