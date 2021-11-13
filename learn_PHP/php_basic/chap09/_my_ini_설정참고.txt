@@ -1,0 +1,19 @@
+[mysqld]
+datadir=C:/Program Files/MariaDB 10.6/data
+port=3306
+innodb_buffer_pool_size=2040M
+init_connect="SET collation_connection = utf8_general_ci"
+init_connect="SET NAMES utf8"
+character-set-server=utf8
+collation-server=utf8_general_ci
+
+[client]
+port=3306
+plugin-dir=C:/Program Files/MariaDB 10.6/lib/plugin
+default-character-set=utf8
+
+[mysqldump]
+default-character-set=utf8
+
+[mysql]
+default-character-set=utf8
