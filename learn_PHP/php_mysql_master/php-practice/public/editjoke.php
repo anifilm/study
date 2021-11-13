@@ -1,7 +1,9 @@
 <?php
 
 include __DIR__.'/../includes/DatabaseConnection.php';
-include __DIR__.'/../includes/DatabaseFunctions.php';
+include __DIR__ . '/../classes/DatabaseTable.php';
+
+$jokesTable = new DatabaseTable($pdo, 'joke', 'id');
 
 try {
     if (isset($_POST['joke'])) {
@@ -9,14 +11,14 @@ try {
         $joke['jokedate'] = new DateTime();
         $joke['authorId'] = 1;
 
-        save($pdo, 'joke', 'id', $joke);
+        $jokesTable->save($joke);
 
         header('location: jokes.php');
 
     } else {
         // id가 있는 경우에만 글 데이터를 가져온다.
         if (isset($_GET['id'])) {
-            $joke = findById($pdo, 'joke', 'id', $_GET['id']);
+            $joke = $jokesTable->findById($_GET['id']);
             $title = '유머 글 수정';
             $button = '수정';
         } else {

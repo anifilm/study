@@ -24,7 +24,7 @@
   </main>
 
   <footer>
-    &copy; IJDB 2017
+    &copy; IJDB <?= date('Y') ?>
   </footer>
 
   </body>

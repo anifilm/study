@@ -34,7 +34,7 @@ function findById($pdo, $table, $primaryKey, $value) {
 }
 
 function insert($pdo, $table, $fields) {
-    $query = "INSERT INTO `${table}` (";
+    $query = "INSERT INTO `{$table}` (";
 
     foreach ($fields as $key => $value) {
         $query .= "`{$key}`,";
@@ -55,7 +55,7 @@ function insert($pdo, $table, $fields) {
 }
 
 function update($pdo, $table, $primaryKey, $fields) {
-    $query = "UPDATE `${table}` SET ";
+    $query = "UPDATE `{$table}` SET ";
 
     foreach ($fields as $key => $value) {
         $query .= "`{$key}` = :{$key},";

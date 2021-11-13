@@ -2,13 +2,16 @@
 
 try {
     include __DIR__.'/../includes/DatabaseConnection.php';
-    include __DIR__.'/../includes/DatabaseFunctions.php';
+    include __DIR__ . '/../classes/DatabaseTable.php';
 
-    $result = findAll($pdo, 'joke');
+    $jokesTable = new DatabaseTable($pdo, 'joke', 'id');
+	$authorsTable = new DatabaseTable($pdo, 'author', 'id');
+
+    $result = $jokesTable->findAll();
 
     $jokes = [];
     foreach ($result as $joke) {
-        $author = findById($pdo, 'author', 'id', $joke['authorid']);
+        $author = $authorsTable->findById($joke['authorid']);
         $jokes[] = [
             'id' => $joke['id'],
             'joketext' => $joke['joketext'],
@@ -19,8 +22,8 @@ try {
 
     }
 
+    $totalJokes = $jokesTable->total();
     $title = '유머 글 목록';
-    $totalJokes = total($pdo, 'joke');
 
     ob_start();
 

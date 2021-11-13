@@ -65,7 +65,7 @@ function updateJoke($pdo, $fields) {
 
     $query = 'UPDATE `joke` SET ';
 
-    foreach ($array as $key => $value) {
+    foreach ($fields as $key => $value) {
         $query .= "`{$key}` = :{$key}, ";
     }
 
