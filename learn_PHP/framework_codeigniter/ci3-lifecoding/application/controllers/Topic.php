@@ -24,6 +24,7 @@ class Topic extends CI_Controller {
 
 		$this->load->view('templetes/header');
 		$this->load->view('topic_list', array('topics' => $topics));
+		$this->load->helper(array('url', 'HTML', 'korean'));
         $this->load->view('get', array('topic' => $topic));
 		$this->load->view('templetes/footer');
     }
