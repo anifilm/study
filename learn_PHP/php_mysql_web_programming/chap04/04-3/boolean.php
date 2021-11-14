@@ -1,4 +1,4 @@
 <?php
 
-echo true .'<br>';
-echo false .'<br>';
+echo (true).'<br>';
+echo (false).'<br>';
