@@ -6,7 +6,10 @@ function myFunc() {
     global $sep;
     $wor = 'World';
 
-    return fn ($hel) => $hel.$sep.$wor.'!';
+    return function ($hel) use ($sep, $wor) {
+        $exc = '!';
+        return $hel.$sep.$wor.$exc;
+    };
 }
 
 $hello = myFunc();
