@@ -61,7 +61,7 @@
 				</tbody>
 				<tfoot>
 					<tr>
-						<th colspan="4"><a href="/todo/index.php/main/write/" class="btn btn-primary">쓰기</a></th>
+						<th colspan="4"><a href="/todo/index.php/main/write/" class="btn btn-primary">일정 추가</a></th>
 					</tr>
 				</tfoot>
 			</table>

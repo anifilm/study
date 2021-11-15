@@ -42,7 +42,13 @@ class Topic extends CI_Controller {
 		if ($this->form_validation->run() == FALSE) {
 			$this->load->view('add');
 		} else {
-			echo '성공';
+			$topic_id = $this->topic_model->add(
+				$this->input->post('title'),
+				$this->input->post('description'),
+			);
+			$this->load->helper('url');
+			redirect(base_url().'topic/get/'.$topic_id);
+			//echo '성공';
 			//$this->load->view('formsuccess');
 		}
 
