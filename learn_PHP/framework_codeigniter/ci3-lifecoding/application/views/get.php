@@ -9,4 +9,7 @@
 			<?= $topic->description ?>
 		</div>
 	</div>
+	<div class="mt-5 ml-4">
+		<a href="/topic/add" class="btn btn-primary">추가</a>
+	</div>
 </div>
