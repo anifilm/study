@@ -12,4 +12,12 @@ class Todo_model extends CI_Model {
 
 		return $result;
 	}
+
+	public function get_view($id) {
+		$sql = 'SELECT * FROM items where id=\''.$id.'\'';
+		$query = $this->db->query($sql);
+		$result = $query->row();
+
+		return $result;
+	}
 }
