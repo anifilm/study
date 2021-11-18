@@ -12,6 +12,7 @@ class Topic extends CI_Controller {
 	private function _header() {
 		$topics = $this->topic_model->gets();
 		$this->load->view('templetes/header');
+		$this->load->helper('korean');
 		$this->load->view('topic_list', array('topics' => $topics));
 	}
 
