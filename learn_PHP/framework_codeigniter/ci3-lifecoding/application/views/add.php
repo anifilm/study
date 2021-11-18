@@ -1,6 +1,6 @@
 <div class="col-9">
 	<form class="mt-4 ml-4" action="/topic/add" method="POST">
-		<?php echo validation_errors(); ?>
+		<?= validation_errors(); ?>
 		<div class="form-group">
 			<label for="title">제목</label>
 			<input class="form-control" id="title" name="title">
