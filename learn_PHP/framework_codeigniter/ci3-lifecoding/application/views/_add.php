@@ -12,10 +12,3 @@
 		<input type="submit" class="btn btn-primary">
 	</form>
 </div>
-
-<script>
-	CKEDITOR.replace('description', {
-		'filebrowserUploadMethod': 'form',
-		'filebrowserUploadUrl': '/topic/upload_receive_from_ck'
-	});
-</script>

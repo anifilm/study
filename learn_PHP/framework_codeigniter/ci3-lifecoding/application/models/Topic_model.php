@@ -6,7 +6,9 @@ class Topic_model extends CI_Model {
 	}
 
 	public function gets() {
-		return $this->db->query('SELECT * FROM topic')->result();
+		//return $this->db->query('SELECT * FROM topic')->result();
+		// 최근 등록 순으로 수정
+		return $this->db->query('SELECT * FROM topic ORDER BY id DESC')->result();
 	}
 
 	public function get($topic_id) {
@@ -26,7 +28,6 @@ class Topic_model extends CI_Model {
 			'description' => $description,
 		));
 		//echo $this->db->last_query();
-
 		return $this->db->insert_id();
 	}
 }
