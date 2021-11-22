@@ -44,13 +44,13 @@
 				<ul class="navbar-nav">
 					<li class="nav-item">
 						<!-- 로그아웃 + 사용자명 출력 -->
-						<a class="nav-link" href="/auth/logout">로그아웃 (<?= $this->session->userdata('username') ?>)</a>
+						<a class="nav-link" href="/auth/logout"><?= $this->session->userdata('username') ?>님 (로그아웃)</a>
 					</li>
 				</ul>
 				<?php else: ?>
 				<ul class="navbar-nav">
 					<li class="nav-item">
-						<a class="nav-link" href="#">회원가입</a>
+						<a class="nav-link" href="/auth/signup">회원가입</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="/auth/login">로그인</a>
