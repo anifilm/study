@@ -10,9 +10,15 @@ class Topic extends CI_Controller {
 	}
 
 	private function _header() {
-		$topics = $this->topic_model->gets();
+		// 로그인 사용자 정보 확인
+		//echo '<pre>';
+		//var_dump($this->session->all_userdata());
+		//echo '</pre>';
+
 		$this->load->view('templetes/header');
-		$this->load->helper('korean');
+
+		$topics = $this->topic_model->gets();
+		$this->load->helper('korean'); // kdate 헬퍼 호출
 		$this->load->view('topic_list', array('topics' => $topics));
 	}
 
@@ -29,12 +35,19 @@ class Topic extends CI_Controller {
     public function get($id) {
 		$this->_header();
         $topic = $this->topic_model->get($id);
-		$this->load->helper(array('url', 'HTML', 'korean'));
+		$this->load->helper(array('HTML', 'korean'));
         $this->load->view('get', array('topic' => $topic));
 		$this->_footer();
     }
 
 	public function add() {
+		// 로그인 필요
+
+		// 로그인이 되어 있지 않다면 로그인 페이지로 리다이렉션
+		if (!$this->session->userdata('is_login')) {
+			redirect(base_url().'auth/login');
+		}
+
 		$this->_header();
 
 		$this->load->library('form_validation');
@@ -47,7 +60,6 @@ class Topic extends CI_Controller {
 				$this->input->post('title'),
 				$this->input->post('description'),
 			);
-			$this->load->helper('url');
 			redirect(base_url().'topic/get/'.$topic_id);
 			//echo '성공';
 			//$this->load->view('formsuccess');

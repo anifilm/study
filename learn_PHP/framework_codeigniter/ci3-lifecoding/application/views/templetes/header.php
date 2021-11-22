@@ -11,6 +11,19 @@
 	<link rel="stylesheet" href="/static/css/style.css">
 </head>
 <body>
+	<!-- 로그인 관련 메시지 출력 -->
+	<?php
+	if ($this->session->flashdata('message')):
+	?>
+	<script>
+		alert('<?= $this->session->flashdata('message') ?>');
+	</script>
+	<?php
+	// flashdata 내용이 초기화 되지 않아 강제로 초기화 시켜줌
+	$this->session->set_flashdata('message');
+	endif;
+	?>
+
 	<nav class="navbar navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
 		<div class="container">
 			<a class="navbar-brand" href="/">CI3 Topic Blog</a>
@@ -19,12 +32,31 @@
 			</button>
 			<div class="collapse navbar-collapse" id="navbarSupportedContent">
 				<ul class="navbar-nav mr-auto">
-				<li class="nav-item active">
-					<a class="nav-link" href="/">Home</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="#">Link</a>
-				</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/">Home</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="#" blank>Link</a>
+					</li>
+				</ul>
+				<!-- 오른쪽 항목 (로그인 관련) -->
+				<?php if ($this->session->userdata('is_login')): ?>
+				<ul class="navbar-nav">
+					<li class="nav-item">
+						<!-- 로그아웃 + 사용자명 출력 -->
+						<a class="nav-link" href="/auth/logout">로그아웃 (<?= $this->session->userdata('username') ?>)</a>
+					</li>
+				</ul>
+				<?php else: ?>
+				<ul class="navbar-nav">
+					<li class="nav-item">
+						<a class="nav-link" href="#">회원가입</a>
+					</li>
+					<li class="nav-item">
+						<a class="nav-link" href="/auth/login">로그인</a>
+					</li>
+				</ul>
+				<?php endif	?>
 			</div>
 		</div>
 	</nav>

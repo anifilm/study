@@ -9,7 +9,9 @@
 			<label for="description">본문</label>
 			<textarea class="form-control" id="description" rows="10" name="description"></textarea>
 		</div>
-		<input type="submit" class="btn btn-primary">
+		<div style="display: inline-block; position: absolute; right: 20px;">
+			<input type="submit" class="btn btn-primary">
+		</div>
 	</form>
 </div>
 

@@ -323,8 +323,10 @@ $config['cache_query_string'] = FALSE;
 |
 | https://codeigniter.com/user_guide/libraries/encryption.html
 |
+| 무작위 비밀번호 생성기 사용
+| https://passwordsgenerator.net/kr/
 */
-$config['encryption_key'] = '';
+$config['encryption_key'] = '4ZaJQ^c!RJ&e45rDp_6u+#d?3F!$FmRY';
 
 /*
 |--------------------------------------------------------------------------
@@ -376,12 +378,14 @@ $config['encryption_key'] = '';
 | Other session cookie settings are shared with the rest of the application,
 | except for 'cookie_prefix' and 'cookie_httponly', which are ignored here.
 |
+| 설정 참고 $config['sess_driver'] = 'database';
+| http://www.ciboard.co.kr/user_guide/kr/libraries/sessions.html#database-driver
 */
-$config['sess_driver'] = 'files';
+$config['sess_driver'] = 'database';
 $config['sess_cookie_name'] = 'ci_session';
 $config['sess_expiration'] = 7200;
-$config['sess_save_path'] = NULL;
-$config['sess_match_ip'] = FALSE;
+$config['sess_save_path'] = 'ci_sessions';
+$config['sess_match_ip'] = TRUE;
 $config['sess_time_to_update'] = 300;
 $config['sess_regenerate_destroy'] = FALSE;
 
@@ -521,3 +525,9 @@ $config['rewrite_short_tags'] = FALSE;
 | Array:		array('10.0.1.200', '192.168.5.0/24')
 */
 $config['proxy_ips'] = '';
+
+$config['authentication'] = array(
+	'email' => 'test@test.com',
+	'username' => '테스트',
+	'password' => 'test1234',
+);
