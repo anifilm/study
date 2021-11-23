@@ -50,7 +50,7 @@
 				<?php else: ?>
 				<ul class="navbar-nav">
 					<li class="nav-item">
-						<a class="nav-link" href="/auth/signup">회원가입</a>
+						<a class="nav-link" href="/auth/signup">계정생정</a>
 					</li>
 					<li class="nav-item">
 						<a class="nav-link" href="/auth/login">로그인</a>

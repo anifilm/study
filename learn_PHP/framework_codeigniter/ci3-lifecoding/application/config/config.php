@@ -526,8 +526,8 @@ $config['rewrite_short_tags'] = FALSE;
 */
 $config['proxy_ips'] = '';
 
-$config['authentication'] = array(
-	'email' => 'test@test.com',
-	'username' => '테스트',
-	'password' => 'test1234',
-);
+//$config['authentication'] = array(
+//	'email' => 'test@test.com',
+//	'username' => '테스트',
+//	'password' => 'test1234',
+//);

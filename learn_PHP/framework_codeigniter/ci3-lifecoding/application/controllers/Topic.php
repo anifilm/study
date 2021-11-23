@@ -1,29 +1,11 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Topic extends CI_Controller {
+class Topic extends MY_Controller {
 	public function __construct() {
 		parent::__construct();
 
-		$this->load->database();
 		$this->load->model('topic_model');
-	}
-
-	private function _header() {
-		// 로그인 사용자 정보 확인
-		//echo '<pre>';
-		//var_dump($this->session->all_userdata());
-		//echo '</pre>';
-
-		$this->load->view('templetes/header');
-
-		$topics = $this->topic_model->gets();
-		$this->load->helper('korean'); // kdate 헬퍼 호출
-		$this->load->view('topic_list', array('topics' => $topics));
-	}
-
-	private function _footer() {
-		$this->load->view('templetes/footer');
 	}
 
     public function index() {
