@@ -16,8 +16,12 @@ class Auth extends MY_Controller {
 		$this->_footer();
 	}
 
+	public function logout() {
+		$this->session->sess_destroy();
+		redirect(base_url());
+	}
+
 	public function signup() {
-		// TODO: 계정생성 관련 내용 추가
 		$this->_header();
 
 		$this->load->library('form_validation');
@@ -49,11 +53,6 @@ class Auth extends MY_Controller {
 
 		$this->load->view('main');
 		$this->_footer();
-	}
-
-	public function logout() {
-		$this->session->sess_destroy();
-		redirect(base_url());
 	}
 
 	public function authentication() {
