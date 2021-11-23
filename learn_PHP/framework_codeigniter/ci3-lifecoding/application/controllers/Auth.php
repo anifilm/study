@@ -38,8 +38,8 @@ class Auth extends MY_Controller {
 		));
 		$this->form_validation->set_rules('password', '비밀번호', 'trim|required|min_length[6]|max_length[30]|matches[re_password]',
 		array(
-			'required'  => '%s는 필수입력 항목입니다.',
-			'matches' => '%s가 일치하지 않습니다.',
+			'required' => '%s는 필수입력 항목입니다.',
+			'matches'  => '%s가 일치하지 않습니다.',
 		));
 		$this->form_validation->set_rules('re_password', '비밀번호 확인', 'trim|required');
 
@@ -54,9 +54,9 @@ class Auth extends MY_Controller {
 
 			$this->load->model('user_model');
 			$this->user_model->add(array(
-				'email'=>$this->input->post('email'),
-				'username'=>$this->input->post('username'),
-				'password'=>$hash,
+				'email' => $this->input->post('email'),
+				'username' => $this->input->post('username'),
+				'password' => $hash,
 			));
 
 			$this->session->set_flashdata('message', '회원가입에 성공했습니다.');
