@@ -18,6 +18,7 @@
 					</div>
 				</div>
 				<div class="modal-footer">
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
 					<input type="submit" class="btn btn-primary" value="로그인" />
 				</div>
 			</form>

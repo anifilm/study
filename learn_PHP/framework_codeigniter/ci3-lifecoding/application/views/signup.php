@@ -4,22 +4,24 @@
 			<div class="modal-header">
 				<h3>회원가입</h3>
 			</div>
-			<?= validation_errors(); ?>
 			<form class="form-horizontal" action="/auth/signup" method="POST">
 				<div class="modal-body">
 					<div class="form-group">
 						<label for="email">이메일</label>
 						<input type="email" class="form-control" id="email" name="email" value="<?= set_value('email'); ?>">
+						<small class="text-danger"><?= form_error('email'); ?></small>
 					</div>
 					<div class="form-group">
 						<label for="username">사용자명</label>
 						<input type="text" class="form-control" id="username" name="username" value="<?= set_value('username'); ?>">
+						<small class="text-danger"><?= form_error('username'); ?></small>
 					</div>
 					<div class="form-group">
 						<label for="password">비밀번호</label>
 						<div class="controls">
 							<input type="password" class="form-control" id="password" name="password" value="<?= set_value('password'); ?>">
 						</div>
+						<small class="text-danger"><?= form_error('password'); ?></small>
 					</div>
 					<div class="form-group">
 						<label for="re_password">비밀번호 확인</label>
@@ -29,7 +31,7 @@
 					</div>
 				</div>
 				<div class="modal-footer">
-				<button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
+					<button type="button" class="btn btn-secondary" data-dismiss="modal">취소</button>
 					<input type="submit" class="btn btn-primary" value="계정 생성" />
 				</div>
 			</form>
