@@ -47,9 +47,9 @@ class Auth extends MY_Controller {
 			$this->load->view('signup');
 		}
 		else {
-			if(!function_exists('password_hash')){
-				$this->load->helper('password');
-			}
+			//if (!function_exists('password_hash')) {
+			//	$this->load->helper('password');
+			//}
 			$hash = password_hash($this->input->post('password'), PASSWORD_BCRYPT);
 
 			$this->load->model('user_model');
