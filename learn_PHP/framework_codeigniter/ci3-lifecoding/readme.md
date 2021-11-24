@@ -2,4 +2,4 @@
 study codeigniter 2021-11-23
 
 다음 학습 내용
-https://opentutorials.org/course/697/4278
+https://opentutorials.org/course/697/4129
