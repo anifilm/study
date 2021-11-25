@@ -122,7 +122,6 @@ class Topic extends MY_Controller {
 			redirect(base_url().'auth/login');
 		}
 
-		// TODO: 삭제 전에 삭제 확인 메시지 출력 필요
 		$this->topic_model->delete($id);
 
 		redirect(base_url());
