@@ -81,6 +81,53 @@ class Topic extends MY_Controller {
 		$this->_footer();
 	}
 
+	public function update($id) {
+		// 로그인 필요
+
+		// 로그인이 되어 있지 않다면 로그인 페이지로 리다이렉션
+		if (!$this->session->userdata('is_login')) {
+			redirect(base_url().'auth/login');
+		}
+
+		$this->_header();
+
+		$this->load->library('form_validation');
+		$this->form_validation->set_rules('title', '제목', 'required');
+		$this->form_validation->set_rules('description', '본문', 'required');
+
+		if ($this->form_validation->run() == FALSE) {
+			$topic = $this->topic_model->get($id);
+			$this->load->view('update', array('topic' => $topic));
+		}
+		else {
+			$this->topic_model->update(
+				$this->input->post('title'),
+				$this->input->post('description'),
+				$id,
+			);
+
+			redirect(base_url().'topic/get/'.$id);
+			//echo '성공';
+			//$this->load->view('formsuccess');
+		}
+
+		$this->_footer();
+	}
+
+	public function delete($id) {
+		// 로그인 필요
+
+		// 로그인이 되어 있지 않다면 로그인 페이지로 리다이렉션
+		if (!$this->session->userdata('is_login')) {
+			redirect(base_url().'auth/login');
+		}
+
+		// TODO: 삭제 전에 삭제 확인 메시지 출력 필요
+		$this->topic_model->delete($id);
+
+		redirect(base_url());
+	}
+
 	public function upload_receive() {
 		// 사용자가 업로드 한 파일을 /static/user/ 디렉토리에 저장한다.
 		$config['upload_path'] = './static/user';

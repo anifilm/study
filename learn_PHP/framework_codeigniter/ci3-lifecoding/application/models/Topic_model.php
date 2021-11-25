@@ -30,4 +30,17 @@ class Topic_model extends CI_Model {
 		//echo $this->db->last_query();
 		return $this->db->insert_id();
 	}
+
+	public function update($title, $description, $topic_id) {
+		//$this->db->set('updated', 'now()', false);
+		$this->db->update('topic', array(
+			'title' => $title,
+			'description' => $description,
+		), 'id='.$topic_id);
+		//echo $this->db->last_query();
+	}
+
+	public function delete($topic_id) {
+		$this->db->delete('topic', 'id='.$topic_id);
+	}
 }

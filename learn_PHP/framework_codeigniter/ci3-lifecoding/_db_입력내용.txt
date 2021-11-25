@@ -2,11 +2,11 @@ CREATE DATABASE php_ci_lifecoding CHARACTER SET utf8 COLLATE utf8_general_ci;
 
 use php_ci_lifecoding;
 
-CREATE TABLE topic (
-    id  int(11) NOT NULL AUTO_INCREMENT,
-    title  varchar(255) NOT NULL ,
-    description  text NULL ,
-    created  datetime NOT NULL ,
+CREATE TABLE `topic` (
+    `id` int(11) NOT NULL AUTO_INCREMENT,
+    `title` varchar(255) NOT NULL,
+    `description` text NULL,
+    `created` datetime NOT NULL,
     PRIMARY KEY (id)
 ) charset = utf8;
 
