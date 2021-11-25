@@ -35,13 +35,44 @@ class Topic extends MY_Controller {
 		$this->load->library('form_validation');
 		$this->form_validation->set_rules('title', '제목', 'required');
 		$this->form_validation->set_rules('description', '본문', 'required');
+
 		if ($this->form_validation->run() == FALSE) {
 			$this->load->view('add');
-		} else {
+		}
+		else {
 			$topic_id = $this->topic_model->add(
 				$this->input->post('title'),
 				$this->input->post('description'),
 			);
+
+			// 새글 작성시 메일 전송 기능 추가
+			$this->load->library('email');
+			// 전송할 데이터가 html 문서임을 옵션으로 설정
+			$this->email->initialize(array('mailtype' => 'html'));
+
+			$this->email->from('anifilm02@gmail.com', 'anifilm');
+			$this->email->to('richdad02@naver.com');
+			$this->email->subject('새로운 글이 등록 되었습니다.');
+			$this->email->message('<a href="'.base_url().'topic/get/'.$topic_id.'">'.$this->input->post('title').'</a>');
+
+			$result = $this->email->send();
+
+			if (!$result) { // 에러가 날 경우 디버그 설정을 해두면 에러 내용이 자세히 나온다.
+				echo $this->email->print_debugger();
+			}
+
+			// 등록된 사용자 모두에게 메일 전송하는 로직
+			//$this->load->model('user_model');
+			//$users = $this->user_model->gets();
+
+			//foreach ($users as $user) {
+            //    $this->email->from('test@test.com', 'test');
+            //    $this->email->to($user->email);
+            //    $this->email->subject('새로운 글이 등록 되었습니다.');
+            //    $this->email->message('<a href="'.site_url('/topic/get/'.$topic_id).'">'.$this->input->post('title').'</a>');
+            //    $this->email->send();
+            //}
+
 			redirect(base_url().'topic/get/'.$topic_id);
 			//echo '성공';
 			//$this->load->view('formsuccess');

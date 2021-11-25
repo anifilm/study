@@ -526,6 +526,7 @@ $config['rewrite_short_tags'] = FALSE;
 */
 $config['proxy_ips'] = '';
 
+// 임시 사용자 계정 설정
 //$config['authentication'] = array(
 //	'email' => 'test@test.com',
 //	'username' => '테스트',
