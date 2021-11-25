@@ -36,11 +36,11 @@ class Topic_model extends CI_Model {
 		$this->db->update('topic', array(
 			'title' => $title,
 			'description' => $description,
-		), 'id='.$topic_id);
+		), array('id' => $topic_id));
 		//echo $this->db->last_query();
 	}
 
 	public function delete($topic_id) {
-		$this->db->delete('topic', 'id='.$topic_id);
+		$this->db->delete('topic', array('id' => $topic_id));
 	}
 }
