@@ -1,6 +1,6 @@
 <?php
 
-declare(strict_types=1); // strict 모드 지정
+declare(strict_types=1); // strict 모드 지정, 자료형 검사를 엄격하게 수행
 
 class Parents {
     public string $txt = '부모 클래스의 프로퍼티입니다.'.'<br>';
@@ -18,8 +18,8 @@ class Child extends Parents {
     }
 }
 
-$parents = new Parents;
-$child = new Child;
+$parents = new Parents();
+$child = new Child();
 
 echo $parents->name();
 echo $child->name();

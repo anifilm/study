@@ -4,15 +4,11 @@ include 'AnswerBook/User.php';
 include 'AnswerBook/PHP/User.php';
 include 'AnswerBook/PYTHON/User.php';
 
-use AnswerBook\User as User;
-use AnswerBook\PHP\User as PhpUser;
-use AnswerBook\PYTHON\User as PythonUser;
-
-$user1 = new User();
+$user1 = new \AnswerBook\User();
 echo $user1->getNameSpaceName().'<br>';
 
-$user2 = new PhpUser();
+$user2 = new \AnswerBook\PHP\User();
 echo $user2->getNameSpaceName().'<br>';
 
-$user3 = new PythonUser();
+$user3 = new \AnswerBook\PYTHON\User();
 echo $user3->getNameSpaceName().'<br>';
