@@ -1,11 +1,10 @@
+생활코딩 CodeIgniter
+https://opentutorials.org/course/697/3824
+
 마지막 커밋 메시지
-study codeigniter 2021-11-25
+study codeigniter 2021-11-26
 
 다음 학습 내용
-https://opentutorials.org/course/697/4282
-
-
-수정 예정
 로그인 필요 항목을 부모 객체로 변경
 게시물 아이디별 작성자 출력
 게시물 아이디별 수정/삭제 권한 설정
