@@ -42,7 +42,7 @@
 <script>
 	// 하위의 스크립트를 모두 로드한 이후에 다음을 실행하도록 구성
 	// 부트스트랩 제이쿼리 스크립트가 Footer에 위치하기 때문
-	window.onload = function() {
+	window.onload = function () {
 		$('#myModal').modal('show'); // 모달창 보여주기
 	}
 </script>
