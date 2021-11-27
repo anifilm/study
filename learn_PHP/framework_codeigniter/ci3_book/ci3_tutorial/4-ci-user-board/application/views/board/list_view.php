@@ -1,6 +1,6 @@
 <article id="board_area">
 	<header>
-		<h1>일정 목록</h1>
+		<h1></h1>
 	</header>
 	<table cellspacing="0" cellpadding="0" class="table table-striped">
 		<thead>
@@ -19,7 +19,7 @@
 						<?= $lt->board_id ?>
 					</th>
 					<td class="col-md-6">
-						<a rel="external" href="/board/<?= $lt->board_id ?>"><?= $lt->subject ?></a>
+						<a rel="external" href="/board/lists/<?= $lt->board_id ?>"><?= $lt->subject ?></a>
 					</td>
 					<td class="text-center"><?= $lt->user_name ?></td>
 					<td class="text-center"><?= $lt->hits ?></td>
@@ -29,5 +29,13 @@
 				</tr>
 			<?php endforeach ?>
 		</tbody>
+		<tfoot>
+			<tr>
+				<th colspan="5"><?= $pagination ?></th>
+			</tr>
+			<tr>
+				<th colspan="5"><a href="#" class="btn btn-primary">새로운 글 작성</a></th>
+			</tr>
+		</tfoot>
 	</table>
 </article>
