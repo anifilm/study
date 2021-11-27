@@ -19,13 +19,10 @@
 			<tr>
 				<th colspan="4">
 					<a href="/main/lists/" class="btn btn-outline-secondary">목록 보기</a>
-					<a href="/main/write/" class="btn btn-primary">일정 수정</a>
+					<a href="/main/update/<?= $views->id ?>" class="btn btn-primary ml-2">일정 수정</a>
 					<a href="/main/delete/<?= $views->id ?>" class="btn btn-outline-danger" style="display:inline-block; float:right;">일정 삭제</a>
 				</th>
 			</tr>
 		</tfoot>
 	</table>
-	<div>
-		<p></p>
-	</div>
 </article>

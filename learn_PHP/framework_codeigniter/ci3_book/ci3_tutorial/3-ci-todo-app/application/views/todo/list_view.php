@@ -18,14 +18,14 @@
 						<?= $todo->id; ?>
 					</th>
 					<td>
-		<a rel="external" href="/main/view/<?= $todo->id; ?>"><?= $todo->content; ?></a>
-		</td>
+						<a rel="external" href="/main/view/<?= $todo->id; ?>"><?= $todo->content; ?></a>
+					</td>
 					<td>
-		<time datetime="<?= mdate("%Y-%M-%j", human_to_unix($todo->created_on)); ?>"><?= $todo->created_on; ?></time>
-		</td>
+						<time datetime="<?= mdate("%Y-%M-%j", human_to_unix($todo->created_on)); ?>"><?= $todo->created_on; ?></time>
+					</td>
 					<td>
-		<time datetime="<?= mdate("%Y-%M-%j", human_to_unix($todo->due_date)); ?>"><?= $todo->due_date; ?></time>
-		</td>
+						<time datetime="<?= mdate("%Y-%M-%j", human_to_unix($todo->due_date)); ?>"><?= $todo->due_date; ?></time>
+					</td>
 				</tr>
 			<?php endforeach ?>
 		</tbody>
@@ -35,7 +35,4 @@
 			</tr>
 		</tfoot>
 	</table>
-	<div>
-		<p></p>
-	</div>
 </article>
