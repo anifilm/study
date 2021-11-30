@@ -23,7 +23,6 @@ class Board extends CI_Controller {
 
 	/**
 	 * 사이트 헤더, 푸터를 자동으로 추가해준다.
-	 *
 	 */
 	public function _remap($method) {
 		// 헤더 include

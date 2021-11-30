@@ -8,6 +8,14 @@
 	<title>CI3 Todo App</title>
 
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
+
+	<style>
+		nav > ul li {
+			/*list-style-type: none;*/
+			display: inline;
+			margin-right: 20px;
+		}
+	</style>
 </head>
 <body>
 	<div id="main" class="container">
@@ -24,6 +32,7 @@
 		<nav id="gnb">
 			<ul>
 				<li><a rel="external" href="/board/lists/">게시판 프로젝트</a></li>
+				<li><a rel="external" href="/test/">폼 검증 테스트</a></li>
 			</ul>
 		</nav>
 		<!-- gnb End -->

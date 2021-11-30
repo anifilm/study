@@ -8,25 +8,25 @@
 				<div class="modal-body">
 					<div class="form-group">
 						<label for="email">이메일</label>
-						<input type="email" class="form-control" id="email" name="email" value="<?= set_value('email'); ?>">
-						<small class="text-danger"><?= form_error('email'); ?></small>
+						<input type="email" class="form-control" id="email" name="email" value="<?= set_value('email') ?>">
+						<small class="text-danger"><?= form_error('email') ?></small>
 					</div>
 					<div class="form-group">
 						<label for="username">사용자명</label>
-						<input type="text" class="form-control" id="username" name="username" value="<?= set_value('username'); ?>">
-						<small class="text-danger"><?= form_error('username'); ?></small>
+						<input type="text" class="form-control" id="username" name="username" value="<?= set_value('username') ?>">
+						<small class="text-danger"><?= form_error('username') ?></small>
 					</div>
 					<div class="form-group">
 						<label for="password">비밀번호</label>
 						<div class="controls">
-							<input type="password" class="form-control" id="password" name="password" value="<?= set_value('password'); ?>">
+							<input type="password" class="form-control" id="password" name="password" value="<?= set_value('password') ?>">
 						</div>
-						<small class="text-danger"><?= form_error('password'); ?></small>
+						<small class="text-danger"><?= form_error('password') ?></small>
 					</div>
 					<div class="form-group">
 						<label for="re_password">비밀번호 확인</label>
 						<div class="controls">
-							<input type="password" class="form-control" id="re_password" name="re_password" <?= set_value('re_password'); ?>>
+							<input type="password" class="form-control" id="re_password" name="re_password" <?= set_value('re_password') ?>>
 						</div>
 					</div>
 				</div>

@@ -76,8 +76,7 @@ class Board_model extends CI_Model {
 	public function insert_board($arrays) {
 		$insert_array = array(
 			'board_pid' => 0, // 원글이라 0을 입력, 댓글인 경우 원글 번호 입력
-			'user_id' => 'advisor', // 7장에서 로그인 처리후 로그인 아이디로 변경
-			'user_name' => '테스트',
+			'username' => '테스트',
 			'subject' => $arrays['subject'],
 			'contents' => $arrays['contents'],
 			'reg_date' => date('Y-m-d H:i:s'),
