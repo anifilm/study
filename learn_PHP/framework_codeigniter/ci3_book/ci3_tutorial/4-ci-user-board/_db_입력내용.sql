@@ -46,3 +46,14 @@ CREATE TABLE `ci_board_users` (
 
 INSERT INTO `ci_board_users` (`id`, `email`, `username`, `password`, `reg_date`) VALUES
 	(1, 'advisor@cikorea.net', '웅파', '1234', '2012-07-01 12:54:23');
+
+
+CREATE TABLE IF NOT EXISTS `ci_sessions` (
+	`session_id` varchar(40) NOT NULL DEFAULT '0',
+	`ip_address` varchar(16) NOT NULL DEFAULT '0',
+  `user_agent` varchar(120) NOT NULL,
+	`last_activity` int(10) unsigned DEFAULT 0 NOT NULL,
+  `user_data` text NOT NULL,
+	PRIMARY KEY (session_id),
+	KEY `last_activity_idx` (`last_activity`)
+);
