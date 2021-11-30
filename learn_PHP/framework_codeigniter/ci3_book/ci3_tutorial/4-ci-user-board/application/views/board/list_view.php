@@ -28,7 +28,7 @@
 					<td class="col-md-6">
 						<a rel="external" href="/board/view/<?= $lt->board_id ?>"><?= $lt->subject ?></a>
 					</td>
-					<td class="text-center"><?= $lt->user_name ?></td>
+					<td class="text-center"><?= $lt->username ?></td>
 					<td class="text-center"><?= $lt->hits ?></td>
 					<td class="text-center">
 						<time datetime="<?= mdate("%Y-%M-%j", human_to_unix($lt->reg_date)) ?>"><?= date('Y-m-d H:i', human_to_unix($lt->reg_date)) ?></time>

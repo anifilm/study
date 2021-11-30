@@ -156,12 +156,12 @@ class Board extends CI_Controller {
 
 			if ($result) {
 				// 글 작성 성공시 게시판 목록으로
-				alert('입력되었습니다.', '/board/lists');
+				alert('새로운 글이 등록되었습니다.', '/board/lists');
 				exit;
 			}
 			else {
 				// 글 작성 실패시 게시판 목록으로
-				alert('다시 입력해주세요.', '/board/write');
+				alert('새로운 글 작서에 실패하였습니다. 다시 입력해주세요.', '/board/write');
 				exit;
 			}
 		}
@@ -209,12 +209,12 @@ class Board extends CI_Controller {
 
 			if ($result) {
 				// 글 수정 성공시 게시판 목록으로
-				alert('수정되었습니다.', '/board/lists');
+				alert('글 수정을 완료하였습니다.', '/board/lists');
 				exit;
 			}
 			else {
 				// 글 수정 실패시 게시판 목록으로
-				alert('다시 수정해주세요.', '/board/write');
+				alert('글 수정에 실패하였습니다. 다시 수정해주세요.', '/board/write');
 				exit;
 			}
 		}
@@ -227,7 +227,6 @@ class Board extends CI_Controller {
 			// 쓰기 폼 view 호출
 			$this->load->view('board/write_view', $data);
 		}
-
 	}
 
 	/**

@@ -6,7 +6,7 @@
 		<thead>
 			<tr>
 				<th scope="col"><?= $views->subject ?></th>
-				<th scope="col">작성자: <?= $views->user_name ?></th>
+				<th scope="col">작성자: <?= $views->username ?></th>
 				<th scope="col">조회수: <?= $views->hits ?></th>
 				<th scope="col">작성일자: <?= $views->reg_date ?></th>
 			</tr>
