@@ -1,0 +1,1 @@
+ALTER DATABASE php_mysql_web_gnuwiz COLLATE=utf8_general_ci;
