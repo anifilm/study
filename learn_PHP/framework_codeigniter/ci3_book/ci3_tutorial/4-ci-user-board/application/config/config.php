@@ -326,7 +326,7 @@ $config['cache_query_string'] = FALSE;
 | 무작위 비밀번호 생성기 사용
 | https://passwordsgenerator.net/kr/
 */
-$config['encryption_key'] = '';
+$config['encryption_key'] = 'bCd6PTFWPdaZHmr+eyHk^!34f7G+uUg4';
 
 /*
 |--------------------------------------------------------------------------
@@ -386,7 +386,7 @@ $config['sess_cookie_name'] = 'ci_session';
 $config['sess_expiration'] = 7200;
 $config['sess_save_path'] = 'ci_sessions';
 $config['sess_match_ip'] = FALSE;
-$config['sess_match_useragent']	= TRUE;
+$config['sess_match_useragent'] = TRUE;
 $config['sess_time_to_update'] = 300;
 $config['sess_regenerate_destroy'] = FALSE;
 

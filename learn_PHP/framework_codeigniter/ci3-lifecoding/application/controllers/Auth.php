@@ -57,6 +57,7 @@ class Auth extends MY_Controller {
 			//if (!function_exists('password_hash')) {
 			//	$this->load->helper('password');
 			//}
+
 			$hash = password_hash($this->input->post('password'), PASSWORD_BCRYPT);
 
 			$this->load->model('user_model');
@@ -90,9 +91,10 @@ class Auth extends MY_Controller {
 
 		$this->load->model('user_model');
 		$user = $this->user_model->getByEmail(array('email' => $this->input->post('email')));
-		if (!function_exists('password_hash')) {
-			$this->load->helper('password');
-		}
+
+		// if (!function_exists('password_hash')) {
+		// 	$this->load->helper('password');
+		// }
 
 		if ($this->input->post('email') == $user->email && password_verify($this->input->post('password'), $user->password)) {
 			$this->session->set_userdata('is_login', true);

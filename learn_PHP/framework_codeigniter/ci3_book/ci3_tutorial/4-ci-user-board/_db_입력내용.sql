@@ -39,13 +39,13 @@ CREATE TABLE `ci_board_users` (
   `id` int(10) NOT NULL AUTO_INCREMENT,
   `email` varchar(50) NOT NULL COMMENT '이메일',
   `username` varchar(50) NOT NULL COMMENT '사용자명',
-  `password` varchar(50) NOT NULL COMMENT '비밀번호',
+  `password` varchar(255) NOT NULL COMMENT '비밀번호',
   `reg_date` datetime NOT NULL COMMENT '가입일',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM COLLATE='utf8_general_ci' COMMENT='CodeIgniter 게시판 회원테이블';
 
 INSERT INTO `ci_board_users` (`id`, `email`, `username`, `password`, `reg_date`) VALUES
-  (1, 'advisor@cikorea.net', '웅파', '1234', '2012-07-01 12:54:23');
+  (1, 'advisor@cikorea.net', '웅파', 'test1234', '2012-07-01 12:54:23');
 
 
 CREATE TABLE `ci_sessions` (

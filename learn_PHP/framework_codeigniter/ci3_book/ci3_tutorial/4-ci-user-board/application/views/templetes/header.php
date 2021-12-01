@@ -37,7 +37,7 @@
 				<?php if($this->session->userdata('logged_in') == TRUE): ?>
 				<li><a href="/auth/logout"><?= $this->session->userdata('username') ?>님 (로그아웃)</a></li>
 				<?php else: ?>
-				<li><a href="/auth/login">회원가입</a></li>
+				<li><a href="/auth/signup">회원가입</a></li>
 				<li><a href="/auth/login">로그인</a></li>
 				<?php endif ?>
 			</ul>
