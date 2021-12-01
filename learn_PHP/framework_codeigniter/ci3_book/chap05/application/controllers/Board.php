@@ -11,11 +11,10 @@ class Board extends CI_Controller {
 
 		// 경고창 헬퍼 로딩
 		$this->load->helper('alert');
-		echo '<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />';
 	}
 
 	/**
-	 * 주소에서 메소드가 생략되었을 때 실행되는 기본 메소드
+	 * 주소에서 메서드가 생략되었을 때 실행되는 기본 메서드
 	 */
 	public function index() {
 		$this->lists();

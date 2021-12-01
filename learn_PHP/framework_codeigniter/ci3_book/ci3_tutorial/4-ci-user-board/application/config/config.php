@@ -378,6 +378,8 @@ $config['encryption_key'] = '';
 | Other session cookie settings are shared with the rest of the application,
 | except for 'cookie_prefix' and 'cookie_httponly', which are ignored here.
 |
+| 설정 참고 $config['sess_driver'] = 'database';
+| http://www.ciboard.co.kr/user_guide/kr/libraries/sessions.html#database-driver
 */
 $config['sess_driver'] = 'database';
 $config['sess_cookie_name'] = 'ci_session';
