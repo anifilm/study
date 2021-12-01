@@ -5,23 +5,19 @@ class Auth_model extends CI_Model {
 		parent::__construct();
 	}
 
-	/**
-	 * 이메일, 비밀번호 체크
-	 *
-	 * @param array $auth 폼전송 받은 이메일, 비밀번호
-	 * @return array
-	 */
-    function login($auth) {
-    	$sql = "SELECT username, email FROM ci_board_users WHERE email='".$auth['email']."' AND password='".$auth['password']."'";
-   		$query = $this->db->query($sql);
+	function getUser($option) {
+		$result = $this->db->get_where('ci_board_users', array('email' => $option['email']))->row();
 
-		if ($query->num_rows() > 0) {
-			// 일치하는 데이터가 있다면 해당 내용 반환
-     		return $query->row();
-     	}
-     	else {
-     		// 일치하는 데이터가 없을 경우
-	    	return FALSE;
-     	}
-    }
+		return $result;
+	}
+
+	function addUser($option) {
+		$this->db->set('email', $option['email']);
+		$this->db->set('username', $option['username']);
+		$this->db->set('password', $option['password']);
+		$this->db->set('reg_date', 'NOW()', FALSE);
+		$this->db->insert('ci_board_users');
+
+		$this->db->insert_id();
+	}
 }

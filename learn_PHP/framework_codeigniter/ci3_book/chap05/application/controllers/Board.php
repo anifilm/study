@@ -134,13 +134,13 @@ class Board extends CI_Controller {
 			'subject',
 			'제목',
 			'required',
-			array('required'  => '%s은 필수입력 항목입니다.'),
+			array('required'  => '{field}은 필수입력 항목입니다.'),
 		);
 		$this->form_validation->set_rules(
 			'contents',
 			'내용',
 			'required',
-			array('required'  => '%s은 필수입력 항목입니다.'),
+			array('required'  => '{field}은 필수입력 항목입니다.'),
 		);
 
 		if ($this->form_validation->run() == TRUE) {

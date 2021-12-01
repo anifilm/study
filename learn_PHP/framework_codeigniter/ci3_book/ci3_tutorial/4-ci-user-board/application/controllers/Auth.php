@@ -48,15 +48,15 @@ class Auth extends CI_Controller {
 			'이메일',
 			'required|valid_email',
 			array(
-				'required'    => '%s은 필수입력 항목입니다.',
-				'valid_email' => '사용자의 로그인 %s 계정 정보가 정확하지 않습니다.',
+				'required'    => '{field}은 필수입력 항목입니다.',
+				'valid_email' => '사용자의 로그인 {field} 계정 정보가 정확하지 않습니다.',
 			),
 		);
 		$this->form_validation->set_rules(
 			'password',
 			'비밀번호',
 			'required',
-			array('required' => '%s는 필수입력 항목입니다.'),
+			array('required' => '{field}는 필수입력 항목입니다.'),
 		);
 
 		echo '<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />';
@@ -118,8 +118,8 @@ class Auth extends CI_Controller {
 			'이메일',
 			'required|valid_email|is_unique[ci_board_users.email]',
 			array(
-				'required'  => '%s는 필수입력 항목입니다.',
-				'is_unique' => '%s는 이미 사용중인 이메일입니다.'
+				'required'  => '{field}는 필수입력 항목입니다.',
+				'is_unique' => '{field}는 이미 사용중인 이메일입니다.'
 			),
 		);
 		$this->form_validation->set_rules(
@@ -127,8 +127,8 @@ class Auth extends CI_Controller {
 			'사용자명',
 			'trim|required|min_length[2]|max_length[20]|is_unique[ci_board_users.username]',
 			array(
-				'required'  => '%s은 필수입력 항목입니다.',
-				'is_unique' => '%s는 이미 사용중인 사용자명입니다.'
+				'required'  => '{field}은 필수입력 항목입니다.',
+				'is_unique' => '{field}는 이미 사용중인 사용자명입니다.'
 			),
 		);
 		$this->form_validation->set_rules(
@@ -136,15 +136,17 @@ class Auth extends CI_Controller {
 			'비밀번호',
 			'trim|required|min_length[6]|max_length[30]|matches[passconf]',
 			array(
-				'required' => '%s는 필수입력 항목입니다.',
-				'matches'  => '%s가 일치하지 않습니다.',
+				'required' => '{field}는 필수입력 항목입니다.',
+				'matches'  => '{field}가 일치하지 않습니다.',
+				'min_length' => '{field}의 길이는 {param}자 이상이어야 합니다.',
+				'max_length' => '{field}의 길이는 {param}자 이하여야 합니다.',
 			),
 		);
 		$this->form_validation->set_rules(
 			'passconf',
 			'비밀번호 확인',
 			'trim|required',
-			array('required' => '%s은 필수입력 항목입니다.'),
+			array('required' => '{field}은 필수입력 항목입니다.'),
 		);
 
 		echo '<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />';
