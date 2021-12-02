@@ -54,7 +54,7 @@ class Board_model extends CI_Model {
 	 * @return array
 	 */
     public function get_view($table, $id) {
-		// 조회수 증가
+		// 조회수 증가 (TODO: refresh시 계속 증가되는 것을 해당 게시물 클릭시에만 증가하는 것으로 수정 필요)
 		$sql_hits = "UPDATE $table SET hits=hits+1 WHERE board_id='$id'";
 		$this->db->query($sql_hits);
 
