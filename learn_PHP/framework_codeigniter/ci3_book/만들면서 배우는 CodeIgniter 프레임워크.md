@@ -2,7 +2,7 @@
 
 
 마지막 커밋 메시지
-study codeigniter 2021-12-01
+study codeigniter 2021-12-02
 
 다음 학습 내용
-8 Ajax 구현
+9 Ajax 구현 (jQuery)
