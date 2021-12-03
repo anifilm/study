@@ -5,9 +5,10 @@
   <title>JSP - Hello World</title>
 </head>
 <body>
-<h1><%= "Hello World!" %>
-</h1>
-<br/>
-<a href="hello-servlet">Hello Servlet</a>
+<%
+  String strVar = "Korea Fighting!!!";
+%>
+  JSP 명령어로 작성한 <%= strVar %><br>
+  HTML 태그로 작성한 Korea Fighting!!!
 </body>
 </html>
