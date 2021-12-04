@@ -4,14 +4,14 @@ include('./dbconn.php'); // DB연결을 위한 dbconn.php 파일을 인클루드
 $mb_id = trim($_POST['mb_id']);
 $mb_password = trim($_POST['mb_password']);
 
-if (!$mb_id || $mb_password) {
+if (!$mb_id || !$mb_password) {
     echo "<script>alert('회원아이디나 비밀번호가 공백이면 안됩니다.');</script>";
     echo "<script>location.replace('./index.php');</script>";
     exit;
 }
 
 // 회원 테이블에서 해당 아이디가 존재하는지 체크
-$sql = "SELECT * FROM member WHERE mb_id='$mb_id'";
+$sql = "SELECT * FROM $table WHERE mb_id='$mb_id'";
 $result = mysqli_query($conn, $sql);
 $mb = mysqli_fetch_assoc($result);
 
@@ -22,8 +22,8 @@ $row = mysqli_fetch_assoc($result);
 $password = $row['pass'];
 
 // 존재하는 아이디인지, 입력한 패스워드가 회원 테이블에 저장된 패스워드와 동일한지 체크
-if (!$mb['mb_id'] || !($password === $mb['mb_password'])) {
-    echo "<script>alert('가입된 회원아이디가 아니거나 비밀번호가 틀립니다.\\n비밀번호는 대소문자를 구분합니다.');</script>";
+if (!$mb['mb_id'] || !($password == $mb['mb_password'])) {
+    echo "<script>alert('가입된 회원아이디가 아니거나 비밀번호가 틀립니다. \\n비밀번호는 대소문자를 구분합니다.');</script>";
     echo "<script>location.replace('./index.php');</script>";
     exit;
 }

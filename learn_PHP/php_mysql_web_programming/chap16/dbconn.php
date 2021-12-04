@@ -12,4 +12,4 @@ if (!$conn) { // 연결 오류 발생시 스크립트 종료
     die('연결 실패: '.mysqli_connect_error());
 }
 
-session_start(); // 세션 시작
+ini_set('display_errors', 'Off'); // PHP 오류 메시지 숨김
