@@ -22,7 +22,7 @@ include('./dbconn.php'); // DB연결을 위한 dbconn.php 파일을 인클루드
                 <label for="mb_password">비밀번호</label>
                 <input type="password" id="mb_password" name="mb_password" class="form-control">
             </div>
-            <div class="text-right">
+            <div class="mt-4 text-right">
                 <a href="./register.php" class="btn btn-secondary mr-2">회원가입</a>
                 <button type="submit" class="btn btn-primary">로그인</button>
             </div>
