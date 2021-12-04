@@ -1,70 +1,24 @@
-* {
-  padding: 0;
-  margin: 0;
+.container {
+  min-height: 50vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }
 
-body {
-  padding-top: 20px;
-  font-family: "NanumGothic", "맑은 고딕", MalgunGothic, sans-serif, 굴림,
-    verdana, tahoma;
-  font-size: 14px;
-  text-align: center;
-  color: #333;
-  background: #cee2f3;
+.container form {
+  width: 500px;
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-table {
-  margin: 20px auto;
-  border-collapse: collapse;
+.box {
+  width: 850px;
 }
 
-th, td {
-  padding: 10px 20px;
-  min-height: 40px;
-  font-size: 14px;
-  border: 1px solid #a0b5c7;
-}
-
-th {
-  width: 120px;
-  color: #fff;
-  background: #0369bb;
-}
-
-td {
-  padding: 10px 20px;
-  font-size: 14px;
-  border: 1px solid #a0b5c7;
-  background: #fff;
-}
-
-td.td_center {
-  text-align: center;
-  border: none;
-  background: none;
-}
-
-label {
-  line-height: 40px;
-  vertical-align: top;
-}
-
-input, select {
-  padding: 0 10px;
-  height: 40px;
-  line-height: 40px;
-  border: 1px solid #a0b5c7;
-  background: #fff;
-}
-
-a {
-  display: inline-block;
-  padding: 0 10px;
-  height: 38px;
-  line-height: 38px;
-  font-size: 13px;
-  color: #0369bb;
-  text-decoration: none;
-  border: 1px solid #a0b5c7;
-  background: #fff;
+.container table {
+  padding: 20px;
+  border-radius: 5px;
+  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
