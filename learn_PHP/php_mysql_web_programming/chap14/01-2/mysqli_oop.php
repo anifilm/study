@@ -1,7 +1,7 @@
 <?php
 
 $mysql_host = 'localhost';
-$mysql_user = 'root';
+$mysql_user = 'gnuwiz';
 $mysql_password = 'test1234';
 $mysql_db = 'php_mysql_web_gnuwiz';
 
