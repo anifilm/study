@@ -5,7 +5,7 @@ $title = trim($_POST['title']);
 $datetime = date('Y-m-d H:i:s', time());
 
 if (empty($title)) {
-    echo "<script>alert('추가실패: 내용을 입력하세요.');</script>";
+    echo "<script>alert('추가실패: 입력 내용을 확인하세요.');</script>";
     echo "<script>location.replace('../index.php');</script>";
     exit;
 }
