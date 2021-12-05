@@ -1,0 +1,33 @@
+body {
+  background: #34495e;
+}
+
+#todo {
+  padding: 2rem;
+}
+
+.gw-example {
+  padding: 1.5rem;
+  border-radius: .25rem;
+}
+
+.gw-checked {
+  color: #2eb396;
+  text-decoration: line-through;
+}
+
+.box-shadow {
+  box-shadow: 0 4px 8px 0 #ccc, 0 6px 20px 0 #ccc;
+}
+
+.border-radius-1 {
+  border-radius: .25rem;
+}
+
+.add-section h2 {
+  font-size: 1.5rem;
+}
+
+.show-todo-section .card {
+  margin-bottom: 1rem;
+}

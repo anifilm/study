@@ -1,5 +1,4 @@
 <?php
-
 $mysql_host = 'localhost';
 $mysql_user = 'gnuwiz';
 $mysql_password = 'test1234';
@@ -12,4 +11,4 @@ if (!$conn) { // 연결 오류 발생시 스크립트 종료
     die('연결 실패: '.mysqli_connect_error());
 }
 
-ini_set('display_errors', 'Off'); // PHP 오류 메시지 숨김
+//ini_set('display_errors', 'Off'); // PHP 오류 메시지 숨김
