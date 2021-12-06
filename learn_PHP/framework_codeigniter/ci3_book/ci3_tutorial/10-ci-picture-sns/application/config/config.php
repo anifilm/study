@@ -326,7 +326,7 @@ $config['cache_query_string'] = FALSE;
 | 무작위 비밀번호 생성기 사용
 | https://passwordsgenerator.net/kr/
 */
-$config['encryption_key'] = 'bCd6PTFWPdaZHmr+eyHk^!34f7G+uUg4';
+$config['encryption_key'] = '+HSyVq8hj+4Aa+w=as-B@QL^uR2eu+@N';
 
 /*
 |--------------------------------------------------------------------------
