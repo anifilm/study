@@ -4,13 +4,13 @@ USE php_ci3_book;
 
 
 CREATE TABLE `ci_board` (
-  `board_id` int(10) NOT NULL AUTO_INCREMENT,
-  `board_pid` int(10) NOT NULL DEFAULT '0' COMMENT '원글 번호',
-  `username` varchar(20) NOT NULL COMMENT '작성자명',
-  `subject` varchar(50) NOT NULL COMMENT '게시글 제목',
-  `contents` text NOT NULL COMMENT '게시글 내용',
-  `hits` int(10) NOT NULL DEFAULT '0' COMMENT '조회수',
-  `reg_date` datetime NOT NULL COMMENT '등록일',
+  `board_id` INT(10) NOT NULL AUTO_INCREMENT,
+  `board_pid` INT(10) NOT NULL DEFAULT '0' COMMENT '원글 번호',
+  `username` VARCHAR(20) NOT NULL COMMENT '작성자명',
+  `subject` VARCHAR(50) NOT NULL COMMENT '게시글 제목',
+  `contents` TEXT NOT NULL COMMENT '게시글 내용',
+  `hits` INT(10) NOT NULL DEFAULT '0' COMMENT '조회수',
+  `reg_date` DATETIME NOT NULL COMMENT '등록일',
   PRIMARY KEY (`board_id`),
   INDEX `board_pid` (`board_pid`)
 ) ENGINE=MyISAM COLLATE='utf8_general_ci' COMMENT='CodeIgniter 게시판';
@@ -36,11 +36,11 @@ VALUES
 
 
 CREATE TABLE `ci_board_users` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
-  `email` varchar(50) NOT NULL COMMENT '이메일',
-  `username` varchar(50) NOT NULL COMMENT '사용자명',
-  `password` varchar(255) NOT NULL COMMENT '비밀번호',
-  `reg_date` datetime NOT NULL COMMENT '가입일',
+  `id` INT(10) NOT NULL AUTO_INCREMENT,
+  `email` VARCHAR(50) NOT NULL COMMENT '이메일',
+  `username` VARCHAR(50) NOT NULL COMMENT '사용자명',
+  `password` VARCHAR(255) NOT NULL COMMENT '비밀번호',
+  `reg_date` DATETIME NOT NULL COMMENT '가입일',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM COLLATE='utf8_general_ci' COMMENT='CodeIgniter 게시판 회원테이블';
 
@@ -49,10 +49,10 @@ INSERT INTO `ci_board_users` (`id`, `email`, `username`, `password`, `reg_date`)
 
 
 CREATE TABLE `ci_sessions` (
-  `id` varchar(128) NOT NULL,
-  `ip_address` varchar(45) NOT NULL,
-  `user_agent` varchar(255) NOT NULL,
-  `timestamp` int(10) unsigned DEFAULT 0 NOT NULL,
+  `id` VARCHAR(128) NOT NULL,
+  `ip_address` VARCHAR(45) NOT NULL,
+  `user_agent` VARCHAR(255) NOT NULL,
+  `timestamp` INT(10) unsigned DEFAULT 0 NOT NULL,
   `data` blob NOT NULL,
   PRIMARY KEY (`id`),
   KEY `ci_sessions_timestamp` (`timestamp`)

@@ -1,13 +1,14 @@
 CREATE DATABASE php_ci3_book;
+
 USE php_ci3_book;
 
 
 CREATE TABLE `todo_items` (
-  `id` int(10) NOT NULL AUTO_INCREMENT,
-  `content` varchar(200) NULL,
-  `created_on` date NULL,
-  `due_date` date NULL,
-  `use` int(1) NOT NULL DEFAULT '1',
+  `id` INT(10) NOT NULL AUTO_INCREMENT,
+  `content` VARCHAR(200) NULL,
+  `created_on` DATE NULL,
+  `due_date` DATE NULL,
+  `use` INT(1) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM COLLATE='utf8_general_ci';
 

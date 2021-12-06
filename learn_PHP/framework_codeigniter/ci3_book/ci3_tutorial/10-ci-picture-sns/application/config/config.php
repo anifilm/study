@@ -23,7 +23,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 | a PHP script and you can easily do that on your own.
 |
 */
-$config['base_url'] = '';
+$config['base_url'] = 'http://localhost:8000';
 
 /*
 |--------------------------------------------------------------------------
@@ -323,8 +323,10 @@ $config['cache_query_string'] = FALSE;
 |
 | https://codeigniter.com/user_guide/libraries/encryption.html
 |
+| 무작위 비밀번호 생성기 사용
+| https://passwordsgenerator.net/kr/
 */
-$config['encryption_key'] = '';
+$config['encryption_key'] = 'bCd6PTFWPdaZHmr+eyHk^!34f7G+uUg4';
 
 /*
 |--------------------------------------------------------------------------
@@ -376,12 +378,15 @@ $config['encryption_key'] = '';
 | Other session cookie settings are shared with the rest of the application,
 | except for 'cookie_prefix' and 'cookie_httponly', which are ignored here.
 |
+| 설정 참고 $config['sess_driver'] = 'database';
+| http://www.ciboard.co.kr/user_guide/kr/libraries/sessions.html#database-driver
 */
-$config['sess_driver'] = 'files';
+$config['sess_driver'] = 'database';
 $config['sess_cookie_name'] = 'ci_session';
 $config['sess_expiration'] = 7200;
-$config['sess_save_path'] = NULL;
+$config['sess_save_path'] = 'ci_sessions';
 $config['sess_match_ip'] = FALSE;
+$config['sess_match_useragent'] = TRUE;
 $config['sess_time_to_update'] = 300;
 $config['sess_regenerate_destroy'] = FALSE;
 
@@ -448,7 +453,7 @@ $config['global_xss_filtering'] = FALSE;
 | 'csrf_regenerate' = Regenerate token on every submission
 | 'csrf_exclude_uris' = Array of URIs which ignore CSRF checks
 */
-$config['csrf_protection'] = FALSE;
+$config['csrf_protection'] = TRUE;
 $config['csrf_token_name'] = 'csrf_test_name';
 $config['csrf_cookie_name'] = 'csrf_cookie_name';
 $config['csrf_expire'] = 7200;
