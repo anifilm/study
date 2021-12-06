@@ -5,8 +5,8 @@ try {
     include __DIR__.'/../includes/DatabaseFunctions.php';
 
     //$sql = 'SELECT `joke`.`id`, `joketext`, `name`, `email`
-    //    FROM `joke` INNER JOIN `author`
-    //    ON `authorid` = `author`.`id`';
+    //        FROM `joke` INNER JOIN `author`
+    //        ON `authorid` = `author`.`id`';
     //$jokes = $pdo->query($sql);
     $jokes = allJokes($pdo);
 
@@ -22,8 +22,7 @@ try {
 } catch (PDOException $e) {
     $title = '오류가 발행했습니다.';
 
-    $output = '데이터베이스 오류: '.$e->getMessage().
-            ', 위치: '.$e->getFile().': '.$e->getLine();
+    $output = '데이터베이스 오류: '.$e->getMessage().', 위치: '.$e->getFile().': '.$e->getLine();
 }
 
 include __DIR__.'/../templates/layout.html.php';

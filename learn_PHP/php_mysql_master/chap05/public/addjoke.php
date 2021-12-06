@@ -2,12 +2,10 @@
 
 if (isset($_POST['joketext'])) {
     try {
-        $pdo = new PDO('mysql:host=localhost;dbname=php_ijdb;charset=utf8', 'ijdbuser', 'mypassword');
+        $pdo = new PDO('mysql:host=localhost;dbname=php_mysql_master_ijdb;charset=utf8', 'ijdbuser', 'mypassword');
         $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
 
-        $sql = 'INSERT INTO `joke` SET
-              `joketext` = :joketext,
-              `jokedate` = CURDATE()';
+        $sql = 'INSERT INTO `joke` SET `joketext` = :joketext, `jokedate` = CURDATE()';
 
         $stmt = $pdo->prepare($sql);
         $stmt->bindValue(':joketext', $_POST['joketext']);
@@ -18,8 +16,7 @@ if (isset($_POST['joketext'])) {
     } catch (PDOException $e) {
         $title = '오류가 발생했습니다';
 
-        $output = '데이터베이스 오류: '.$e->getMessage().
-                ', 위치: '.$e->getFile(). ': '.$e->getLine();
+        $output = '데이터베이스 오류: '.$e->getMessage().', 위치: '.$e->getFile().': '.$e->getLine();
     }
 } else {
     $title = '유머 글 등록';

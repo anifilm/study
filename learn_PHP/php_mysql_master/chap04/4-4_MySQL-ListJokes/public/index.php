@@ -12,8 +12,7 @@ try {
     }
 
 } catch (PDOException $e) {
-    $output = '데이터베이스 서버에 접속할 수 없습니다: '.$e->getMessage().
-            ', 위치: '.$e->getFile().': '.$e->getLine();
+    $output = '데이터베이스 서버에 접속할 수 없습니다: '.$e->getMessage().', 위치: '.$e->getFile().': '.$e->getLine();
 }
 
 include __DIR__.'/../templates/jokes.html.php';

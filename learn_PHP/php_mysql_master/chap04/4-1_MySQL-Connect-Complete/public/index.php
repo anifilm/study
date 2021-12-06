@@ -10,4 +10,4 @@ try {
     $output = '데이터베이스 서버에 접속할 수 없습니다: '.$e;
 }
 
-include  __DIR__.'/../templates/output.html.php';
+include __DIR__.'/../templates/output.html.php';

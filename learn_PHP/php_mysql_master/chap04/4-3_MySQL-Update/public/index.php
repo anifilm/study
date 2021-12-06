@@ -12,8 +12,7 @@ try {
     $output = '갱신된 row: '.$affectedRows.' 개.';
 
 } catch (PDOException $e) {
-    $output = '데이터베이스 오류: '.$e->getMessage().
-            ', 위치: '.$e->getFile().': '.$e->getLine();
+    $output = '데이터베이스 오류: '.$e->getMessage().', 위치: '.$e->getFile().': '.$e->getLine();
 }
 
-include  __DIR__.'/../templates/output.html.php';
+include __DIR__.'/../templates/output.html.php';

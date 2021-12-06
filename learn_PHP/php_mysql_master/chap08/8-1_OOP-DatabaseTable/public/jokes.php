@@ -2,7 +2,7 @@
 
 try {
     include __DIR__.'/../includes/DatabaseConnection.php';
-    include __DIR__ . '/../classes/DatabaseTable.php';
+    include __DIR__.'/../classes/DatabaseTable.php';
 
     $jokesTable = new DatabaseTable($pdo, 'joke', 'id');
 	$authorsTable = new DatabaseTable($pdo, 'author', 'id');
@@ -17,9 +17,8 @@ try {
             'joketext' => $joke['joketext'],
             'jokedate' => $joke['jokedate'],
             'name' => $author['name'],
-            'email' => $author['email']
+            'email' => $author['email'],
         ];
-
     }
 
     $totalJokes = $jokesTable->total();
@@ -34,8 +33,7 @@ try {
 } catch (PDOException $e) {
     $title = '오류가 발행했습니다.';
 
-    $output = '데이터베이스 오류: '.$e->getMessage().
-            ', 위치: '.$e->getFile().': '.$e->getLine();
+    $output = '데이터베이스 오류: '.$e->getMessage().', 위치: '.$e->getFile().': '.$e->getLine();
 }
 
 include __DIR__.'/../templates/layout.html.php';
