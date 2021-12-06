@@ -62,7 +62,7 @@ class JokeController {
 
             $this->jokesTable->save($joke);
 
-            header('location: jokes.php');
+            header('location: index.php?action=list');
 
         } else {
             // id가 있는 경우에만 글 데이터를 가져온다.
@@ -92,6 +92,6 @@ class JokeController {
     public function delete() {
         $this->jokesTable->delete($_POST['id']);
 
-        header('location: jokes.php');
+        header('location: index.php?action=list');
     }
 }
