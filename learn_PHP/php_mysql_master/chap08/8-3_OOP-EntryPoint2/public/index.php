@@ -1,14 +1,5 @@
 <?php
 
-function loadTemplate($templateFileName, $variables = []) {
-	extract($variables);
-
-	ob_start();
-	include __DIR__.'/../templates/'.$templateFileName;
-
-	return ob_get_clean();
-}
-
 try {
 	include __DIR__.'/../includes/DatabaseConnection.php';
 	include __DIR__.'/../classes/DatabaseTable.php';
@@ -26,11 +17,14 @@ try {
 	$title = $page['title'];
 
 	if (isset($page['variables'])) {
-		$output = loadTemplate($page['template'], $page['variables']);
+		extract($page['variables']);
 	}
-	else {
-		$output = loadTemplate($page['template']);
-	}
+
+	ob_start();
+
+	include __DIR__.'/../templates/'.$page['template'];
+
+	$output = ob_get_clean();
 
 } catch (PDOException $e) {
 	$title = '오류가 발생했습니다';
