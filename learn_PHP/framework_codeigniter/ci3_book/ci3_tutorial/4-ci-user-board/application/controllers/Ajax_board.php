@@ -55,6 +55,9 @@ class Ajax_board extends CI_Controller {
 		<td>
 			<small><time datetime="<?= mdate("%Y-%M-%j", human_to_unix($lt->reg_date)) ?>"><?= date('Y-m-d H:i', human_to_unix($lt->reg_date)) ?></time></small>
 		</td>
+		<?php if($this->session->userdata('logged_in') == TRUE && $this->session->userdata('username') == $lt->username): ?>
+		<td><small><a href="#" class="comment_delete" vals="<?= $lt->board_id ?>"><i class="icon-trash"></i>삭제</a></small></td>
+		<?php endif ?>
 	</tr>
 <?php endforeach ?>
 </table>

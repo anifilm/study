@@ -62,63 +62,28 @@
 
 <script src="/include/js/httpRequest.js"></script>
 <script>
-	//function commentAdd() {
-	//	var csrf_token = getCookie('csrf_cookie_name');
-	//	var name = 'comment_contents=' + encodeURIComponent(document.comment_add.comment_contents.value) + '&csrf_test_name=' + csrf_token + '&table=ci_board&board_id=<?= $this->uri->segment(3) ?>';
-	//	sendRequest('/ajax_board/ajax_comment_add', name, addAction, 'POST');
-	//}
+	function getCookie(name) {
+		var nameOfCookie = name + '=';
+		var x = 0;
 
-	//function addAction() {
-	//	if (httpRequest.readyState == 4) {
-	//		if (httpRequest.status == 200) {
-	//			if (httpRequest.responseText == 1000) {
-	//				alert('댓글 내용을 입력하세요.');
-	//			}
-	//			else if (httpRequest.responseText == 2000) {
-	//				alert('다시 입력하세요.');
-	//			}
-	//			else if (httpRequest.responseText == 9000) {
-	//				alert('로그인해야 합니다.');
-	//			}
-	//			else {
-	//				var contents = document.getElementById('comment_area');
-	//				contents.innerHTML = httpRequest.responseText;
+		while (x <= document.cookie.length) {
+			var y = (x + nameOfCookie.length);
 
-	//				var textareas = document.getElementById('input01');
-	//				textareas.value = '';
-	//			}
-	//		}
-	//	}
-	//}
+			if (document.cookie.substring(x, y) == nameOfCookie) {
+				if ((endOfCookie = document.cookie.indexOf(';', y)) == -1) {
+					endOfCookie = document.cookie.length;
+				}
 
-	//function commentDelete(id) {
-	//	var csrf_token = getCookie('csrf_cookie_name');
-	//	var name = 'csrf_test_name=' + csrf_token + '&table=ci_board&board_id=' + id;
-	//	sendRequest('/ajax_board/ajax_comment_delete', name, deleteAction, 'POST');
-	//}
+				return unescape(document.cookie.substring(y, endOfCookie));
+			}
 
-	//function deleteAction() {
-	//	if (httpRequest.readyState == 4 ) {
-	//		if (httpRequest.status == 200) {
-	//			if (httpRequest.responseText == 2000) {
-	//				alert('다시 삭제하세요.');
-	//			}
-	//			else if (httpRequest.responseText == 8000) {
-	//				alert('자신이 작성한 댓글만 삭제할 수 있습니다.');
-	//			}
-	//			else if (httpRequest.responseText == 9000) {
-	//				alert('로그인해야 합니다.');
-	//			}
-	//			else {
-	//				var no = httpRequest.responseText;
-	//				var delete_tr = document.getElementById('row_num_' + no);
+			x = document.cookie.indexOf(' ', x) + 1;
 
-	//				delete_tr.parentNode.removeChild(delete_tr);
-	//				alert('댓글이 삭제 되었습니다.');
-	//			}
-	//		}
-	//	}
-	//}
+			if (x == 0) break;
+		}
+
+		return '';
+	}
 
 	// 하위의 스크립트를 모두 로드한 이후에 다음을 실행하도록 구성
 	// 부트스트랩 제이쿼리 스크립트가 Footer에 위치하기 때문
@@ -187,28 +152,5 @@
 				});
 			});
 		});
-	}
-
-	function getCookie(name) {
-		var nameOfCookie = name + '=';
-		var x = 0;
-
-		while (x <= document.cookie.length) {
-			var y = (x + nameOfCookie.length);
-
-			if (document.cookie.substring(x, y) == nameOfCookie) {
-				if ((endOfCookie = document.cookie.indexOf(';', y)) == -1) {
-					endOfCookie = document.cookie.length;
-				}
-
-				return unescape(document.cookie.substring(y, endOfCookie));
-			}
-
-			x = document.cookie.indexOf(' ', x) + 1;
-
-			if (x == 0) break;
-		}
-
-		return '';
 	}
 </script>

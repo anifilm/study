@@ -120,6 +120,29 @@
 	//	}
 	//}
 
+	function getCookie(name) {
+		var nameOfCookie = name + '=';
+		var x = 0;
+
+		while (x <= document.cookie.length) {
+			var y = (x + nameOfCookie.length);
+
+			if (document.cookie.substring(x, y) == nameOfCookie) {
+				if ((endOfCookie = document.cookie.indexOf(';', y)) == -1) {
+					endOfCookie = document.cookie.length;
+				}
+
+				return unescape(document.cookie.substring(y, endOfCookie));
+			}
+
+			x = document.cookie.indexOf(' ', x) + 1;
+
+			if (x == 0) break;
+		}
+
+		return '';
+	}
+
 	// 하위의 스크립트를 모두 로드한 이후에 다음을 실행하도록 구성
 	// 부트스트랩 제이쿼리 스크립트가 Footer에 위치하기 때문
 	window.onload = function () {
@@ -148,7 +171,6 @@
 								alert('로그인해야 합니다.');
 							}
 							else {
-								console.log(xhr.responseText);
 								$('#comment_area').html(xhr.responseText);
 								$('#input01').val('');
 							}
@@ -187,28 +209,5 @@
 				});
 			});
 		});
-	}
-
-	function getCookie(name) {
-		var nameOfCookie = name + '=';
-		var x = 0;
-
-		while (x <= document.cookie.length) {
-			var y = (x + nameOfCookie.length);
-
-			if (document.cookie.substring(x, y) == nameOfCookie) {
-				if ((endOfCookie = document.cookie.indexOf(';', y)) == -1) {
-					endOfCookie = document.cookie.length;
-				}
-
-				return unescape(document.cookie.substring(y, endOfCookie));
-			}
-
-			x = document.cookie.indexOf(' ', x) + 1;
-
-			if (x == 0) break;
-		}
-
-		return '';
 	}
 </script>
