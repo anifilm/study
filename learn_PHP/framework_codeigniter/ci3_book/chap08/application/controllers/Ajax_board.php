@@ -50,9 +50,11 @@ class Ajax_board extends CI_Controller {
 <table cellspacing="0" cellpadding="0" id="comment_table" class="table">
 <?php foreach ($query->result() as $lt): ?>
 	<tr>
-		<td><?= $lt->contents ?></td>
-		<td><?= $lt->username ?></td>
-		<td><time datetime="<?= mdate("%Y-%M-%j", human_to_unix($lt->reg_date)) ?>"><?= date('Y-m-d H:i', human_to_unix($lt->reg_date)) ?></time></td>
+		<td width="54%"><small><?= $lt->contents ?></small></td>
+		<td width="26%"><small><?= $lt->username ?></small></td>
+		<td>
+			<small><time datetime="<?= mdate("%Y-%M-%j", human_to_unix($lt->reg_date)) ?>"><?= date('Y-m-d H:i', human_to_unix($lt->reg_date)) ?></time></small>
+		</td>
 	</tr>
 <?php endforeach ?>
 </table>

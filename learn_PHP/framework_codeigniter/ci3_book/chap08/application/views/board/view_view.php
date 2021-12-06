@@ -90,7 +90,6 @@
 		}
 	}
 
-
 	function commentDelete(id) {
 		var csrf_token = getCookie('csrf_cookie_name');
 		var name = 'csrf_test_name=' + csrf_token + '&table=ci_board&board_id=' + id;
@@ -106,7 +105,7 @@
 				else if (httpRequest.responseText == 8000) {
 					alert('자신이 작성한 댓글만 삭제할 수 있습니다.');
 				}
-				else if ( httpRequest.responseText == 9000 ) {
+				else if (httpRequest.responseText == 9000) {
 					alert('로그인해야 합니다.');
 				}
 				else {
