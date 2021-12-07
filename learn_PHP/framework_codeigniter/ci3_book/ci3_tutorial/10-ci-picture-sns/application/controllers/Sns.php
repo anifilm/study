@@ -46,11 +46,16 @@ class Sns extends CI_Controller {
 
 		// 주소 중에서 q(검색어) 세그먼트가 있는지 검사하기 위해 주소를 배열로 변환
 		$uri_array = array_values($this->uri->segment_array());
+		echo '<pre>';
+		var_dump($uri_array);
+		echo '</pre>';
 
 		if (in_array('q', $uri_array)) {
 			// 주소에 검색어가 있을 경우의 처리
 			$search_word = urldecode($this->url_explode($uri_array, 'q'));
-			echo $search_word;
+			echo '<pre>';
+			var_dump($search_word);
+			echo '</pre>';
 		}
 
 		$data['list'] = $this->sns_model->get_sns_list('', 0, 6, $search_word);

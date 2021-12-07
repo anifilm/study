@@ -4,9 +4,10 @@
 	</header>
 	<div class="row my-3">
 		<div class="mr-auto"></div>
-		<form id="bd_search" method="POST" class="form-inline my-2 my-lg-0">
-			<input type="text" name="search_word" id="q" onkeypress="board_search_enter(document.q);" placeholder="Search..." class="form-control mr-sm-2">
-			<input type="button" value="검색" id="search_btn" class="btn btn-outline-success my-2 mr-3 my-sm-0" >
+		<!-- CSRF 적용으로 검색에 대한 내용을 POST에서 GET으로 변경 -->
+		<form id="bd_search" method="GET" class="form-inline my-2 my-lg-0">
+			<input type="text" name="search_word" id="q" onkeypress="board_search_enter(document.q)" placeholder="Search..." class="form-control mr-sm-2">
+			<input type="button" value="검색" id="search_btn" class="btn btn-outline-success my-2 mr-3 my-sm-0">
 		</form>
 	</div>
 	<table cellspacing="0" cellpadding="0" class="table">
@@ -53,6 +54,11 @@
 </article>
 
 <script>
+	function board_search_enter(form) {
+		var keycode = window.event.keyCode;
+		if (keycode == 13) $('#search_btn').click();
+	}
+
 	// 하위의 스크립트를 모두 로드한 이후에 다음을 실행하도록 구성
 	// 부트스트랩 제이쿼리 스크립트가 Footer에 위치하기 때문
 	window.onload = function () {
@@ -66,33 +72,28 @@
 					var regExp = /[\{\}\[\]\/?.,;:|\)*~`!^\-_+<>@\#$%&\\\=\(\'\"]/gi;
 					var word = $('#q').val().replace(regExp, '');
 
-					var act = '/sns/lists/q/' + word + '/page/1';
+					var act = '/sns/lists/q/' + word + '/';
 					$('#bd_search').attr('action', act).submit();
 				}
 			});
 		});
 
-		function board_search_enter(form) {
-			var keycode = window.event.keyCode;
-			if (keycode == 13) $('#search_btn').click();
-		}
+		//function lastPostFunc()	{
+		//	var last_id = $('.wrdLatest:last').attr('id') ;
 
-		function lastPostFunc()	{
-			var last_id = $('.wrdLatest:last').attr('id') ;
+		//	$('div#lastPostsLoader').html('<img src="/static/images/bigLoader.gif">');
+		//	$.post('/sns/ajax_board/more_list/' + last_id, function (data) {
+		//		if (data != '') {
+		//			$('.wrdLatest:last').after(data);
+		//		}
+		//		$('div#lastPostsLoader').empty();
+		//	});
+		//}
 
-			$('div#lastPostsLoader').html('<img src="/static/images/bigLoader.gif">');
-			$.post('/sns/ajax_board/more_list/' + last_id, function (data) {
-				if (data != '') {
-					$('.wrdLatest:last').after(data);
-				}
-				$('div#lastPostsLoader').empty();
-			});
-		}
-
-		$(window).scroll(function () {
-			if ($(window).scrollTop() == $(document).height() - $(window).height()) {
-				lastPostFunc();
-			}
-		});
+		//$(window).scroll(function () {
+		//	if ($(window).scrollTop() == $(document).height() - $(window).height()) {
+		//		lastPostFunc();
+		//	}
+		//});
 	}
 </script>

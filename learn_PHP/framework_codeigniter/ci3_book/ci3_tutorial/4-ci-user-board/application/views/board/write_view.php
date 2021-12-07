@@ -2,8 +2,6 @@
 	<header>
 		<h1></h1>
 	</header>
-	<!--<?= validation_errors() ?>-->
-	<!--<form class="my-4" id="wrtie_action" method="POST">-->
 	<?php
 	// CSRF 적용
 	$attributes = array('class' => 'my-4', 'id' => 'write_action');

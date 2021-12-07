@@ -31,7 +31,7 @@
 		<!-- gnb Start -->
 		<nav id="gnb">
 			<ul>
-				<li><a rel="external" href="/controlls/lists">사진 SNS 프로젝트</a></li>
+				<li><a rel="external" href="/sns/lists">사진 SNS 프로젝트</a></li>
 				<li><span>&nbsp;|&nbsp;</span></li>
 				<?php if($this->session->userdata('logged_in') == TRUE): ?>
 				<li><a href="/auth/logout"><?= $this->session->userdata('username') ?>님 (로그아웃)</a></li>

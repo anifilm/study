@@ -30,7 +30,12 @@ class Board_model extends CI_Model {
 			$limit_query = "LIMIT $offset, $limit";
 		}
 
-		$sql = "SELECT * FROM $table $s_word WHERE board_pid='0' ORDER BY board_id DESC $limit_query";
+		// 검색 사용시 오류로 수정, TODO: 좀 더 좋은 구조로 수정
+		if ($search_word != '') {
+			$sql = "SELECT * FROM $table $s_word AND board_pid='0' ORDER BY board_id DESC $limit_query";
+		} else {
+			$sql = "SELECT * FROM $table $s_word WHERE board_pid='0' ORDER BY board_id DESC $limit_query";
+		}
 		$query = $this->db->query($sql);
 
 		if ($type == 'count') {
