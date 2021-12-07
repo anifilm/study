@@ -60,11 +60,6 @@
 </article>
 
 <script>
-	function board_search_enter(form) {
-		var keycode = window.event.keyCode;
-		if (keycode == 13) $('#search_btn').click();
-	}
-
 	// 하위의 스크립트를 모두 로드한 이후에 다음을 실행하도록 구성
 	// 부트스트랩 제이쿼리 스크립트가 Footer에 위치하기 때문
 	window.onload = function () {
@@ -84,6 +79,9 @@
 			});
 		});
 
-
+		function board_search_enter(form) {
+			var keycode = window.event.keyCode;
+			if (keycode == 13) $('#search_btn').click();
+		}
 	}
 </script>

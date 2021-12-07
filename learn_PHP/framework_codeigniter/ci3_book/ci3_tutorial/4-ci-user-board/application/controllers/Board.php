@@ -14,13 +14,6 @@ class Board extends CI_Controller {
 	}
 
 	/**
-	 * 주소에서 메서드가 생략되었을 때 실행되는 기본 메서드
-	 */
-	public function index() {
-		$this->lists();
-	}
-
-	/**
 	 * 사이트 헤더, 푸터를 자동으로 추가해준다.
 	 */
 	public function _remap($method) {
@@ -33,6 +26,13 @@ class Board extends CI_Controller {
 
 		// 푸터 include
 		$this->load->view('templetes/footer');
+	}
+
+	/**
+	 * 주소에서 메서드가 생략되었을 때 실행되는 기본 메서드
+	 */
+	public function index() {
+		$this->lists();
 	}
 
 	/**

@@ -31,9 +31,7 @@
 		<!-- gnb Start -->
 		<nav id="gnb">
 			<ul>
-				<li><a rel="external" href="/board/lists">게시판 프로젝트</a></li>
-				<li><a rel="external" href="/test">폼 검증 테스트</a></li>
-				<li><a rel="external" href="/ajax_board/test">ajax 테스트</a></li>
+				<li><a rel="external" href="/controlls/lists">사진 SNS 프로젝트</a></li>
 				<li><span>&nbsp;|&nbsp;</span></li>
 				<?php if($this->session->userdata('logged_in') == TRUE): ?>
 				<li><a href="/auth/logout"><?= $this->session->userdata('username') ?>님 (로그아웃)</a></li>

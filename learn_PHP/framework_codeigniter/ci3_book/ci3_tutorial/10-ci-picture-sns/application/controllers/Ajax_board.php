@@ -10,13 +10,6 @@ class Ajax_board extends CI_Controller {
 		$this->load->helper(array('url', 'date', 'form'));
 	}
 
-	/**
-	 * Ajax 테스트
-	 */
-	public function test() {
-		$this->load->view('ajax/test_view');
-	}
-
 	public function ajax_action() {
 		echo '<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />';
 		$name = $this->input->post('name');
