@@ -10,11 +10,6 @@
 		<fieldset>
 			<legend class="border-bottom my-4">SNS 쓰기</legend>
 			<div class="form-group">
-				<label class="control-label" for="input01">사진 업로드</label>
-				<input type="file" class="input-xlarge" id="input01" name="userfile" value="<?= $views->file_name ?? set_value('userfile') ?>">
-				<small class="text-danger"><?= form_error('userfile') ?: '&nbsp;' ?></small>
-			</div>
-			<div class="form-group">
 				<label for="input02">제목</label>
 				<input type="text" class="form-control" id="input02" name="subject" value="<?= $views->subject ?? set_value('subject') ?>">
 				<small class="text-danger"><?= form_error('subject') ?: '&nbsp;' ?></small>
@@ -24,9 +19,14 @@
 				<textarea class="form-control" id="input03" name="contents" rows="8"><?= $views->contents ?? set_value('contents') ?></textarea>
 				<small class="text-danger"><?= form_error('contents') ?: '&nbsp;' ?></small>
 			</div>
-			<div>
+			<div class="form-group">
+				<label class="control-label" for="input01">사진 업로드</label>
+				<input type="file" class="form-control-file" id="input01" name="userfile" value="<?= $views->file_name ?? set_value('userfile') ?>">
+				<small class="text-danger"><?= form_error('userfile') ?: '&nbsp;' ?></small>
+			</div>
+			<div class="form-group mt-3">
 				<a href="/sns/lists" class="btn btn-outline-secondary" style="width: 90px">취소</a>
-				<button type="submit" class="btn btn-primary ml-2" id="write_btn">작성</button>
+				<button type="submit" class="btn btn-primary ml-2" id="write_btn" style="width: 90px">작성</button>
 			</div>
 		</fieldset>
 	</form>

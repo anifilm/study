@@ -6,18 +6,17 @@ class Sns_model extends CI_Model {
 	}
 
 	/**
-	 * SNS 게시물 내용 가져오기
+	 * SNS 게시물 내용 가져오기 (TODO: 사용하는 곳 확인할 것)
 	 *
 	 * @param string $id sns_files id
 	 * @return array 글내용
 	 */
-	function gett_sns($id) {
-		// TODO: 호출하는 곳이 있는지 확인하기
-		$table = 'ci_sns_files';
-		$query = $this->db->get_where($table, array('id' => $id));
+	//function gett_sns($id) {
+	//	$table = 'ci_sns_files';
+	//	$query = $this->db->get_where($table, array('id' => $id));
 
-		return $query->row_array();
-	}
+	//	return $query->row_array();
+	//}
 
 	/**
 	 * SNS 게시물 리스트 가져오기
@@ -83,6 +82,7 @@ class Sns_model extends CI_Model {
 	 */
 	public function insert_sns($arrays) {
 		$table = 'ci_sns_files';
+
 		// 업로드 파일 기타 정보
 		$detail = array(
 			'file_size' => (int) $arrays['file_size'],
@@ -111,10 +111,11 @@ class Sns_model extends CI_Model {
 
 	/**
 	 * 게시물 수정
+	 *
 	 * @param array $arrays 게시물번호, 게시물제목, 게시물내용 1차 배열
 	 * @return boolean 입력 성공여부
 	 */
-	public function modify_sns($arrays) {
+	public function update_sns($arrays) {
 		$table = 'ci_sns_files';
 
 		if ($arrays['file_name']) {

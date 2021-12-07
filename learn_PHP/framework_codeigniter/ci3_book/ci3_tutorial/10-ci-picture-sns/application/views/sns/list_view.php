@@ -2,8 +2,14 @@
 	<header>
 		<h1></h1>
 	</header>
-	<div class="row my-3">
-		<div class="mr-auto"></div>
+	<div class="row mt-5 mb-3">
+		<div class="mr-auto ml-3">
+			<?php if($this->session->userdata('logged_in') == TRUE): ?>
+			<a href="/sns/upload_photo" class="btn btn-primary">새로운 글 작성</a>
+			<?php else: ?>
+			<a href="/sns/upload_photo" class="btn btn-secondary">새로운 글 작성</a>
+			<?php endif ?>
+		</div>
 		<!--<form id="bd_search" method="GET" class="form-inline my-2 my-lg-0">-->
 		<?php
 		// CSRF 적용
@@ -29,7 +35,7 @@
 				}
 			?>
 				<th scope="row">
-					<img src="<?= $thumb_img ?>" width="300px"><br>
+					<a rel="external" href="/sns/view/<?= $lt->id ?>"><img src="<?= $thumb_img ?>" width="300px"></a><br>
 					<a rel="external" href="/sns/view/<?= $lt->id ?>"><?= $lt->subject ?></a><br>
 					<time datetime="<?= mdate("%Y-%M-%j", human_to_unix($lt->reg_date)) ?>"><?= date('Y-m-d H:i', human_to_unix($lt->reg_date)) ?></time>
 				</th>

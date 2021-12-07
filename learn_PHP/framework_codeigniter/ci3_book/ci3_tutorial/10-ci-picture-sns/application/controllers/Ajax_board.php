@@ -25,7 +25,7 @@ class Ajax_board extends CI_Controller {
 
 			if ($comment_contents != '') {
 				$write_data = array(
-					'board_pid' => $board_id, // 원글 번호
+					'pid' => $board_id, // 원글 번호
 					'subject'   => '',
 					'contents'  => $comment_contents,
 					'username'  => $this->session->userdata('username'),
@@ -35,7 +35,7 @@ class Ajax_board extends CI_Controller {
 
 				if ($result) {
 					// 글 작성 성공시 댓글 목록을 만들어 화면에 출력
-					$sql = "SELECT * FROM $table WHERE board_pid='$board_id' ORDER BY board_id DESC";
+					$sql = "SELECT * FROM $table WHERE pid='$board_id' ORDER BY id DESC";
 					$query = $this->db->query($sql);
 ?>
 <table cellspacing="0" cellpadding="0" id="comment_table" class="table">
@@ -47,7 +47,7 @@ class Ajax_board extends CI_Controller {
 			<small><time datetime="<?= mdate("%Y-%M-%j", human_to_unix($lt->reg_date)) ?>"><?= date('Y-m-d H:i', human_to_unix($lt->reg_date)) ?></time></small>
 		</td>
 		<?php if($this->session->userdata('logged_in') == TRUE && $this->session->userdata('username') == $lt->username): ?>
-		<td><small><a href="#" class="comment_delete" vals="<?= $lt->board_id ?>"><i class="icon-trash"></i>삭제</a></small></td>
+		<td><small><a href="#" class="comment_delete" vals="<?= $lt->id ?>"><i class="icon-trash"></i>삭제</a></small></td>
 		<?php endif ?>
 	</tr>
 <?php endforeach ?>

@@ -111,7 +111,7 @@ class Sns extends CI_Controller {
 			if ($this->form_validation->run() == TRUE) {
 				// upload 설정
 				$config = array(
-					'upload_path' => 'uploads/',
+					'upload_path' => './static/uploads/',
 					'allowed_types' => 'gif|jpg|png',
 					'encrypt_name' => TRUE,
 					'max_size' => '1000',
@@ -138,30 +138,30 @@ class Sns extends CI_Controller {
 						$this->load->library('image_lib', $config);
 						$this->image_lib->resize();
 					}
-				}
 
-				$upload_data['subject'] = $this->input->post('subject', true);
-				$upload_data['content'] = $this->input->post('content', true);
-				$upload_data['username'] = $this->session->userdata('username');
+					$upload_data['username'] = $this->session->userdata('username');
+					$upload_data['subject'] = $this->input->post('subject', true);
+					$upload_data['contents'] = $this->input->post('contents', true);
 
-				$result = $this->sns_model->insert_sns($upload_data);
+					$result = $this->sns_model->insert_sns($upload_data);
 
-				// TODO: exit 다음 페이스북 전송 가능? (체크해볼것)
-				redirect('/sns/lists'); exit;
+					// TODO: exit 다음 페이스북 전송 가능? (체크해볼것)
+					redirect('/sns/lists'); exit;
 
-				// 페이스북 전송
-				if ($result) {
-					// sns 라이브러리 로드
-					$this->load->library('sns');
-					$this->facebook = $this->sns->facebook();
-					$this->facebook->setCallback(site_url('upload_photo/facebook_upload/'.$result));
+					// 페이스북 전송
+					if ($result) {
+						// sns 라이브러리 로드
+						$this->load->library('sns');
+						$this->facebook = $this->sns->facebook();
+						$this->facebook->setCallback(site_url('upload_photo/facebook_upload/'.$result));
 
-					if (!$this->facebook->isLoggedIn()) {
-						$this->facebook->login();
+						if (!$this->facebook->isLoggedIn()) {
+							$this->facebook->login();
+						}
 					}
-				}
-				else {
-					alert('입력에 실패 했습니다.', '/sns/upload_photo');
+					else {
+						alert('입력에 실패 했습니다.', '/sns/upload_photo');
+					}
 				}
 			}
 			else {
@@ -203,6 +203,7 @@ class Sns extends CI_Controller {
 
 		if ($this->session->userdata('logged_in') == TRUE) {
 			$id = $this->uri->segment(3);
+
 			// 수정하려는 글의 작성자가 본인인지 검증
 			$writer_id = $this->sns_model->writer_check($id);
 
@@ -215,8 +216,18 @@ class Sns extends CI_Controller {
 			$this->load->library('form_validation');
 
 			// 폼 검증할 필드와 규칙 사전 정의
-			$this->form_validation->set_rules('subject', '제목', 'required');
-			$this->form_validation->set_rules('contents', '내용', 'required');
+			$this->form_validation->set_rules(
+				'subject',
+				'제목',
+				'required',
+				array('required'  => '{field}은 필수입력 항목입니다.'),
+			);
+			$this->form_validation->set_rules(
+				'contents',
+				'내용',
+				'required',
+				array('required'  => '{field}은 필수입력 항목입니다.'),
+			);
 
 			if ($this->form_validation->run() == TRUE) {
 				if (!$this->input->post('subject', TRUE) && !$this->input->post('contents', TRUE)) {
@@ -228,7 +239,7 @@ class Sns extends CI_Controller {
 				if ($_FILES) { // 수정할 파일이 있다면
 					// upload 설정
 					$config = array(
-						'upload_path' => 'uploads/',
+						'upload_path' => './static/uploads/',
 						'allowed_types' => 'gif|jpg|png',
 						'encrypt_name' => TRUE,
 						'max_size' => '1000',
@@ -243,7 +254,7 @@ class Sns extends CI_Controller {
 					else {
 						$upload_data = $this->upload->data();
 
-						if($upload_data['image_width'] > 300) {
+						if ($upload_data['image_width'] > 300) {
 							// 이미지 리사이즈. 파일명_thumb.확장자 형태로 썸네일 생성
 							$config['image_library'] = 'gd2';
 							$config['source_image'] = $upload_data['full_path'];
@@ -262,15 +273,15 @@ class Sns extends CI_Controller {
 				}
 
 				// 수정할 데이터 정리
+				$upload_data['id'] = $id;
+				$upload_data['username'] = $this->session->userdata('username');
 				$upload_data['subject'] = $this->input->post('subject', true);
 				$upload_data['contents'] = $this->input->post('contents', true);
-				$upload_data['username'] = $this->session->userdata('username');
-				$upload_data['id'] = $id;
 
 				$result = $this->sns_model->update_sns($upload_data);
 
 				// TODO: exit 다음 페이스북 전송 가능? (체크해볼것)
-				redirect('/sns/lists'); exit;
+				redirect('/sns/view/'.$id); exit;
 
 				// 페이스북 전송
 				if ($result) {

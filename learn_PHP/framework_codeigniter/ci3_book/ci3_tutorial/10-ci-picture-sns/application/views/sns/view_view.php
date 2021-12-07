@@ -27,9 +27,7 @@
 					<a href="/sns/lists" class="btn btn-outline-secondary">목록으로</a>
 					<?php if($this->session->userdata('logged_in') == TRUE && $writer): ?>
 					<a href="/sns/modify_photo/<?= $this->uri->segment(3) ?>" class="btn btn-primary ml-2">게시물 수정</a>
-					<div style="display: inline-block; position: absolute; right: 142px;">
-						<a href="/sns/delete/<?= $this->uri->segment(3) ?>" class="btn btn-outline-danger">게시물 삭제</a>
-					</div>
+						<a href="/sns/delete/<?= $this->uri->segment(3) ?>" class="btn btn-outline-danger" style="display: inline-block; float:right;">게시물 삭제</a>
 					<?php else: ?>
 					<a href="#" class="btn btn-secondary ml-2 disabled">게시물 수정</a>
 					<?php endif ?>
@@ -49,7 +47,7 @@
 					<time datetime="<?= mdate("%Y-%M-%j", human_to_unix($lt->reg_date)) ?>"><?= date('Y-m-d H:i', human_to_unix($lt->reg_date)) ?></time></small>
 				</td>
 				<?php if($this->session->userdata('logged_in') == TRUE && $this->session->userdata('username') == $lt->username): ?>
-				<td><small><a href="#" class="comment_delete" vals="<?= $lt->board_id ?>"><i class="icon-trash"></i>삭제</a></small></td>
+				<td><small><a href="#" class="comment_delete" vals="<?= $lt->id ?>"><i class="icon-trash"></i>삭제</a></small></td>
 				<?php endif ?>
 			</tr>
 		<?php endforeach ?>
@@ -101,8 +99,7 @@
 					data: {
 						'comment_contents': encodeURIComponent($('#input01').val()),
 						'csrf_test_name': getCookie('csrf_cookie_name'),
-						'table': 'ci_board',
-						'board_id': '<?= $this->uri->segment(3) ?>',
+						'id': '<?= $this->uri->segment(3) ?>',
 					},
 					dataType: 'html',
 					complete: function (xhr, textStatus) {
@@ -132,8 +129,7 @@
 					type: 'POST',
 					data: {
 						'csrf_test_name': getCookie('csrf_cookie_name'),
-						'table': 'ci_board',
-						'board_id': $(this).attr('vals'),
+						'id': $(this).attr('vals'),
 					},
 					dataType: 'text',
 					complete: function (xhr, textStatus) {
