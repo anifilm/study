@@ -6,7 +6,7 @@
 	<table cellspacing="0" cellpadding="0" class="table">
 		<thead>
 			<tr>
-				<th scope="col" width="50%"><?= $views->subject ?></th>
+				<th scope="col" width="40%"><?= $views->subject ?></th>
 				<th scope="col">작성자: <?= $views->username ?></th>
 				<th scope="col">조회수: <?= $views->hits ?></th>
 				<th scope="col">작성일자: <?= $views->reg_date ?></th>
@@ -41,7 +41,7 @@
 	<div id="comment_area">
 		<table cellspacing="0" cellpadding="0" class="table">
 		<?php foreach ($comment_list as $lt): ?>
-			<tr id="row_num_<?= $lt->board_id ?>">
+			<tr id="row_num_<?= $lt->id ?>">
 				<td width="54%"><small><?= $lt->contents ?></small></td>
 				<td width="26%"><small><?= $lt->username ?></small></td>
 				<td>

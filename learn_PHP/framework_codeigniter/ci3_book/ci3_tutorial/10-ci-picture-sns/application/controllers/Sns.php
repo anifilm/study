@@ -52,7 +52,7 @@ class Sns extends CI_Controller {
 			$search_word = urldecode($this->url_explode($uri_array, 'q'));
 		}
 
-		$data['list'] = $this->sns_model->get_sns_list('', 0, 6, $search_word);
+		$data['list'] = $this->sns_model->get_sns_list('', 0, 16, $search_word);
 
 		$this->load->view('sns/list_view', $data);
 	}

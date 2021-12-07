@@ -54,13 +54,25 @@
 			<?php endif ?>
 		</tbody>
 	</table>
-	<div id="lastPostsLoader"></div>
+	<div class="text-center" id="lastPostsLoader"></div>
 </article>
 
 <script>
 	function board_search_enter(form) {
 		var keycode = window.event.keyCode;
 		if (keycode == 13) $('#search_btn').click();
+	}
+
+	function lastPostFunc()	{
+		var last_id = $('.wrdLatest:last').attr('id') ;
+
+		$('div#lastPostsLoader').html('<img src="/static/images/bigLoader.gif">');
+		$.post('/ajax_board/more_list/' + last_id, function (data) {
+			if (data != '') {
+				$('.wrdLatest:last').after(data);
+			}
+			$('div#lastPostsLoader').empty();
+		});
 	}
 
 	// 하위의 스크립트를 모두 로드한 이후에 다음을 실행하도록 구성
@@ -82,22 +94,11 @@
 			});
 		});
 
-		//function lastPostFunc()	{
-		//	var last_id = $('.wrdLatest:last').attr('id') ;
-
-		//	$('div#lastPostsLoader').html('<img src="/static/images/bigLoader.gif">');
-		//	$.post('/sns/ajax_board/more_list/' + last_id, function (data) {
-		//		if (data != '') {
-		//			$('.wrdLatest:last').after(data);
-		//		}
-		//		$('div#lastPostsLoader').empty();
-		//	});
-		//}
-
-		//$(window).scroll(function () {
-		//	if ($(window).scrollTop() == $(document).height() - $(window).height()) {
-		//		lastPostFunc();
-		//	}
-		//});
+		$(window).scroll(function () {
+			if (Math.round($(window).scrollTop()) == $(document).height() - $(window).height()) {
+				// jQuery POST 호출시 csrf 적용 필요
+				//lastPostFunc();
+			}
+		});
 	}
 </script>

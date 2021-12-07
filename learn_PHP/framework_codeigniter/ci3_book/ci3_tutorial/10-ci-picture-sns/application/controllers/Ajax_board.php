@@ -6,7 +6,7 @@ class Ajax_board extends CI_Controller {
 		parent::__construct();
 
 		//$this->load->database();
-		$this->load->model('board_model');
+		$this->load->model('sns_model');
 		$this->load->helper(array('url', 'date', 'form'));
 	}
 
@@ -18,22 +18,20 @@ class Ajax_board extends CI_Controller {
 
 	public function ajax_comment_add() {
 		if ($this->session->userdata('logged_in') == TRUE) {
-			//$this->load->model('board_model');
-
-			$table = $this->input->post('table', TRUE);
-			$board_id = $this->input->post('board_id', TRUE);
+			//$this->load->model('sns_model');
+			$table = 'ci_sns_files';
+			$board_id = $this->input->post('id', TRUE);
 			$comment_contents = $this->input->post('comment_contents', TRUE);
 
 			if ($comment_contents != '') {
 				$write_data = array(
-					'table'     => $table,    // 게시판 테이블명
 					'board_pid' => $board_id, // 원글 번호
 					'subject'   => '',
 					'contents'  => $comment_contents,
 					'username'  => $this->session->userdata('username'),
 				);
 
-				$result = $this->board_model->insert_comment($write_data);
+				$result = $this->sns_model->insert_comment($write_data);
 
 				if ($result) {
 					// 글 작성 성공시 댓글 목록을 만들어 화면에 출력
@@ -74,17 +72,16 @@ class Ajax_board extends CI_Controller {
 
 	public function ajax_comment_delete() {
 		if ($this->session->userdata('logged_in') == TRUE) {
-			$table = $this->input->post('table', TRUE);
-			$board_id = $this->input->post('board_id', TRUE);
+			$board_id = $this->input->post('id', TRUE);
 
 			// 글 작성자가 본인인지 검증
-			$writer_id = $this->board_model->writer_check($table, $board_id);
+			$writer_id = $this->sns_model->writer_check($board_id);
 
 			if ($writer_id->username != $this->session->userdata('username')) {
 				echo '8000'; // 자신이 작성한 글이 아닙니다.
 			}
 			else {
-				$result = $this->board_model->delete_content($table, $board_id);
+				$result = $this->sns_model->delete_content($board_id);
 
 				if ($result) {
 					echo $board_id;
@@ -98,5 +95,41 @@ class Ajax_board extends CI_Controller {
 		else {
 			echo '9000'; // 로그인 필요 에러
 		}
+	}
+
+	public function more_list() {
+		$limit = 6;
+		$last_id = $this->uri->segment(3);
+		$i = $last_id + 1;
+
+     	$sql = "SELECT * FROM sns_files WHERE pid='0' ORDER BY id DESC LIMIT ".$last_id.", ".$limit;
+   		$query = $this->db->query($sql);
+
+		echo '<tr class="wrdLatest">';
+		//var_dump($sql);
+		foreach ($query->result() as $lt) {
+			$file_info = explode('.', $lt->file_name);
+			if (is_file('./static/uploads/'.$file_info[0].'_thumb.'.$file_info[1])) {
+				$thumb_img = '/static/uploads/'.$file_info[0].'_thumb.'.$file_info[1];
+			}
+			else {
+				$thumb_img = '/static/uploads/'.$lt->file_name;
+			}
+?>
+				<th scope="row">
+					<img src="<?= $thumb_img ?>"><br>
+					<a rel="external" href="/sns/view/<?= $lt->id ?>"><?= $lt->subject ?></a><br>
+					<time datetime="<?= mdate("%Y-%M-%j", human_to_unix($lt->reg_date)) ?>"><?= date('Y-m-d H:i', human_to_unix($lt->reg_date)) ?></time>
+				</th>
+			<?php
+				if ($i % 2 == 0) {
+			?>
+			</tr>
+			<tr class="wrdLatest" id="<?= $i+2 ?>">
+<?php
+	     	}
+			$i++;
+		}
+		echo '</tr>';
 	}
 }
