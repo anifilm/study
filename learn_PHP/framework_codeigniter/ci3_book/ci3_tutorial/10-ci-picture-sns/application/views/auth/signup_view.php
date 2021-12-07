@@ -2,8 +2,6 @@
 	<header>
 		<h1></h1>
 	</header>
-	<!--<?= validation_errors() ?>-->
-	<!--<form class="my-4" id="wrtie_action" method="POST">-->
 	<?php
 	// CSRF 적용
 	$attributes = array('class' => 'my-4', 'id' => 'write_action');
@@ -40,7 +38,7 @@
 				</div>
 			</div>
 			<div class="mt-4">
-				<a href="/board/lists" class="btn btn-outline-secondary" style="width: 90px">취소</a>
+				<a href="/sns/lists" class="btn btn-outline-secondary" style="width: 90px">취소</a>
 				<button type="submit" class="btn btn-primary ml-2" id="write_btn" style="width: 90px">전송</button>
 			</div>
 		</fieldset>

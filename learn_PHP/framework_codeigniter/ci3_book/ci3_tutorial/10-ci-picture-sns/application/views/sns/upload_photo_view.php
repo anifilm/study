@@ -5,7 +5,7 @@
 	<?php
 	// CSRF 적용
 	$attributes = array('class' => 'my-4', 'id' => 'upload_action');
-	echo form_open_multipart('/controlls/upload_photo', $attributes);
+	echo form_open_multipart('/sns/upload_photo', $attributes);
 	?>
 		<fieldset>
 			<legend class="border-bottom my-4">SNS 쓰기</legend>
@@ -25,7 +25,7 @@
 				<small class="text-danger"><?= form_error('contents') ?: '&nbsp;' ?></small>
 			</div>
 			<div>
-				<a href="/controlls/lists" class="btn btn-outline-secondary" style="width: 90px">취소</a>
+				<a href="/sns/lists" class="btn btn-outline-secondary" style="width: 90px">취소</a>
 				<button type="submit" class="btn btn-primary ml-2" id="write_btn">작성</button>
 			</div>
 		</fieldset>

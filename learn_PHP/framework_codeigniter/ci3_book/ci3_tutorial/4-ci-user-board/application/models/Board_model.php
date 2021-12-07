@@ -25,7 +25,7 @@ class Board_model extends CI_Model {
 
 		$limit_query = '';
 
-		if ($limit != '' or $offset != '') {
+		if ($limit != '' || $offset != '') {
 			// 페이징이 있을 경우의 처리
 			$limit_query = "LIMIT $offset, $limit";
 		}

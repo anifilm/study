@@ -82,7 +82,7 @@ class Auth extends CI_Controller {
 
 				$this->session->set_userdata($newdata);
 
-				alert('로그인 되었습니다.', '/board/lists');
+				alert('로그인 되었습니다.', '/sns/lists');
 				// TODO: 새글 작성하기로 로그인시, 로그인후 글 작성으로 바로 리다이렉션 하기
 				exit;
 			}
@@ -101,7 +101,7 @@ class Auth extends CI_Controller {
 		$this->session->sess_destroy();
 
 		echo '<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />';
-		alert('로그아웃 되었습니다.', '/board/lists');
+		alert('로그아웃 되었습니다.', '/sns/lists');
 		exit;
 	}
 
@@ -167,7 +167,7 @@ class Auth extends CI_Controller {
 				),
 			);
 
-			alert('회원가입이 완료되었습니다.', '/board/lists');
+			alert('회원가입이 완료되었습니다.', '/sns/lists');
 			exit;
 		}
 	}

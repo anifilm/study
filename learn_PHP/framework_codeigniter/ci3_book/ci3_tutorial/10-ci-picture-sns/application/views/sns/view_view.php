@@ -15,7 +15,7 @@
 		<tbody>
 			<tr>
 				<th colspan="4">
-					<img src="/sns/uploads/<?= $views->file_name ?>"><br>
+					<img src="/static/uploads/<?= $views->file_name ?>"><br>
 					<?= $views->contents;?><br><br>
 					파일명: <?= $views->original_name ?>
 				</th>
@@ -24,11 +24,11 @@
 		<tfoot>
 			<tr>
 				<th colspan="4">
-					<a href="/controlls/lists" class="btn btn-outline-secondary">목록으로</a>
+					<a href="/sns/lists" class="btn btn-outline-secondary">목록으로</a>
 					<?php if($this->session->userdata('logged_in') == TRUE && $writer): ?>
-					<a href="/controlls/modify_photo/<?= $this->uri->segment(3) ?>" class="btn btn-primary ml-2">게시물 수정</a>
+					<a href="/sns/modify_photo/<?= $this->uri->segment(3) ?>" class="btn btn-primary ml-2">게시물 수정</a>
 					<div style="display: inline-block; position: absolute; right: 142px;">
-						<a href="/controlls/delete/<?= $this->uri->segment(3) ?>" class="btn btn-outline-danger">게시물 삭제</a>
+						<a href="/sns/delete/<?= $this->uri->segment(3) ?>" class="btn btn-outline-danger">게시물 삭제</a>
 					</div>
 					<?php else: ?>
 					<a href="#" class="btn btn-secondary ml-2 disabled">게시물 수정</a>

@@ -11,7 +11,8 @@ class Sns_model extends CI_Model {
 	 * @param string $id sns_files id
 	 * @return array 글내용
 	 */
-	function get_sns($id) {
+	function gett_sns($id) {
+		// TODO: 호출하는 곳이 있는지 확인하기
 		$table = 'ci_sns_files';
 		$query = $this->db->get_where($table, array('id' => $id));
 
@@ -34,7 +35,7 @@ class Sns_model extends CI_Model {
 
 		$limit_query = '';
 
-		if ($limit != '' or $offset != '') {
+		if ($limit != '' || $offset != '') {
 			// 페이징이 있을 경우의 처리
 			$limit_query = "LIMIT $offset, $limit";
 		}
@@ -62,7 +63,7 @@ class Sns_model extends CI_Model {
     public function get_view($id) {
 		$table = 'ci_sns_files';
 		// 조회수 증가 (TODO: refresh시 계속 증가되는 것을 해당 게시물 클릭시에만 증가하는 것으로 수정 필요)
-		$sql_hits = "UPDATE $table SET hits=hits+1 WHERE board_id='$id'";
+		$sql_hits = "UPDATE $table SET hits=hits+1 WHERE id='$id'";
 		$this->db->query($sql_hits);
 
 		$sql = "SELECT * FROM $table WHERE id='$id'";

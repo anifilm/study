@@ -1,7 +1,7 @@
 <?php
 defined('BASEPATH') OR exit('No direct script access allowed');
 
-class Controlls extends CI_Controller {
+class Sns extends CI_Controller {
 	public function __construct() {
 		parent::__construct();
 
@@ -34,7 +34,7 @@ class Controlls extends CI_Controller {
 	 * 주소에서 메서드가 생략되었을 때 실행되는 기본 메서드
 	 */
 	public function index() {
-		$this->upload_photo();
+		$this->lists();
 	}
 
 	/**
@@ -50,11 +50,12 @@ class Controlls extends CI_Controller {
 		if (in_array('q', $uri_array)) {
 			// 주소에 검색어가 있을 경우의 처리
 			$search_word = urldecode($this->url_explode($uri_array, 'q'));
-
-			$data['list'] = $this->sns_model->get_sns_list('', 0, 6, $search_word);
-
-			$this->load->view('sns/list_view', $data);
+			echo $search_word;
 		}
+
+		$data['list'] = $this->sns_model->get_sns_list('', 0, 6, $search_word);
+
+		$this->load->view('sns/list_view', $data);
 	}
 
 	/**
@@ -67,8 +68,21 @@ class Controlls extends CI_Controller {
  		$data['views'] = $this->sns_model->get_view($id);
 		//댓글 리스트 가져오기
  		$data['comment_list'] = $this->sns_model->get_comment($id);
+		// 작성자 검증용
+		$data['writer'] = FALSE;
 
-		 $this->load->view('sns/view_view', $data);
+		// 게시물 수정/삭제 버튼 표시에 대한 사용자 확인
+		if ($this->session->userdata('logged_in') == TRUE) {
+			// 해당 글의 작성자가 본인인지 검증
+			$writer_id = $this->sns_model->writer_check($id);
+
+			if ($writer_id->username == $this->session->userdata('username')) {
+				$data['writer'] = TRUE;
+			}
+		}
+
+		// view 호출
+		$this->load->view('sns/view_view', $data);
 	}
 
  	/**
@@ -133,8 +147,8 @@ class Controlls extends CI_Controller {
 
 				$result = $this->sns_model->insert_sns($upload_data);
 
-				redirect('/controlls/lists');
-				exit; // TODO: exit 다음 페이스북 전송 가능? (체크해볼것)
+				// TODO: exit 다음 페이스북 전송 가능? (체크해볼것)
+				redirect('/sns/lists'); exit;
 
 				// 페이스북 전송
 				if ($result) {
@@ -148,7 +162,7 @@ class Controlls extends CI_Controller {
 					}
 				}
 				else {
-					alert('입력에 실패 했습니다.', '/controlls/upload_photo');
+					alert('입력에 실패 했습니다.', '/sns/upload_photo');
 				}
 			}
 			else {
@@ -169,7 +183,7 @@ class Controlls extends CI_Controller {
 
 		// 앨범 업로드
 		$this->facebook->upload_photo($result['contents'], $result['file_path'].$result['file_name'], '');
-		redirect('/controlls/lists');
+		redirect('/sns/lists');
 	}
 
 	/**
@@ -194,7 +208,7 @@ class Controlls extends CI_Controller {
 			$writer_id = $this->sns_model->writer_check($id);
 
 			if ($writer_id->username != $this->session->userdata('username')) {
-				alert('본인이 작성한 글이 아닙니다.', '/controlls/view/'.$id);
+				alert('본인이 작성한 글이 아닙니다.', '/sns/view/'.$id);
 				exit;
 			}
 
@@ -208,7 +222,7 @@ class Controlls extends CI_Controller {
 			if ($this->form_validation->run() == TRUE) {
 				if (!$this->input->post('subject', TRUE) && !$this->input->post('contents', TRUE)) {
 					// 글 내용이 없을 경우, 프로그램단에서 한번 더 체크
-					alert('비정상적인 접근입니다.', '/controlls/lists');
+					alert('비정상적인 접근입니다.', '/sns/lists');
 					exit;
 				}
 
@@ -256,7 +270,8 @@ class Controlls extends CI_Controller {
 
 				$result = $this->sns_model->update_sns($upload_data);
 
-				redirect('/controlls/lists'); exit;
+				// TODO: exit 다음 페이스북 전송 가능? (체크해볼것)
+				redirect('/sns/lists'); exit;
 
 				// 페이스북 전송
 				if ($result) {
@@ -270,17 +285,17 @@ class Controlls extends CI_Controller {
 					}
 				}
 				else {
-					alert('입력에 실패 했습니다.', '/controlls/upload_photo');
+					alert('입력에 실패 했습니다.', '/sns/upload_photo');
 				}
 
 				if ($result) {
 					// 글 수정 성공시 게시판 목록으로
-					alert('글 수정을 완료하였습니다.', '/controlls/lists');
+					alert('글 수정을 완료하였습니다.', '/sns/lists');
 					exit;
 				}
 				else {
 					// 글 수정 실패시 해당 게시물 상세보기로
-					alert('글 수정에 실패하였습니다. 다시 수정해주세요.', '/controlls/view/'.$id);
+					alert('글 수정에 실패하였습니다. 다시 수정해주세요.', '/sns/view/'.$id);
 					exit;
 				}
 			}
@@ -309,21 +324,21 @@ class Controlls extends CI_Controller {
 			$writer_id = $this->sns_model->writer_check($id);
 
 			if ($writer_id->username != $this->session->userdata('username')) {
-				alert('본인이 작성한 글이 아닙니다.', '/controlls/view/'.$this->uri->segment(3));
+				alert('본인이 작성한 글이 아닙니다.', '/sns/view/'.$id);
 				exit;
 			}
 
 			//게시물 번호에 해당하는 게시물 삭제
-			$return = $this->sns_model->delete_content($this->uri->segment(3));
+			$return = $this->sns_model->delete_content($id);
 
 			//게시물 목록으로 돌아가기
 			if ($return) {
 				// 삭제 성공시
-				alert('게시물이 삭제되었습니다.', '/controlls/lists/');
+				alert('게시물이 삭제되었습니다.', '/sns/lists/');
 			}
 			else {
 				// 삭제 실패시
-				alert('게시물 삭제에 실패하였습니다.', '/controlls/view/'.$this->uri->segment(3));
+				alert('게시물 삭제에 실패하였습니다.', '/sns/view/'.$id);
 			}
 		}
 		else {

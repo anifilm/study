@@ -16,16 +16,16 @@
 			$i = 1;
 			foreach ($list as $lt):
 				$file_info = explode('.', $lt->file_name);
-				if (is_file('./uploads/'.$file_info[0].'_thumb.'.$file_info[1])) {
-					$thumb_img = '/sns/uploads/'.$file_info[0].'_thumb.'.$file_info[1];
+				if (is_file('./static/uploads/'.$file_info[0].'_thumb.'.$file_info[1])) {
+					$thumb_img = '/static/uploads/'.$file_info[0].'_thumb.'.$file_info[1];
 				}
 				else {
-					$thumb_img = '/sns/uploads/'.$lt->file_name;
+					$thumb_img = '/static/uploads/'.$lt->file_name;
 				}
 			?>
 				<th scope="row">
-					<img src="<?= $thumb_img;?>"><br>
-					<a rel="external" href="/controlls/view/<?= $lt->id ?>"><?= $lt->subject ?></a><br>
+					<img src="<?= $thumb_img ?>" width="300px"><br>
+					<a rel="external" href="/sns/view/<?= $lt->id ?>"><?= $lt->subject ?></a><br>
 					<time datetime="<?= mdate("%Y-%M-%j", human_to_unix($lt->reg_date)) ?>"><?= date('Y-m-d H:i', human_to_unix($lt->reg_date)) ?></time>
 				</th>
 			<?php
@@ -66,7 +66,7 @@
 					var regExp = /[\{\}\[\]\/?.,;:|\)*~`!^\-_+<>@\#$%&\\\=\(\'\"]/gi;
 					var word = $('#q').val().replace(regExp, '');
 
-					var act = '/controlls/lists/q/' + word + '/page/1';
+					var act = '/sns/lists/q/' + word + '/page/1';
 					$('#bd_search').attr('action', act).submit();
 				}
 			});
@@ -80,7 +80,7 @@
 		function lastPostFunc()	{
 			var last_id = $('.wrdLatest:last').attr('id') ;
 
-			$('div#lastPostsLoader').html('<img src="/sns/images/bigLoader.gif">');
+			$('div#lastPostsLoader').html('<img src="/static/images/bigLoader.gif">');
 			$.post('/sns/ajax_board/more_list/' + last_id, function (data) {
 				if (data != '') {
 					$('.wrdLatest:last').after(data);
