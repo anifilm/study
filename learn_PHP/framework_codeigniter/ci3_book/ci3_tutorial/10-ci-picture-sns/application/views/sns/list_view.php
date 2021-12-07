@@ -4,8 +4,12 @@
 	</header>
 	<div class="row my-3">
 		<div class="mr-auto"></div>
-		<!-- CSRF 적용으로 검색에 대한 내용을 POST에서 GET으로 변경 -->
-		<form id="bd_search" method="GET" class="form-inline my-2 my-lg-0">
+		<!--<form id="bd_search" method="GET" class="form-inline my-2 my-lg-0">-->
+		<?php
+		// CSRF 적용
+		$attributes = array('class' => 'form-inline my-2 my-lg-0', 'id' => 'bd_search');
+		echo form_open('', $attributes);
+		?>
 			<input type="text" name="search_word" id="q" onkeypress="board_search_enter(document.q)" placeholder="Search..." class="form-control mr-sm-2">
 			<input type="button" value="검색" id="search_btn" class="btn btn-outline-success my-2 mr-3 my-sm-0">
 		</form>
