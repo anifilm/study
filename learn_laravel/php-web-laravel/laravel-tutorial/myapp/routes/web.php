@@ -100,3 +100,16 @@ Route::get('/home', 'HomeController@index')->name('home');
 //DB::listen(function ($query) {
 //    var_dump($query->sql);
 //});
+
+Route::get('mail', function () {
+    $article = App\Article::with('user')->find(1);
+
+    return Mail::send(
+        'emails.articles.created',
+        compact('article'),
+        function ($message) use ($article) {
+            $message->to('richdad02@naver.com');
+            $message->subject('새 글이 등록되었습니다. - '.$article->title);
+        }
+    );
+});
