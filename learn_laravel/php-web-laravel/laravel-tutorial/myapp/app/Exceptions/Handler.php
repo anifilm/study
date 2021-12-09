@@ -5,8 +5,7 @@ namespace App\Exceptions;
 use Exception;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
 
-class Handler extends ExceptionHandler
-{
+class Handler extends ExceptionHandler {
     /**
      * A list of the exception types that are not reported.
      *
@@ -34,8 +33,7 @@ class Handler extends ExceptionHandler
      *
      * @throws \Exception
      */
-    public function report(Exception $exception)
-    {
+    public function report(Exception $exception) {
         parent::report($exception);
     }
 
@@ -48,16 +46,23 @@ class Handler extends ExceptionHandler
      *
      * @throws \Exception
      */
-    public function render($request, Exception $exception)
-    {
+    public function render($request, Exception $exception) {
         if (app()->environment('production')) {
-            if ($exception instanceof \Illuminate\Database\Eloquent\ModelNotFoundException) {
-                return response(view('errors.notice', [
-                    'title' => '찾을 수 없습니다.',
-                    'description' => '죄송합니다. 요청하신 페이지가 없습니다.',
-                ]), 404);
+            $statusCode = 400;
+            $title = '죄송합니다. :(';
+            $description = '에러가 발생했습니다.';
+
+            if ($exception instanceof \Illuminate\Database\Eloquent\ModelNotFoundException or $exception instanceof \Symfony\Component\HttpKernel\Exception\NotFoundHttpException) {
+                $statusCode = 404;
+                $description = $exception->getMessage() ?: '요청하신 페이지가 없습니다.';
             }
+
+            return response(view('errors.notice', [
+                'title' => $title,
+                'description' => $description,
+            ]), $statusCode);
         }
+
         return parent::render($request, $exception);
     }
 }
