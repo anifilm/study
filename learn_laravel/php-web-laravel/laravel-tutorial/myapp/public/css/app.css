@@ -5267,7 +5267,6 @@ input[type=button].btn-block {
 
 .pagination {
   display: flex;
-  justify-content: center;
   padding-left: 0;
   list-style: none;
   border-radius: 0.25rem;
@@ -10962,3 +10961,175 @@ a.text-dark:focus {
     border-color: #dee2e6;
   }
 }
+
+.docs__sidebar,
+.docs__content {
+  margin-top: 20px;
+}
+
+#app-layout pre {
+  background: #000000;
+  border-radius: 0;
+}
+
+#app-layout .hljs {
+  display: block;
+  padding: 0.5em;
+  background: #000000;
+  color: #bababa;
+}
+
+#app-layout .hljs-comment,
+#app-layout .hljs-template_comment,
+#app-layout .hljs-javadoc {
+  color: #494b4d;
+}
+
+#app-layout .hljs-keyword,
+#app-layout .ruby .hljs-function .hljs-keyword,
+#app-layout .hljs-request,
+#app-layout .hljs-status,
+#app-layout .nginx .hljs-title {
+  color: #f08d24;
+}
+
+#app-layout .hljs-function .hljs-keyword,
+#app-layout .hljs-sub .hljs-keyword,
+#app-layout .method,
+#app-layout .hljs-list .hljs-title {
+  color: #68c244;
+}
+
+#app-layout .hljs-string,
+#app-layout .hljs-tag .hljs-value,
+#app-layout .hljs-cdata,
+#app-layout .hljs-filter .hljs-argument,
+#app-layout .hljs-attr_selector,
+#app-layout .apache .hljs-cbracket,
+#app-layout .hljs-date,
+#app-layout .tex .hljs-command,
+#app-layout .coffeescript .hljs-attribute {
+  color: #f2d42c;
+}
+
+#app-layout .hljs-subst {
+  color: #daefa3;
+}
+
+#app-layout .hljs-regexp {
+  color: #e9c062;
+}
+
+#app-layout .hljs-title,
+#app-layout .hljs-sub .hljs-identifier,
+#app-layout .hljs-pi,
+#app-layout .hljs-tag,
+#app-layout .hljs-tag .hljs-keyword,
+#app-layout .hljs-decorator,
+#app-layout .hljs-shebang,
+#app-layout .hljs-prompt {
+  color: #e8341c;
+}
+
+#app-layout .hljs-symbol,
+#app-layout .ruby .hljs-symbol .hljs-string,
+#app-layout .hljs-number {
+  color: #8e69c9;
+}
+
+#app-layout .hljs-params,
+#app-layout .hljs-variable,
+#app-layout .clojure .hljs-attribute {
+  color: #1cc3e8;
+}
+
+#app-layout .css .hljs-tag,
+#app-layout .hljs-rules .hljs-property,
+#app-layout .hljs-pseudo,
+#app-layout .tex .hljs-special {
+  color: #e8341c;
+}
+
+#app-layout .css .hljs-class {
+  color: #1cc3e8;
+}
+
+#app-layout .hljs-rules .hljs-keyword {
+  color: #1cc3e8;
+}
+
+#app-layout .hljs-rules .hljs-value {
+  color: #e8341c;
+}
+
+#app-layout .css .hljs-id {
+  color: #8b98ab;
+}
+
+#app-layout .hljs-annotation,
+#app-layout .apache .hljs-sqbracket,
+#app-layout .nginx .hljs-built_in {
+  color: #9b859d;
+}
+
+#app-layout .hljs-preprocessor,
+#app-layout .hljs-pragma {
+  color: #8996a8;
+}
+
+#app-layout .hljs-hexcolor,
+#app-layout .css .hljs-value .hljs-number {
+  color: #dd7b3b;
+}
+
+#app-layout .css .hljs-function {
+  color: #dad085;
+}
+
+#app-layout .diff .hljs-header,
+#app-layout .hljs-chunk,
+#app-layout .tex .hljs-formula {
+  background-color: #0e2231;
+  color: #f8f8f8;
+  font-style: italic;
+}
+
+#app-layout .diff .hljs-change {
+  background-color: #4a410d;
+  color: #f8f8f8;
+}
+
+#app-layout .hljs-addition {
+  background-color: #253b22;
+  color: #f8f8f8;
+}
+
+#app-layout .hljs-deletion {
+  background-color: #420e09;
+  color: #f8f8f8;
+}
+
+#app-layout .coffeescript .javascript,
+#app-layout .javascript .xml,
+#app-layout .tex .hljs-formula,
+#app-layout .xml .javascript,
+#app-layout .xml .vbscript,
+#app-layout .xml .css,
+#app-layout .xml .hljs-cdata {
+  opacity: 0.5;
+}
+
+@media screen and (max-width: 991px) {
+  .action__article {
+    margin-bottom: 1em;
+  }
+
+  .sidebar__article {
+    margin-bottom: 2em;
+  }
+
+  .item__comment > a.pull-left {
+    display: none;
+  }
+}
+
