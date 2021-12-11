@@ -2,15 +2,13 @@
 
 use Illuminate\Database\Seeder;
 
-class UserTableSeeder extends Seeder
-{
+class UserTableSeeder extends Seeder {
     /**
      * Run the database seeds.
      *
      * @return void
      */
-    public function run()
-    {
+    public function run() {
         $users = [
             [
                 'name' => '테스터',
@@ -24,7 +22,7 @@ class UserTableSeeder extends Seeder
             ],
         ];
 
-        foreach($users as $u) {
+        foreach ($users as $u) {
             App\User::create($u);
         }
     }
