@@ -166,6 +166,7 @@ return [
          * Package Service Providers...
          */
         Intervention\Image\ImageServiceProvider::class,
+        Barryvdh\Debugbar\ServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -231,6 +232,7 @@ return [
          * 3rd Party Facades
          */
         'Image' => Intervention\Image\Facades\Image::class,
+        'Debugbar' => Barryvdh\Debugbar\Facades\Debugbar::class,
 
     ],
 
