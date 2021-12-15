@@ -1,0 +1,7 @@
+CRITICAL - 2021-12-14 21:53:52 --> Too few arguments to function App\Controllers\Sample::param(), 0 passed in S:\GitHub\__study__\learn_PHP\framework_codeigniter\ci4-hello-world\system\CodeIgniter.php on line 824 and exactly 1 expected
+#0 S:\GitHub\__study__\learn_PHP\framework_codeigniter\ci4-hello-world\system\CodeIgniter.php(824): App\Controllers\Sample->param()
+#1 S:\GitHub\__study__\learn_PHP\framework_codeigniter\ci4-hello-world\system\CodeIgniter.php(410): CodeIgniter\CodeIgniter->runController()
+#2 S:\GitHub\__study__\learn_PHP\framework_codeigniter\ci4-hello-world\system\CodeIgniter.php(318): CodeIgniter\CodeIgniter->handleRequest()
+#3 S:\GitHub\__study__\learn_PHP\framework_codeigniter\ci4-hello-world\public\index.php(37): CodeIgniter\CodeIgniter->run()
+#4 S:\GitHub\__study__\learn_PHP\framework_codeigniter\ci4-hello-world\system\Commands\Server\rewrite.php(43): require_once('...')
+#5 {main}
