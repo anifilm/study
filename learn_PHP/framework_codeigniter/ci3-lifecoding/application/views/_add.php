@@ -9,6 +9,6 @@
 			<label for="description">본문</label>
 			<textarea class="form-control" id="description" rows="10" name="description"></textarea>
 		</div>
-		<input type="submit" class="btn btn-primary">
+		<input type="submit" class="btn btn-primary float-right">
 	</form>
 </div>

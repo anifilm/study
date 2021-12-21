@@ -21,7 +21,7 @@
 			</div>
 			<div>
 				<a href="/board/lists" class="btn btn-outline-secondary" style="width: 90px">취소</a>
-				<button type="submit" class="btn btn-primary ml-2" id="write_btn"><?= $button ?></button>
+				<button type="submit" class="btn btn-primary ml-1" id="write_btn"><?= $button ?></button>
 			</div>
 		</fieldset>
 	</form>

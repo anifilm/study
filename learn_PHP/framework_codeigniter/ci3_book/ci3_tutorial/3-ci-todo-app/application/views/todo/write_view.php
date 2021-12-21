@@ -21,7 +21,7 @@
 				<input type="date" class="form-control" id="input03" name="due_date" value="<?= $views->due_date ?? date("Y-m-d", time()) ?>">
 			</div>
 		</div>
-		<a href="/main/lists/" class="btn btn-outline-secondary ml-2">취소</a>
-		<button type="submit" class="btn btn-primary ml-2" id="wrtie_btn"><?= $button ?></button>
+		<a href="/main/lists/" class="btn btn-outline-secondary ml-1" style="width: 90px">취소</a>
+		<button type="submit" id="write_btn" class="btn btn-primary ml-2" style="width: 90px"><?= $button ?></button>
 	</form>
 </article>

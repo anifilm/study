@@ -31,7 +31,7 @@
 			</div>
 			<div class="form-group mt-3">
 				<a href="/sns/view/<?= $this->uri->segment(3) ?>" class="btn btn-outline-secondary" style="width: 90px">취소</a>
-				<button type="submit" class="btn btn-primary ml-2" id="write_btn" style="width: 90px">수정</button>
+				<button type="submit" class="btn btn-primary ml-1" id="write_btn" style="width: 90px">수정</button>
 			</div>
 		</fieldset>
 	</form>

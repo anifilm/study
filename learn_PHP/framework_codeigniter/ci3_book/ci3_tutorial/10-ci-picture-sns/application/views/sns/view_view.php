@@ -26,10 +26,10 @@
 				<th colspan="4">
 					<a href="/sns/lists" class="btn btn-outline-secondary">목록으로</a>
 					<?php if($this->session->userdata('logged_in') == TRUE && $writer): ?>
-					<a href="/sns/modify_photo/<?= $this->uri->segment(3) ?>" class="btn btn-primary ml-2">게시물 수정</a>
-						<a href="/sns/delete/<?= $this->uri->segment(3) ?>" class="btn btn-outline-danger" style="display: inline-block; float:right;">게시물 삭제</a>
+					<a href="/sns/modify_photo/<?= $this->uri->segment(3) ?>" class="btn btn-primary ml-1">게시물 수정</a>
+					<a href="/sns/delete/<?= $this->uri->segment(3) ?>" class="btn btn-outline-danger float-right">게시물 삭제</a>
 					<?php else: ?>
-					<a href="#" class="btn btn-secondary ml-2 disabled">게시물 수정</a>
+					<a href="#" class="btn btn-secondary ml-1 disabled">게시물 수정</a>
 					<?php endif ?>
 				</th>
 			</tr>

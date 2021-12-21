@@ -9,9 +9,7 @@
 			<label for="description">본문</label>
 			<textarea class="form-control" id="description" rows="10" name="description"><?= $topic->description ?></textarea>
 		</div>
-		<div style="display: inline-block; position: absolute; right: 20px;">
-			<input type="submit" class="btn btn-primary" value="수정">
-		</div>
+		<input type="submit" class="btn btn-primary float-right" value="수정">
 	</form>
 </div>
 

@@ -22,9 +22,8 @@
 				<th colspan="4">
 					<a href="/board/lists" class="btn btn-outline-secondary">목록으로</a>
 					<?php if($this->session->userdata('logged_in') == TRUE && $writer): ?>
-					<a href="/board/modify/<?= $this->uri->segment(3) ?>" class="btn btn-primary ml-2">게시글 수정</a>
-					<a href="/board/delete/<?= $this->uri->segment(3) ?>" class="btn btn-outline-danger" style="display: inline-block; float:right;
-					">글 삭제</a>
+					<a href="/board/modify/<?= $this->uri->segment(3) ?>" class="btn btn-primary ml-1">게시글 수정</a>
+					<a href="/board/delete/<?= $this->uri->segment(3) ?>" class="btn btn-outline-danger float-right">글 삭제</a>
 					<?php else: ?>
 					<a href="#" class="btn btn-secondary ml-2 disabled">게시글 수정</a>
 					<?php endif ?>

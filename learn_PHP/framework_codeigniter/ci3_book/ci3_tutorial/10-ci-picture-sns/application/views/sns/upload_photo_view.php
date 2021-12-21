@@ -26,7 +26,7 @@
 			</div>
 			<div class="form-group mt-3">
 				<a href="/sns/lists" class="btn btn-outline-secondary" style="width: 90px">취소</a>
-				<button type="submit" class="btn btn-primary ml-2" id="write_btn" style="width: 90px">작성</button>
+				<button type="submit" class="btn btn-primary ml-1" id="write_btn" style="width: 90px">작성</button>
 			</div>
 		</fieldset>
 	</form>
