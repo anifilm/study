@@ -12,8 +12,9 @@
   </head>
   <body>
     <div class="container">
+      {% block link %}
+      {% endblock %}
       {% if user.is_authenticated %}
-        <a href="{% url 'accounts:profile' %}">프로필</a> |
         <a href="{% url 'accounts:logout' %}?next={{ request.path }}">{{ user }} (로그아웃)</a>
       {% else %}
         <a href="{% url 'accounts:signup' %}">회원가입</a> |
