@@ -2,6 +2,7 @@ from django.conf import settings
 from django.shortcuts import redirect, render
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth.decorators import login_required
+
 def signup(request):
     if request.method == 'POST':
         form = UserCreationForm(request.POST)
