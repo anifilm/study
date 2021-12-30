@@ -1,0 +1,12 @@
+{% extends "accounts/layout.html" %}
+
+{% block content %}
+<h3>Signup</h3>
+<form action="" method="POST">
+  {% csrf_token %}
+  <table>
+    {{ form.as_table }}
+  </table>
+  <input type="submit" value="회원가입">
+</form>
+{% endblock %}

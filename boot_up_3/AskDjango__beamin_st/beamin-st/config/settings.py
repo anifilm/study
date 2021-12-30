@@ -43,7 +43,7 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'accounts',
-    'beamin',
+    'baemin',
     'django.contrib.admin',
     'django.contrib.auth',
     'django.contrib.contenttypes',
