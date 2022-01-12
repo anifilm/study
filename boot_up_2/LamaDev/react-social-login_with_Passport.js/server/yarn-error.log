@@ -1,0 +1,36 @@
+Arguments: 
+  C:\Program Files\nodejs\node.exe C:\Users\anifilm\AppData\Roaming\npm\node_modules\yarn\bin\yarn.js init -t
+
+PATH: 
+  C:\Users\anifilm\AppData\Roaming\npm;C:\Program Files\Go\bin;S:\Workspace\go\bin;C:\Users\anifilm\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\anifilm\bin;C:\Program Files\WindowsApps\Microsoft.WindowsTerminal_1.11.3471.0_x64__8wekyb3d8bbwe;C:\ProgramData\Anaconda3;C:\ProgramData\Anaconda3\Library\mingw-w64\bin;C:\ProgramData\Anaconda3\Library\usr\bin;C:\ProgramData\Anaconda3\Library\bin;C:\ProgramData\Anaconda3\Scripts;C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\intel64\compiler;C:\windows;C:\windows\bash;C:\windows\system32;C:\windows\system32\wbem;C:\windows\system32\windowspowershell\v1.0;C:\windows;C:\windows\system32;C:\windows\System32\Wbem;C:\windows\System32\OpenSSH;C:\windows\System32\WindowsPowerShell\v1.0;C:\program files\common files\autodesk shared;C:\program files (x86)\gtksharp\2.12\bin;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files (x86)\Autodesk\Backburner;C:\Program Files\TortoiseSVN\bin;C:\Program Files\Microsoft.Net.Compilers.3.9.0\tools;D:\application\iracing;C:\Program Files\Java\jdk1.8.0_281\bin;S:\Android\sdk;S:\Android\sdk\platform-tools;S:\Android\flutter\bin;S:\Android\flutter\bin\cache\dart-sdk\bin;C:\tools\msys64\mingw64\bin;C:\tools\msys64\usr\bin;C:\tools\php80;C:\tools\clojure-1.6.0;C:\tools\ghc-9.0.1\bin;C:\Program Files\nodejs;C:\Program Files\MariaDB 10.6\bin;C:\ProgramData\chocolatey\bin;C:\ProgramData\ComposerSetup\bin;C:\tools\groovy-3.0.9\bin;C:\Program Files\dotnet;C:\Program Files (x86)\dotnet;C:\Program Files (x86)\sbt\bin;C:\Program Files (x86)\scala\bin;C:\Program Files\Microsoft SQL Server\130\Tools\Binn;C:\Program Files\Microsoft SQL Server\Client SDK\ODBC\170\Tools\Binn;C:\Library\Developer\Toolchains\unknown-Asserts-development.xctoolchain\usr\bin;C:\Library\Swift-development\bin;C:\Library\icu-67\usr\bin;C:\Program Files\Git\cmd;C:\Program Files\PostgreSQL\14\bin;C:\ProgramData\chocolatey\lib\maven\apache-maven-3.8.3\bin;D:\application\iracing;C:\Program Files\Docker\Docker\resources\bin;C:\ProgramData\DockerDesktop\version-bin;C:\Program Files\Go\bin;C:\tools\ruby27\bin;C:\Users\anifilm\.cargo\bin;C:\Users\anifilm\AppData\Local\GitHubDesktop\bin;C:\Users\anifilm\AppData\Local\Pub\Cache\bin;C:\Users\anifilm\AppData\Local\Microsoft\WindowsApps;C:\Users\anifilm\AppData\Roaming\Composer\vendor\bin;C:\Users\anifilm\AppData\Roaming\cabal\bin;C:\Users\anifilm\.dotnet\tools;C:\Users\anifilm\AppData\Roaming\local\bin;C:\Users\anifilm\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\anifilm\AppData\Roaming\npm;C:\Users\anifilm\go\bin;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl
+
+Yarn version: 
+  1.22.10
+
+Node version: 
+  14.18.0
+
+Platform: 
+  win32 x64
+
+Trace: 
+  Error: canceled
+      at Interface.<anonymous> (C:\Users\anifilm\AppData\Roaming\npm\node_modules\yarn\lib\cli.js:136216:13)
+      at Interface.emit (events.js:400:28)
+      at Interface._ttyWrite (readline.js:1001:16)
+      at ReadStream.onkeypress (readline.js:265:10)
+      at ReadStream.emit (events.js:400:28)
+      at emitKeys (internal/readline/utils.js:358:14)
+      at emitKeys.next (<anonymous>)
+      at ReadStream.onData (readline.js:1270:36)
+      at ReadStream.emit (events.js:400:28)
+      at addChunk (internal/streams/readable.js:293:12)
+
+npm manifest: 
+  No manifest
+
+yarn manifest: 
+  No manifest
+
+Lockfile: 
+  No lockfile
