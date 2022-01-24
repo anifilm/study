@@ -5,8 +5,9 @@
   "main": "app.js",
   "scripts": {
     "build": "tsc ./app.ts",
-    "start": "lite-server",
-    "dev": "nodemon ./app.ts --exec tsc"
+    "dev": "nodemon ./app.ts --exec tsc",
+    "prestart": "npm run build",
+    "start": "lite-server"
   },
   "keywords": [],
   "author": "",
