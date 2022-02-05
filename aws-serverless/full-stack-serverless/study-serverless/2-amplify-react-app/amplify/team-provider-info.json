@@ -1,0 +1,23 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-cryptoapp-dev-112309-authRole",
+      "UnauthRoleArn": "arn:aws:iam::053716250670:role/amplify-cryptoapp-dev-112309-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::053716250670:role/amplify-cryptoapp-dev-112309-authRole",
+      "Region": "ap-northeast-2",
+      "DeploymentBucketName": "amplify-cryptoapp-dev-112309-deployment",
+      "UnauthRoleName": "amplify-cryptoapp-dev-112309-unauthRole",
+      "StackName": "amplify-cryptoapp-dev-112309",
+      "StackId": "arn:aws:cloudformation:ap-northeast-2:053716250670:stack/amplify-cryptoapp-dev-112309/922e0280-862a-11ec-a873-06ecc95e4398",
+      "AmplifyAppId": "d2y0d5unoic9yp"
+    },
+    "categories": {
+      "function": {
+        "cryptofunction": {
+          "deploymentBucketName": "amplify-cryptoapp-dev-112309-deployment",
+          "s3Key": "amplify-builds/cryptofunction-31716c31506258574a32-build.zip"
+        }
+      }
+    }
+  }
+}
