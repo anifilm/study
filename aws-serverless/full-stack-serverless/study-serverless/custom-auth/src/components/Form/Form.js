@@ -164,19 +164,16 @@ const Form = (props) => {
       {renderForm()}
       {formType === 'signUp' && (
         <p style={styles.toggleForm}>
-          Already have an account?
-          <span onClick={() => updateFormType('signIn')} style={styles.anchor}>Sign In</span>
+          Already have an account? <span onClick={() => updateFormType('signIn')} style={styles.anchor}>Sign In</span>
         </p>
       )}
       {formType === 'signIn' && (
         <>
           <p style={styles.toggleForm}>
-            Need an account?
-            <span onClick={() => updateFormType('signUp')} style={styles.anchor}>Sign Up</span>
+            Need an account? <span onClick={() => updateFormType('signUp')} style={styles.anchor}>Sign Up</span>
           </p>
           <p style={{ ...styles.toggleForm, ...styles.resetPassword }}>
-            Forget your password?
-            <span onClick={() => updateFormType('forgotPassword')} style={styles.anchor}>Sign Up</span>
+            Forget your password? <span onClick={() => updateFormType('forgotPassword')} style={styles.anchor}>Sign Up</span>
           </p>
         </>
       )}
