@@ -1,0 +1,33 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-lambdatriggerex-dev-150850-authRole",
+      "UnauthRoleArn": "arn:aws:iam::053716250670:role/amplify-lambdatriggerex-dev-150850-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::053716250670:role/amplify-lambdatriggerex-dev-150850-authRole",
+      "Region": "ap-northeast-2",
+      "DeploymentBucketName": "amplify-lambdatriggerex-dev-150850-deployment",
+      "UnauthRoleName": "amplify-lambdatriggerex-dev-150850-unauthRole",
+      "StackName": "amplify-lambdatriggerex-dev-150850",
+      "StackId": "arn:aws:cloudformation:ap-northeast-2:053716250670:stack/amplify-lambdatriggerex-dev-150850/46ccad70-8713-11ec-9dce-029f72da2a74",
+      "AmplifyAppId": "d2feot95y4l82a",
+      "AuthTriggerTemplateURL": "https://s3.amazonaws.com/amplify-lambdatriggerex-dev-150850-deployment/amplify-cfn-templates/auth/auth-trigger-cloudformation-template.json"
+    },
+    "categories": {
+      "auth": {
+        "lambdatriggerex9350c56e": {},
+        "true": {}
+      },
+      "function": {
+        "lambdatriggerex9350c56ePostConfirmation": {
+          "GROUP": "Admin",
+          "deploymentBucketName": "amplify-lambdatriggerex-dev-150850-deployment",
+          "s3Key": "amplify-builds/lambdatriggerex9350c56ePostConfirmation-46704875417653563545-build.zip"
+        },
+        "S3Trigger39c8b4a7": {
+          "deploymentBucketName": "amplify-lambdatriggerex-dev-150850-deployment",
+          "s3Key": "amplify-builds/S3Trigger39c8b4a7-764c3142556a6f616e75-build.zip"
+        }
+      }
+    }
+  }
+}
