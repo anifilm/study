@@ -173,7 +173,7 @@ const Form = (props) => {
             Need an account? <span onClick={() => updateFormType('signUp')} style={styles.anchor}>Sign Up</span>
           </p>
           <p style={{ ...styles.toggleForm, ...styles.resetPassword }}>
-            Forget your password? <span onClick={() => updateFormType('forgotPassword')} style={styles.anchor}>Sign Up</span>
+            Forget your password? <span onClick={() => updateFormType('forgotPassword')} style={styles.anchor}>Reset Password</span>
           </p>
         </>
       )}
