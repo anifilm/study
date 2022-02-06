@@ -6,10 +6,6 @@ import './App.css';
 function App() {
   const [images, setImages] = useState([]);
 
-  useEffect(() => {
-    fetchImages();
-  }, []);
-
   async function onChange(e) {
     // 파일이 업로드되면 고유한 이름을 생성하고 Storage API를 사용하여 저장
     const file = e.target.files[0];
@@ -30,6 +26,10 @@ function App() {
     }));
     setImages(signedFiles);
   }
+
+  useEffect(() => {
+    fetchImages();
+  }, []);
 
   return (
     <div className="App">

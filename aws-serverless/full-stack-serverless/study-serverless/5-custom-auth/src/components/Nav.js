@@ -11,17 +11,17 @@ const Nav = (props) => {
       <Menu selectedKeys={[current]} mode="horizontal">
         <Menu.Item key="home">
           <Link to="/">
-            <HomeOutlined />Home
+            <HomeOutlined /> Home
           </Link>
         </Menu.Item>
         <Menu.Item key="profile">
           <Link to="/profile">
-            <ProfileOutlined />Profile
+            <ProfileOutlined /> Profile
           </Link>
         </Menu.Item>
         <Menu.Item key="protected">
           <Link to="/protected">
-            <FileProtectOutlined />Protected
+            <FileProtectOutlined /> Protected
           </Link>
         </Menu.Item>
       </Menu>

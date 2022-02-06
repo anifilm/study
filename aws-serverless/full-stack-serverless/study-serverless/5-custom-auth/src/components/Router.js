@@ -19,7 +19,7 @@ const Router = () => {
     setRoute();
     window.addEventListener('hashchange', setRoute);
     return () => window.removeEventListener('hashchange', setRoute);
-  });
+  }, []);
 
   return (
     <HashRouter>

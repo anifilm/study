@@ -2,9 +2,9 @@ import React, { useState, useEffect } from 'react';
 import { HashRouter, Switch, Route } from 'react-router-dom';
 
 import Nav from './Nav';
-import Public from './Public';
+import Admin from './Admin';
+import Main from './Main';
 import Profile from './Profile';
-import Protected from './Protected';
 
 const Router = () => {
   const [current, setCurrent] = useState('home');
@@ -12,6 +12,7 @@ const Router = () => {
   function setRoute() {
     const location = window.location.href.split('/');
     const pathname = location[location.length-1];
+    console.log('pathname:', pathname);
     setCurrent(pathname ? pathname : 'home');
   }
 
@@ -25,10 +26,10 @@ const Router = () => {
     <HashRouter>
       <Nav current={current} />
       <Switch>
-        <Route exact path="/" component={Public} />
-        <Route exact path="/protected" component={Protected} />
+        <Route exact path="/" component={Main} />
+        <Route exact path="/admin" component={Admin} />
         <Route exact path="/profile" component={Profile} />
-        <Route component={Public} />
+        <Route component={Main} />
       </Switch>
     </HashRouter>
   );
