@@ -24,7 +24,7 @@ const ForgotPasswordSubmit = (props) => {
         }}
         style={styles.input}
       />
-      <Button onClick={props.ForgotPasswordSubmit} title="Save new password" />
+      <Button onClick={props.forgotPasswordSubmit} title="Save new password" />
     </div>
   );
 };

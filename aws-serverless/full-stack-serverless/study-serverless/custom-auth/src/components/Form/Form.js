@@ -13,7 +13,7 @@ const initialFormState = {
   confirmationCode: '',
 };
 
-const styles = {
+export const styles = {
   container: {
     display: 'flex',
     flexDirection: 'column',
@@ -72,7 +72,7 @@ async function signUp({ username, password, email }, updateFormType) {
       },
     });
     console.log('sign up success!');
-    updateFormType('fonfirmSignUp');
+    updateFormType('confirmSignUp');
   } catch (err) {
     console.log('error signing up...', err);
   }
@@ -184,4 +184,4 @@ const Form = (props) => {
   );
 };
 
-export { styles, Form as default };
+export default Form;

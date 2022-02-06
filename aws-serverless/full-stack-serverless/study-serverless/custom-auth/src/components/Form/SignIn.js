@@ -2,7 +2,7 @@ import React from 'react';
 import Button from './Button';
 import { styles } from './Form';
 
-const SignIn = ({ signIn, updateFormState }) => {
+const SignIn = ({ updateFormState, signIn }) => {
   return (
     <div style={styles.container}>
       <input
