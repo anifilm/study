@@ -16,9 +16,9 @@
     "s3Key": {
       "Type": "String"
     },
-    "authecommerceapp8dd3ddbbUserPoolId": {
+    "authecommerceappdef7966dUserPoolId": {
       "Type": "String",
-      "Default": "authecommerceapp8dd3ddbbUserPoolId"
+      "Default": "authecommerceappdef7966dUserPoolId"
     },
     "storageproducttableName": {
       "Type": "String",
@@ -86,8 +86,8 @@
             "REGION": {
               "Ref": "AWS::Region"
             },
-            "AUTH_ECOMMERCEAPP8DD3DDBB_USERPOOLID": {
-              "Ref": "authecommerceapp8dd3ddbbUserPoolId"
+            "AUTH_ECOMMERCEAPPDEF7966D_USERPOOLID": {
+              "Ref": "authecommerceappdef7966dUserPoolId"
             },
             "STORAGE_PRODUCTTABLE_NAME": {
               "Ref": "storageproducttableName"
@@ -117,12 +117,12 @@
         "RoleName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "ecommerceappLambdaRole56915af9",
+            "ecommerceappLambdaRole15d8066f",
             {
               "Fn::Join": [
                 "",
                 [
-                  "ecommerceappLambdaRole56915af9",
+                  "ecommerceappLambdaRole15d8066f",
                   "-",
                   {
                     "Ref": "env"
@@ -308,7 +308,7 @@
                       },
                       ":userpool/",
                       {
-                        "Ref": "authecommerceapp8dd3ddbbUserPoolId"
+                        "Ref": "authecommerceappdef7966dUserPoolId"
                       }
                     ]
                   ]

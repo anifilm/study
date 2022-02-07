@@ -1,6 +1,6 @@
 {
   "function": {
-    "ecommerceapp8dd3ddbbPostConfirmation": {
+    "ecommerceappdef7966dPostConfirmation": {
       "build": true,
       "providerPlugin": "awscloudformation",
       "service": "Lambda"
@@ -12,7 +12,7 @@
       "dependsOn": [
         {
           "category": "auth",
-          "resourceName": "ecommerceapp8dd3ddbb",
+          "resourceName": "ecommerceappdef7966d",
           "attributes": [
             "UserPoolId"
           ]
@@ -30,13 +30,13 @@
     }
   },
   "auth": {
-    "ecommerceapp8dd3ddbb": {
+    "ecommerceappdef7966d": {
       "service": "Cognito",
       "providerPlugin": "awscloudformation",
       "dependsOn": [
         {
           "category": "function",
-          "resourceName": "ecommerceapp8dd3ddbbPostConfirmation",
+          "resourceName": "ecommerceappdef7966dPostConfirmation",
           "triggerProvider": "Cognito",
           "attributes": [
             "Arn",

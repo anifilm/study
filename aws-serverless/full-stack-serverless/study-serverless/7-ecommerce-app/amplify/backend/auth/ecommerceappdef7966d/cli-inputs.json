@@ -1,10 +1,10 @@
 {
   "version": "1",
   "cognitoConfig": {
-    "identityPoolName": "ecommerceapp8dd3ddbb_identitypool_8dd3ddbb",
+    "identityPoolName": "ecommerceappdef7966d_identitypool_def7966d",
     "allowUnauthenticatedIdentities": true,
-    "resourceNameTruncated": "ecomme8dd3ddbb",
-    "userPoolName": "ecommerceapp8dd3ddbb_userpool_8dd3ddbb",
+    "resourceNameTruncated": "ecommedef7966d",
+    "userPoolName": "ecommerceappdef7966d_userpool_def7966d",
     "autoVerifiedAttributes": [
       "email"
     ],
@@ -31,10 +31,10 @@
     "userpoolClientReadAttributes": [
       "email"
     ],
-    "userpoolClientLambdaRole": "ecomme8dd3ddbb_userpoolclient_lambda_role",
+    "userpoolClientLambdaRole": "ecommedef7966d_userpoolclient_lambda_role",
     "userpoolClientSetAttributes": false,
-    "sharedId": "8dd3ddbb",
-    "resourceName": "ecommerceapp8dd3ddbb",
+    "sharedId": "def7966d",
+    "resourceName": "ecommerceappdef7966d",
     "authSelections": "identityPoolAndUserPool",
     "useDefault": "default",
     "triggers": {
@@ -62,7 +62,7 @@
     "dependsOn": [
       {
         "category": "function",
-        "resourceName": "ecommerceapp8dd3ddbbPostConfirmation",
+        "resourceName": "ecommerceappdef7966dPostConfirmation",
         "triggerProvider": "Cognito",
         "attributes": [
           "Arn",
@@ -74,7 +74,7 @@
       "{\"policyName\":\"AddToGroupCognito\",\"trigger\":\"PostConfirmation\",\"effect\":\"Allow\",\"actions\":[\"cognito-idp:AdminAddUserToGroup\",\"cognito-idp:GetGroup\",\"cognito-idp:CreateGroup\"],\"resource\":{\"paramType\":\"!GetAtt\",\"keys\":[\"UserPool\",\"Arn\"]}}"
     ],
     "authTriggerConnections": [
-      "{\"triggerType\":\"PostConfirmation\",\"lambdaFunctionName\":\"ecommerceapp8dd3ddbbPostConfirmation\"}"
+      "{\"triggerType\":\"PostConfirmation\",\"lambdaFunctionName\":\"ecommerceappdef7966dPostConfirmation\"}"
     ]
   }
 }

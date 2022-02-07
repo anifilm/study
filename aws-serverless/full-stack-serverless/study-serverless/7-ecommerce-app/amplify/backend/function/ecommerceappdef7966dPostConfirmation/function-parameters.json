@@ -3,15 +3,15 @@
   "modules": [
     "add-to-group"
   ],
-  "parentResource": "ecommerceapp8dd3ddbb",
-  "functionName": "ecommerceapp8dd3ddbbPostConfirmation",
-  "resourceName": "ecommerceapp8dd3ddbbPostConfirmation",
+  "parentResource": "ecommerceappdef7966d",
+  "functionName": "ecommerceappdef7966dPostConfirmation",
+  "resourceName": "ecommerceappdef7966dPostConfirmation",
   "parentStack": "auth",
   "triggerEnvs": [],
   "triggerDir": "/home/linuxbrew/.linuxbrew/lib/node_modules/@aws-amplify/cli/node_modules/@aws-amplify/amplify-category-auth/provider-utils/awscloudformation/triggers/PostConfirmation",
   "triggerTemplate": "PostConfirmation.json.ejs",
   "triggerEventPath": "PostConfirmation.event.json",
-  "roleName": "ecommerceapp8dd3ddbbPostConfirmation",
+  "roleName": "ecommerceappdef7966dPostConfirmation",
   "skipEdit": true,
   "GROUP": "Admin",
   "enableCors": false

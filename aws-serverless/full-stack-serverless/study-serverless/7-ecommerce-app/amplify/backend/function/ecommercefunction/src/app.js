@@ -6,30 +6,30 @@ or in the "license" file accompanying this file. This file is distributed on an 
 See the License for the specific language governing permissions and limitations under the License.
 */
 
-const AWS = require('aws-sdk');
-const { v4: uuid } = require('uuid');
-
-/* Cognito SDK */
-const cognito = new AWS.CognitoIdentityServiceProvider({
-  apiVersion: '2016-04-19',
-});
-
-// amplify add api 과정에서 출력되는 변수를 이용
-var userpoolId = process.env.AUTH_ECOMMERCEAPP8DD3DDBB_USERPOOLID;
-
-// dynamodb setup
-const region = process.env.REGION;
-const ddb_table_name = process.env.STORAGE_PRODUCTTABLE_NAME;
-const docClient = new AWS.DynamoDB.DocumentClient({ region });
-
 /* Amplify Params - DO NOT EDIT
-	AUTH_ECOMMERCEAPP8DD3DDBB_USERPOOLID
+	AUTH_ECOMMERCEAPPDEF7966D_USERPOOLID
 	ENV
 	REGION
 	STORAGE_PRODUCTTABLE_ARN
 	STORAGE_PRODUCTTABLE_NAME
 	STORAGE_PRODUCTTABLE_STREAMARN
 Amplify Params - DO NOT EDIT */
+
+const AWS = require('aws-sdk');
+const { v4: uuid } = require('uuid');
+
+/* Cognito SDK */
+const cognito = new AWS.CognitoIdentityServiceProvider({
+  apiVersion: '2016-04-18',
+});
+
+// amplify add api 과정에서 출력되는 변수를 이용
+var userpoolId = process.env.AUTH_ECOMMERCEAPPDEF7966D_USERPOOLID;
+
+// dynamodb setup
+const region = process.env.REGION;
+const ddb_table_name = process.env.STORAGE_PRODUCTTABLE_NAME;
+const docClient = new AWS.DynamoDB.DocumentClient({ region });
 
 var express = require('express');
 var bodyParser = require('body-parser');
@@ -49,7 +49,7 @@ app.use(function (req, res, next) {
 
 async function getGroupsForUser(event) {
   let userSub =
-    event.requestContext.identity.CognitoIdentityServiceProvider.split(
+    event.requestContext.identity.cognitoAuthenticationProvider.split(
       ':CognitoSignIn:',
     )[1];
   let userParams = {
@@ -76,9 +76,21 @@ async function canPerformAction(event, group) {
     if (groupsForUser.includes(group)) {
       resolve();
     } else {
-      reject('user not in group, cannot perform action...');
+      reject('user not in group, cannot perform action..');
     }
   });
+}
+
+async function getItems() {
+  var params = {
+    TableName: ddb_table_name,
+  };
+  try {
+    const data = await docClient.scan(params).promise();
+    return data;
+  } catch (err) {
+    return err;
+  }
 }
 
 /**********************
@@ -91,16 +103,6 @@ app.get('/products', async function (req, res) {
     res.json({ data: data });
   } catch (err) {
     res.json({ error: err });
-  }
-
-  async function getItems() {
-    var params = { TableName: ddb_table_name };
-    try {
-      const data = await docClient.scan(params).promise();
-      return data;
-    } catch (err) {
-      return err;
-    }
   }
 });
 
@@ -118,13 +120,16 @@ app.post('/products', async function (req, res) {
   const { event } = req.apiGateway;
   try {
     await canPerformAction(event, 'Admin');
-    const input = { ...body, id: uuid() };
+    const input = {
+      ...body,
+      id: uuid(),
+    };
     var params = {
       TableName: ddb_table_name,
       Item: input,
     };
     await docClient.put(params).promise();
-    res.json({ success: 'item saved to database...' });
+    res.json({ success: 'item saved to database..' });
   } catch (err) {
     res.json({ error: err });
   }
@@ -139,9 +144,19 @@ app.post('/products/*', function (req, res) {
  * Example put method *
  ****************************/
 
-app.put('/products', function (req, res) {
-  // Add your code here
-  res.json({ success: 'put call succeed!', url: req.url, body: req.body });
+app.put('/products', async function (req, res) {
+  try {
+    var params = {
+      TableName: ddb_table_name,
+      Key: { id: req.body.id },
+      UpdateExpression: 'set price = :newprice',
+      ExpressionAttributeValues: { ':newprice': 100 },
+    };
+    await docClient.update(params).promise();
+    res.json({ success: 'successfully updated item' });
+  } catch (err) {
+    res.json({ error: err });
+  }
 });
 
 app.put('/products/*', function (req, res) {

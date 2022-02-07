@@ -67,12 +67,12 @@
         "FunctionName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "ecommerceapp8dd3ddbbPostConfirmation",
+            "ecommerceappdef7966dPostConfirmation",
             {
               "Fn::Join": [
                 "",
                 [
-                  "ecommerceapp8dd3ddbbPostConfirmation",
+                  "ecommerceappdef7966dPostConfirmation",
                   "-",
                   {
                     "Ref": "env"
@@ -122,12 +122,12 @@
         "RoleName": {
           "Fn::If": [
             "ShouldNotCreateEnvResources",
-            "ecommerceapp8dd3ddbbPostConfirmation",
+            "ecommerceappdef7966dPostConfirmation",
             {
               "Fn::Join": [
                 "",
                 [
-                  "ecommerceapp8dd3ddbbPostConfirmation",
+                  "ecommerceappdef7966dPostConfirmation",
                   "-",
                   {
                     "Ref": "env"

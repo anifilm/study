@@ -1,10 +1,10 @@
 const aws = require('aws-sdk');
 
-exports.handler = async (event, context, callback) => {
-  const cognitoProvider = new aws.CognitoIdentityServiceProvider({
-    apiVersion: '2016-04-18',
-  });
+const cognitoProvider = new aws.CognitoIdentityServiceProvider({
+  apiVersion: '2016-04-18',
+});
 
+exports.handler = async (event, context, callback) => {
   let isAdmin = false;
   const adminEmails = ['anifilm02@gmail.com'];
 
@@ -18,7 +18,6 @@ exports.handler = async (event, context, callback) => {
       UserPoolId: event.userPoolId,
       GroupName: 'Admin',
     };
-
     const userParams = {
       UserPoolId: event.userPoolId,
       Username: event.userName,
@@ -31,7 +30,6 @@ exports.handler = async (event, context, callback) => {
     } catch (e) {
       await cognitoProvider.createGroup(groupParams).promise();
     }
-
     // 사용자가 관리자라면 Admin 그룹에 추가
     try {
       await cognitoProvider.adminAddUserToGroup(userParams).promise();

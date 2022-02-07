@@ -1,6 +1,6 @@
 export type AmplifyDependentResourcesAttributes = {
     "function": {
-        "ecommerceapp8dd3ddbbPostConfirmation": {
+        "ecommerceappdef7966dPostConfirmation": {
             "Name": "string",
             "Arn": "string",
             "LambdaExecutionRole": "string",
@@ -14,7 +14,7 @@ export type AmplifyDependentResourcesAttributes = {
         }
     },
     "auth": {
-        "ecommerceapp8dd3ddbb": {
+        "ecommerceappdef7966d": {
             "IdentityPoolId": "string",
             "IdentityPoolName": "string",
             "UserPoolId": "string",
