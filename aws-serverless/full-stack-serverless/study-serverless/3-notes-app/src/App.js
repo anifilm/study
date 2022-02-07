@@ -176,13 +176,6 @@ function App() {
     return () => subscription.unsubscribe();
   }, []);
 
-  const styles = {
-    container: { padding: 20 },
-    input: { marginBottom: 10 },
-    item: { textAlign: 'left' },
-    p: { color: '#1890ff' },
-  };
-
   function renderItem(item) {
     return (
       <List.Item
@@ -234,5 +227,20 @@ function App() {
     </div>
   );
 }
+
+const styles = {
+  container: {
+    padding: 20,
+  },
+  input: {
+    marginBottom: 10,
+  },
+  item: {
+    textAlign: 'left',
+  },
+  p: {
+    color: '#1890ff',
+  },
+};
 
 export default App;

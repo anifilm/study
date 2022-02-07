@@ -1,5 +1,13 @@
 import React from 'react';
 
+const Button = ({ onClick, title }) => {
+  return (
+    <button style={styles.button} onClick={onClick}>
+      {title}
+    </button>
+  );
+};
+
 const styles = {
   button: {
     backgroundColor: '#006bfc',
@@ -15,14 +23,6 @@ const styles = {
     marginTop: '25px',
     boxShadow: '0px 1px 3px rgba(0, 0, 0, 0.3)',
   },
-};
-
-const Button = ({ onClick, title }) => {
-  return (
-    <button style={styles.button} onClick={onClick}>
-      {title}
-    </button>
-  );
 };
 
 export default Button;

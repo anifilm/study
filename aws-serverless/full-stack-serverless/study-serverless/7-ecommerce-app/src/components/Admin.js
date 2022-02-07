@@ -10,17 +10,6 @@ const initialState = {
   price: '',
 };
 
-const containerStyle = {
-  width: 400,
-  margin: '20px auto',
-};
-const inputStyle = {
-  marginTop: 10,
-};
-const buttonStyle = {
-  marginTop: 10,
-};
-
 const Admin = () => {
   const [itemInfo, updateItemInfo] = useState(initialState);
 
@@ -68,6 +57,17 @@ const Admin = () => {
       </Button>
     </div>
   );
+};
+
+const containerStyle = {
+  width: 400,
+  margin: '20px auto',
+};
+const inputStyle = {
+  marginTop: 10,
+};
+const buttonStyle = {
+  marginTop: 10,
 };
 
 export default withAuthenticator(Admin);
