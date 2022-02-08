@@ -1,0 +1,12 @@
+{
+  "version": 1,
+  "serviceConfiguration": {
+    "apiName": "rtmessageboard",
+    "serviceName": "AppSync",
+    "gqlSchemaPath": "/home/anifilm/GitHub/__study__/aws-serverless/full-stack-serverless/study-serverless/rt-message-board/amplify/backend/api/rtmessageboard/schema.graphql",
+    "defaultAuthType": {
+      "mode": "API_KEY",
+      "expirationTime": 7
+    }
+  }
+}
