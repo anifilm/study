@@ -1,0 +1,54 @@
+service:
+  name: todo
+
+# Add the serverless-webpack plugin
+plugins:
+  - serverless-webpack
+  - serverless-dynamodb-local
+  - serverless-offline
+
+provider:
+  name: aws
+  runtime: nodejs8.10
+  stage: ${opt:stage,'development'}
+  region: ap-northeast-2
+  timeout: 30
+  iamRoleStatements:
+    - Effect: "Allow"
+      Action:
+        - "dynamodb:*"
+      Resource:
+        - "arn:aws:dynamodb:*:*"
+  environment:
+    NODE_DEV: ${self:provider.stage}
+    DB_PREFIX: ${self:custom.DB_PREFIX}
+
+custom:
+  DB_PREFIX: ${self:provider.stage}-
+  dynamodb:
+    stages:
+      - development  
+    start:
+      port: 8000
+      inMemory: true
+      # dbPath: ./.dynamodb
+      migrate: true
+      seed: true
+    seed:
+      development: 
+        sources:
+          - table: ${self:custom.DB_PREFIX}todos
+            sources: [./migrations/todos-seed.json]
+
+resources:
+  Resources: ${file(migrations/todos.yml)}
+
+functions:
+  - '${file(functions.yml)}'
+
+package:
+  exclude:
+    - node_modules/**
+    - migrations/**
+    - .dynamodb/**
+    - .git/**

@@ -1,0 +1,42 @@
+TodoGetAll:
+  handler: src/todo/all.all
+  events:
+    - http:
+        method: get
+        path: todos/all
+        cors: true
+TodoAdd:
+  handler: src/todo/add.add
+  events:
+    - http:
+        method: post
+        path: todo
+        cors: true
+TodoGet:
+  handler: src/todo/get.get
+  events:
+    - http:
+        method: get
+        path: todo/{id}
+        cors: true
+TodoUpdate:
+  handler: src/todo/update.update
+  events:
+    - http:
+        method: patch
+        path: todo
+        cors: true
+TodoList:
+  handler: src/todo/list.list
+  events:
+    - http:
+        method: get
+        path: todos
+        cors: true
+TodoDelete:
+  handler: src/todo/del.del
+  events:
+    - http:
+        method: delete 
+        path: todo/{id}
+        cors: true
