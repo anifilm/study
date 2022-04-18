@@ -1,49 +1,54 @@
 package chap05.list;
 
-public class LinkedList<E> implements ListInterface<E> {
-    private Node<E> head;
+public class CircularLinkedList<E> implements ListInterface<E> {
+    private Node<E> tail;
     private int numItems;
 
-    public LinkedList() { // 생성자
+    public CircularLinkedList() { // 생성자
         numItems = 0;
-        head = new Node<>(null, null); // 더미 헤드
+        tail = new Node(-1);
+        tail.next = tail;
     }
 
     // [알고리즘 5-10] 구현: 연결 리스트에 요소 x 삽입하기
-    public void add(int index, E item) {
+    public void add(int index, E x) { // 첫번째 요소는 0번 요소
         if (index >= 0 && index <= numItems) {
             Node<E> prevNode = getNode(index - 1);
-            Node<E> newNode = new Node<>(item, prevNode.next);
+            Node<E> newNode = new Node(x, prevNode.next);
             prevNode.next = newNode;
+            if (index == numItems) {
+                tail = newNode;
+            }
             numItems++;
         }
     }
 
-    public void append(E item) {
-        Node<E> prevNode = head; // 더미 노드
-        while (prevNode.next != null) {
-            prevNode = prevNode.next;
-        }
-        Node<E> newNode = new Node<>(item, null);
+    public void append(E x) {
+        Node<E> prevNode = tail; // 더미 노드
+        Node<E> newNode = new Node(x, tail.next);
         prevNode.next = newNode;
+        tail = newNode;
         numItems++;
     }
 
     // [알고리즘 5-12] 구현: 연결 리스트의 요소 삭제하기
     public E remove(int index) {
-        if (index >= 0 && index < numItems) {
+        if (index >= 0 && index <= numItems - 1) {
             Node<E> prevNode = getNode(index - 1);
-            Node<E> currNode = prevNode.next;
-            prevNode.next = currNode.next;
+            E rItem = prevNode.next.item;
+            prevNode.next = prevNode.next.next;
+            if (index == numItems) {
+                tail = prevNode;
+            }
             numItems--;
-            return currNode.item;
+            return rItem;
         } else {
             return null;
         }
     }
 
     public boolean removeItem(E x) {
-        Node<E> currNode = head; // 더미 헤드
+        Node<E> currNode = tail.next; // 더미 헤드
         Node<E> prevNode;
         for (int i = 0; i < numItems; i++) {
             prevNode = currNode;
@@ -67,8 +72,8 @@ public class LinkedList<E> implements ListInterface<E> {
     }
 
     public Node<E> getNode(int index) {
-        if (index >= -1 && index <= numItems - 1) {
-            Node<E> currNode = head; // 더미 노드
+        if (index >= -1 && index <= numItems) {
+            Node<E> currNode = tail.next; // 더미 헤드
             for (int i = 0; i <= index; i++) {
                 currNode = currNode.next;
             }
@@ -89,10 +94,9 @@ public class LinkedList<E> implements ListInterface<E> {
 
     // [알고리즘 5-15] 구현: 요소 x가 연결 리스트의 몇번째 요소인지 알려주기
     public final int NOT_FOUND = -12345;
-    public int indexOf(E x) {
-        Node<E> currNode = head; // 더미 노드
-        int i;
-        for (i = 0; i < numItems; i++) {
+    public int indexOf(E x) { // 요소 x의 인덱스를 반환
+        Node<E> currNode = tail.next; // 더미 노드
+        for (int i = 0; i <= numItems - 1; i++) {
             currNode = currNode.next;
             if (((Comparable)(currNode.item)).compareTo(x) == 0) {
                 return i;
@@ -114,16 +118,16 @@ public class LinkedList<E> implements ListInterface<E> {
     // [알고리즘 5-16(3)] 구현: 리스트 깨끗이 청소하기
     public void clear() {
         numItems = 0;
-        head = new Node<>(null, null);
+        tail = new Node(-1);
+        tail.next = tail;
     }
 
     ///////////////////////////////////////////////////////////////////////
     public void printAll() {
-        Node<E> t;
+        Node<E> head = tail.next; // 더미 헤드
         System.out.print("Print list (#items=" + numItems + ") ");
-        for(t=head.next; t != null; t = t.next) {
+        for(Node<E> t=head.next; t != head; t = t.next)
             System.out.print(t.item + " ");
-        }
         System.out.println();
     }
-} // 코드 5-9
+} // 코드 5-11
