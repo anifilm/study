@@ -6,13 +6,13 @@ public class ArrayList<E> implements ListInterface<E>{
     private static final int DEFAULT_CAPACITY = 64;
 
     public ArrayList() { // 생성자 1
-        item = (E[]) new Object[DEFAULT_CAPACITY];
         numItems = 0;
+        item = (E[]) new Object[DEFAULT_CAPACITY];
     }
 
     public ArrayList(int n) { // 생성자 2
-        item = (E[]) new Object[n];
         numItems = 0;
+        item = (E[]) new Object[n];
     }
 
     // [알고리즘 5-1] 구현: 배열 리스트의 k번째 자리에 요소 x 삽입하기
@@ -109,8 +109,8 @@ public class ArrayList<E> implements ListInterface<E>{
 
     // [알고리즘 5-8(3)] 구현: 배열 리스트 깨끗이 청소하기
     public void clear() {
-        item = (E[]) new Object[item.length];
         numItems = 0;
+        item = (E[]) new Object[item.length];
     }
 
     ///////////////////////////////////////////////////////////////////////
