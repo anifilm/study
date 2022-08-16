@@ -1,2 +1,0 @@
-I like functional programming.
-Do you like functional programming too?
