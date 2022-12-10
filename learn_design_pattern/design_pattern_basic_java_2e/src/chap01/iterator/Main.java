@@ -1,4 +1,4 @@
-package chap01;
+package chap01.iterator;
 
 public class Main {
     public static void main(String[] args) {
