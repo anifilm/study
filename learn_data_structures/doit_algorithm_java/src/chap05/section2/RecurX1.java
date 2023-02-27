@@ -2,13 +2,14 @@
 package chap05.section2;
 import java.util.Scanner;
 
-public class Recur {
-    // 재귀 함수
+public class RecurX1 {
+    // 꼬리 재귀를 제거
     static void recur(int n) {
         if (n > 0) {
             recur(n - 1);
             System.out.println(n);
-            recur(n - 2);
+            //recur(n - 2);
+            n -= 2;
         }
     }
 

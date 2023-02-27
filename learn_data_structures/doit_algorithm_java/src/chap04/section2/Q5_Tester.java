@@ -1,7 +1,6 @@
 // int형 큐의 사용 예
 package chap04.section2;
 import chap04.section1.IntStack;
-
 import java.util.Scanner;
 
 public class Q5_Tester {

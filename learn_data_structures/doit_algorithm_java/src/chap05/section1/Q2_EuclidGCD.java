@@ -1,14 +1,17 @@
-// 유클리드 호제법으로 최대공약수 구하기
+/* Q2
+재귀 메서드 호출을 사용하지 않고 실습 5-2의 gcd 메서드를 작성하세요.
+ */
 package chap05.section1;
 import java.util.Scanner;
 
-public class EuclidGCD {
-    // 정수 x, y의 최대공약수를 구하여 반환합니다.
+public class Q2_EuclidGCD {
     static int gcd(int x, int y) {
-        if (y == 0)
-            return x;
-        else
-            return gcd(y, x % y);
+        while (y != 0) {
+            int tmp = y;
+            y = x % y;
+            x = tmp;
+        }
+        return x;
     }
 
     public static void main(String[] args) {
