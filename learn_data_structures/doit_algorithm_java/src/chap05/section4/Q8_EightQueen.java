@@ -1,7 +1,9 @@
-// 각 행, 열에 1개의 퀸을 배치하는 조합을 재귀적으로 나열합니다.
+/* Q8
+
+*/
 package chap05.section4;
 
-public class EightQueen {
+public class Q8_EightQueen {
     static boolean[] flag_a = new boolean[8];  // 각 행에 퀸을 배치했는지 체크
     static boolean[] flag_b = new boolean[15]; // / 대각선 방향으로 퀸을 배치했는지 체크
     static boolean[] flag_c = new boolean[15]; // \ 대각선 방향으로 퀸을 배치했는지 체크
@@ -10,7 +12,10 @@ public class EightQueen {
     // 각 열의 퀸의 위치를 출력합니다.
     static void print() {
         for (int i = 0; i < 8; i++) {
-            System.out.printf("%2d", pos[i]);
+            for (int j = 0; j < 8; j++) {
+                System.out.printf("%s", j == pos[i] ? "■" : "□");
+            }
+            System.out.println();
         }
         System.out.println();
     }
