@@ -3,8 +3,8 @@ package chap05.section4;
 
 public class EightQueen {
     static boolean[] flag_a = new boolean[8];  // 각 행에 퀸을 배치했는지 체크
-    static boolean[] flag_b = new boolean[15];  // / 대각선 방향으로 퀸을 배치했는지 체크
-    static boolean[] flag_c = new boolean[15];  // \ 대각선 방향으로 퀸을 배치했는지 체크
+    static boolean[] flag_b = new boolean[15]; // / 대각선 방향으로 퀸을 배치했는지 체크
+    static boolean[] flag_c = new boolean[15]; // \ 대각선 방향으로 퀸을 배치했는지 체크
     static int[] pos = new int[8];  // 각 열의 퀸의 위치
 
     // 각 열의 퀸의 위치를 출력합니다.
