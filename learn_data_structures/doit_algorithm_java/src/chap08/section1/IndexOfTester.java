@@ -32,7 +32,7 @@ public class IndexOfTester {
             }
             len2 += s2.length();
 
-            System.out.println("텍스트: " + s1);
+            System.out.println("\n텍스트: " + s1);
             System.out.printf(String.format("패턴:   %%%ds\n", len1), s2);
             System.out.println("텍스트: " + s1);
             System.out.printf(String.format("패턴:   %%%ds\n", len2), s2);

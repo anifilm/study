@@ -23,7 +23,6 @@ public class Q2_BFmatchRev {
         }
 
         if (pp < 0) return pt + 1; // 검색 성공!
-
         return -1; // 검색 실패!
     }
 
@@ -49,7 +48,7 @@ public class Q2_BFmatchRev {
             }
             len += s2.length();
 
-            System.out.println((idx+1) + "번째 문자와 일치합니다.");
+            System.out.println("\n"+ (idx+1) + "번째 문자와 일치합니다.");
             System.out.println("텍스트: " + s1);
             System.out.printf(String.format("패턴:   %%%ds\n", len), s2);
         }

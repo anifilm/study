@@ -54,7 +54,6 @@ public class Q1_BFmatch {
             System.out.printf("\n비교는 %d회였습니다.\n\n", count);
             return pt - pp;
         }
-
         return -1; // 검색 실패!
     }
 
@@ -80,7 +79,7 @@ public class Q1_BFmatch {
             }
             len += s2.length();
 
-            System.out.println((idx+1) + "번째 문자부터 일치합니다.");
+            System.out.println("\n"+ (idx+1) + "번째 문자부터 일치합니다.");
             System.out.println("텍스트: " + s1);
             System.out.printf(String.format("패턴:   %%%ds\n", len), s2);
         }
