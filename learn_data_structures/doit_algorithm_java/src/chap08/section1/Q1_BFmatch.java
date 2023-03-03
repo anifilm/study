@@ -82,7 +82,7 @@ public class Q1_BFmatch {
 
             System.out.println((idx+1) + "번째 문자부터 일치합니다.");
             System.out.println("텍스트: " + s1);
-            System.out.printf(String.format("패턴: %%%ds\n", len), s2);
+            System.out.printf(String.format("패턴:   %%%ds\n", len), s2);
         }
     }
 }
