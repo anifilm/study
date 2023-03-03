@@ -54,7 +54,10 @@ public class Q4_BMmatch {
             count++;
 
             while (txt.charAt(pt) == pat.charAt(pp)) {
-                if (pp == 0) return pt; // 검색 성공
+                if (pp == 0) {
+                    System.out.printf("비교는 %d회입니다.\n", count);
+                    return pt; // 검색 성공
+                }
                 pp--;
                 pt--;
 
