@@ -3,7 +3,8 @@
 
 # 하스켈 repl 설정
 (.bashrc 추가)
-alias clj="lein repl"
+alias clj="lein.bat repl"
+alias lein="lein.bat"
 
 # 프로젝트 생성
 > lein new [my-project]
