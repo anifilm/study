@@ -1,0 +1,15 @@
+{
+    "python.defaultInterpreterPath": "~\\anaconda3\\envs\\ai\\python.exe",
+    "python.terminal.activateEnvironment": true,
+    "python.linting.pylintEnabled": false,
+    "python.linting.flake8Enabled": true,
+    "python.linting.enabled": true,
+    "python.formatting.provider": "black",
+    "python.formatting.blackArgs": [
+        "--skip-string-normalization"
+    ],
+    "python.linting.flake8Args": [
+        "--max-line-length=120",
+        "--ignore=E226,E302,E401,E501,E711"
+    ]
+}
