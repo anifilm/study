@@ -34,13 +34,13 @@ public class LinkedListIteratorDemo {
         System.out.println("Item Iterator example: Linked List!");
 
         LinkedListItemIterator iter3 = new LinkedListItemIterator(list2);
-        while(iter3.hasNext())
+        while (iter3.hasNext())
             System.out.println("next() = " + iter3.next());
 
         System.out.println("Negative Item Iterator example: Linked List!");
 
         NegativeItemIterator iter4 = new NegativeItemIterator(list2);
-        while(iter4.hasNext())
+        while (iter4.hasNext())
             System.out.println("next() = " + iter4.next());
     }
 }

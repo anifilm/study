@@ -11,6 +11,7 @@ public interface ListInterface<E> {
     public int len();
     public boolean isEmpty();
     public void clear();
+    public void printAll();
 } // 코드 5-4
   // index 인덱스
-  // x     요소값
+  // x 요소값

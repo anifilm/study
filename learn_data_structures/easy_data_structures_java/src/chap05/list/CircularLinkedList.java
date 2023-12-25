@@ -53,7 +53,7 @@ public class CircularLinkedList<E> implements ListInterface<E> {
         for (int i = 0; i < numItems; i++) {
             prevNode = currNode;
             currNode = currNode.next;
-            if (((Comparable)(currNode.item)).compareTo(x) == 0) {
+            if (((Comparable) (currNode.item)).compareTo(x) == 0) {
                 prevNode.next = currNode.next;
                 numItems--;
                 return true;
@@ -94,11 +94,12 @@ public class CircularLinkedList<E> implements ListInterface<E> {
 
     // [알고리즘 5-15] 구현: 요소 x가 연결 리스트의 몇번째 요소인지 알려주기
     public final int NOT_FOUND = -12345;
+
     public int indexOf(E x) { // 요소 x의 인덱스를 반환
         Node<E> currNode = tail.next; // 더미 노드
         for (int i = 0; i <= numItems - 1; i++) {
             currNode = currNode.next;
-            if (((Comparable)(currNode.item)).compareTo(x) == 0) {
+            if (((Comparable) (currNode.item)).compareTo(x) == 0) {
                 return i;
             }
         }
@@ -126,7 +127,7 @@ public class CircularLinkedList<E> implements ListInterface<E> {
     public void printAll() {
         Node<E> head = tail.next; // 더미 헤드
         System.out.print("Print list (#items=" + numItems + ") ");
-        for(Node<E> t=head.next; t != head; t = t.next)
+        for (Node<E> t = head.next; t != head; t = t.next)
             System.out.print(t.item + " ");
         System.out.println();
     }

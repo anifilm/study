@@ -2,5 +2,9 @@
     "java.debug.settings.enableRunDebugCodeLens": true,
     "java.debug.settings.vmArgs": "-Dfile.encoding=utf8",
     "java.debug.settings.console": "externalTerminal",
-    "java.configuration.updateBuildConfiguration": "interactive"
+    "java.configuration.updateBuildConfiguration": "interactive",
+    "[java]": {
+        "editor.formatOnSave": false,
+        "editor.formatOnType": true,
+    }
 }

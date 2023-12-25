@@ -48,7 +48,7 @@ public class LinkedList<E> implements ListInterface<E> {
         for (int i = 0; i < numItems; i++) {
             prevNode = currNode;
             currNode = currNode.next;
-            if (((Comparable)(currNode.item)).compareTo(x) == 0) {
+            if (((Comparable) (currNode.item)).compareTo(x) == 0) {
                 prevNode.next = currNode.next;
                 numItems--;
                 return true;
@@ -89,12 +89,13 @@ public class LinkedList<E> implements ListInterface<E> {
 
     // [알고리즘 5-15] 구현: 요소 x가 연결 리스트의 몇번째 요소인지 알려주기
     public final int NOT_FOUND = -12345;
+
     public int indexOf(E x) {
         Node<E> currNode = head; // 더미 노드
         int i;
         for (i = 0; i < numItems; i++) {
             currNode = currNode.next;
-            if (((Comparable)(currNode.item)).compareTo(x) == 0) {
+            if (((Comparable) (currNode.item)).compareTo(x) == 0) {
                 return i;
             }
         }
@@ -107,21 +108,21 @@ public class LinkedList<E> implements ListInterface<E> {
     }
 
     // [알고리즘 5-16(2)] 구현: 리스트가 비었는지 알려주기
-    public boolean isEmpty() {
-        return numItems == 0;
-    }
+	public boolean isEmpty() {
+		return numItems == 0;
+	}
 
     // [알고리즘 5-16(3)] 구현: 리스트 깨끗이 청소하기
-    public void clear() {
-        numItems = 0;
-        head = new Node<>(null, null);
-    }
+	public void clear() {
+		numItems = 0;
+		head = new Node<>(null, null);
+	}
 
     ///////////////////////////////////////////////////////////////////////
     public void printAll() {
         Node<E> t;
         System.out.print("Print list (#items=" + numItems + ") ");
-        for(t=head.next; t != null; t = t.next) {
+        for (t = head.next; t != null; t = t.next) {
             System.out.print(t.item + " ");
         }
         System.out.println();

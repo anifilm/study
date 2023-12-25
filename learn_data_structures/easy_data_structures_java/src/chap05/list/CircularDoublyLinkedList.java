@@ -46,7 +46,7 @@ public class CircularDoublyLinkedList<E> implements ListInterface<E> {
         BidirectionalNode<E> currNode = head; // 더미 헤드
         for (int i = 0; i <= numItems - 1; i++) {
             currNode = currNode.next;
-            if (((Comparable)(currNode.item)).compareTo(x) == 0) {
+            if (((Comparable) (currNode.item)).compareTo(x) == 0) {
                 currNode.prev.next = currNode.next;
                 currNode.next.prev = currNode.prev;
                 numItems--;
@@ -91,11 +91,12 @@ public class CircularDoublyLinkedList<E> implements ListInterface<E> {
     }
 
     public final int NOT_FOUND = -12345;
+
     public int indexOf(E x) {
         BidirectionalNode<E> currNode = head;
         for (int i = 0; i <= numItems - 1; i++) {
             currNode = currNode.next;
-            if (((Comparable)(currNode.item)).compareTo(x) == 0)
+            if (((Comparable) (currNode.item)).compareTo(x) == 0)
                 return i;
         }
         return NOT_FOUND;
@@ -119,7 +120,7 @@ public class CircularDoublyLinkedList<E> implements ListInterface<E> {
         BidirectionalNode<E> t;
         BidirectionalNode<E> currNode = head;
         System.out.print("Print list (#items=" + numItems + ") ");
-        for(t=head.next; t != head; t = t.next)
+        for (t = head.next; t != head; t = t.next)
             System.out.print(t.item + " ");
         System.out.println();
     }
