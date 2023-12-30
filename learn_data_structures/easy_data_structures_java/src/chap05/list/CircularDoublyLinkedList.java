@@ -91,7 +91,6 @@ public class CircularDoublyLinkedList<E> implements ListInterface<E> {
     }
 
     public final int NOT_FOUND = -12345;
-
     public int indexOf(E x) {
         BidirectionalNode<E> currNode = head;
         for (int i = 0; i <= numItems - 1; i++) {

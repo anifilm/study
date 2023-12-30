@@ -1,6 +1,6 @@
 package chap05.list;
 
-public class ArrayList<E> implements ListInterface<E>{
+public class ArrayList<E> implements ListInterface<E> {
     private E[] item;
     private int numItems;
     private static final int DEFAULT_CAPACITY = 64;
