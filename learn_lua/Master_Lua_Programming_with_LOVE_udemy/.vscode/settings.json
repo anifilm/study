@@ -1,0 +1,6 @@
+{
+    "[lua]": {
+        "editor.formatOnSave": true,
+        "editor.formatOnType": true
+    }
+}
