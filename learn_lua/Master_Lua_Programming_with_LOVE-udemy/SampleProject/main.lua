@@ -9,6 +9,12 @@ else
     message = "zero"
 end
 
+local function increaseMessage(num)
+    message = message .. " " ..num
+end
+
+increaseMessage(25)
+
 function love.draw()
     love.graphics.setFont(love.graphics.newFont(50))
     love.graphics.print(message)
