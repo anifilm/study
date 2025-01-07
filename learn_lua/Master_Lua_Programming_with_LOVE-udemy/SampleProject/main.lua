@@ -10,7 +10,7 @@ else
 end
 
 local function increaseMessage(num)
-    message = message .. " " ..num
+    message = message .. " " .. num
 end
 
 increaseMessage(25)
